@@ -840,14 +840,31 @@ header {
 }
 
 
-
+#mapa {
+  padding-top: 0px;
+}
+@media (max-width: 690px){
+  #mapa {
+    padding-top: 60px;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    height: auto;
+    left: 50%;
+    text-align: center;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
 
 /* Contact Style */
 
 #contact {
   padding-top: 0px;
-}
-
+} 
 #contact-content {
   padding: 80px 60px;
 }
