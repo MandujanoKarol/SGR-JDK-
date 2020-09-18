@@ -77,30 +77,7 @@ jQuery(document).ready(function($) {
         navigation.on('click', 'a', function(event){
             event.preventDefault(); //prevents previous event
             smoothScroll($(this.hash));
-        });
-        
-        //update navigation on scroll...
-        $(window).on('scroll', function(){
-            updateNavigation();
-        })
-        //...and when the page starts
-        updateNavigation();
-        
-        /////FUNCTIONS
-        function updateNavigation(){
-            contentSection.each(function(){
-                var sectionName = $(this).attr('id');
-                var navigationMatch = $('nav a[href="#' + sectionName + '"]');
-                if( ($(this).offset().top - $(window).height()/2 < $(window).scrollTop()) &&
-                      ($(this).offset().top + $(this).height() - $(window).height()/2 > $(window).scrollTop()))
-                    {
-                        navigationMatch.addClass('active-section');
-                    }
-                else {
-                    navigationMatch.removeClass('active-section');
-                }
-            });
-        }
+        }); 
         function smoothScroll(target){
             $('body,html').animate({
                 scrollTop: target.offset().top
@@ -113,5 +90,21 @@ jQuery(document).ready(function($) {
           $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top -0 }, 500, 'linear');
         });
 
-
-});
+        let idsection = ["mapa", "featured","projects","video","blog","contacto"];
+        idsection.forEach( function(valor, indice, array) { 
+            if(indice>0){
+                document.getElementById(valor).style.display = "none";
+            } 
+        }); 
+        $("#links ul > li > a").click(function (event) {   
+            $('#links ul > li a').removeClass('active-section');
+            $(this).addClass("active-section"); 
+            
+            var idshow=$(this).attr("href").replace('#', '');
+            console.log(idshow);
+            idsection.forEach( function(valor, indice, array) {  
+                    document.getElementById(valor).style.display = "none"; 
+            }); 
+            document.getElementById(idshow).style.display = "block";
+        });
+}); 
