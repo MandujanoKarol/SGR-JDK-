@@ -94,6 +94,7 @@ body {
       padding: 15px;
       box-sizing: border-box;
       font-size: 14px;
+      height: 45px;
     }
     .form button {
       font-family: "Roboto", sans-serif;
@@ -124,4 +125,28 @@ body {
     .form .register-form {
       display: none;
     }  
+  .btn-show-pass {
+      font-size: 15px;
+      color: #999999;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      height: 45px;
+      top: 0;
+      right: 0;
+      padding-right: 5px;
+      cursor: pointer;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      transition: all 0.4s;
+  }
+  .show_password {
+    color: black !important;
+    margin-right: 8px;
+  }
 /*# sourceMappingURL=login.css.map */
