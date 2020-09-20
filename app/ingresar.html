@@ -11,7 +11,10 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/login.css"> 
+  <link rel="stylesheet" href="css/ingresar.css"> 
+   <!-- Toastr style -->
+   <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+   <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet"> 
 </head>
 <body>
   <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
@@ -28,16 +31,14 @@
               </div>
               <p class="login-card-description">Ingrese con su cuenta o registrese</p>
                <div class="form">
-                <form class="login-form" id="formLogIn">
+                <form class="login-form" name="loginForm">
                   <div>
                     <input type="email" placeholder="correo" name="email"/>
                   </div>
                   <div style="position: relative;">
                     <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
                     <input type="password" placeholder="contrasena" name="password"/>
-                  </div>
-                  
-                  
+                  </div> 
                   <button>Iniciar sesion</button>
                   <p class="message">No registrado? <a href="#">Crear una cuenta</a></p>
                 </form>
@@ -46,6 +47,10 @@
                     <input type="text" placeholder="Nombre"/>
                     <input type="text" placeholder="Apellido"/>
                     <input type="text" placeholder="Telefono"/>
+                    <div class="form-group"> 
+                      <input id="phone" type="tel"  placeholder="N° Teléfono" name="telefono" onkeyup="onkeyuptelefono()">
+                      <span id ="error_telefono" class="help-inline"></span></td>
+                    </div> 
                     <input type="text" placeholder="Direccion"/>
                     <input type="email" placeholder="Correo"/>
                     <input type="password" placeholder="Contrasena"/>
@@ -68,11 +73,20 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+  <script src="js/intlTelInput/intlTelInput.js"></script>
+    <script src="js/intlTelInput/utils.js"></script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+
+  <!-- Toastr -->
+  <script src="js/plugins/toastr/toastr.min.js"></script>
+
   <script src="js/service/bd.js"></script> 
+  <script src="js/service/floatingMessage.js"></script>
   <script src="js/service/ingresar.js"></script>
   <script>
       $('.message a').click(function(){

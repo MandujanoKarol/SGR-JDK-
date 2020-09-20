@@ -14,9 +14,19 @@ showPass = 0;
 }
 
 });
+///Telefono
+var input = document.querySelector("#phone");
+  window.intlTelInput(input, {
+    // any initialisation options go here
+    // initial country
+    initialCountry:"mx",
+    //preferredCountries: ["mx","us" ],
+    onlyCountries: ["mx"]
+  }); 
 
+ 
 ////DOM form  LogIn
-const formLogIn =  document.getElementById('formLogIn'); 
+const formLogIn =   document.forms['loginForm'];
 ////DOM form  LogIn event  submit on button LogIn
 formLogIn.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -24,48 +34,30 @@ formLogIn.addEventListener('submit',(e)=>{
     console.log(formLogIn['email'].value+"  "+formLogIn['password'].value ); 
     ////Data
     let email = formLogIn['email'].value;
-    let password = formLogIn['password'].value; 
-    ////if the navigator containe geolocation
-    if (navigator.geolocation) {  
-        ///signIn With Email And Password
+    let password = formLogIn['password'].value;  
+    ///signIn With Email And Password
         auth.signInWithEmailAndPassword(email,password).then( cred =>{   
         ///SAVE key current user on localStorage
         localStorage.removeItem("uid");
-        localStorage.setItem("uid", cred.user.uid);
-            ///get Current Position
-            navigator.geolocation.getCurrentPosition(function(position) { 
-                ///coords
-                var coords = {
-                    Latitud: position.coords.latitude, 
-                    Longitud: position.coords.longitude
-                } 
+        localStorage.setItem("uid", cred.user.uid);  
                 ///update user data on database firebase
-                return db.collection('cuentasusuarios').doc(cred.user.uid).update({
-                    "coordenadas":coords,
+                return db.collection('cuentasusuarios').doc(cred.user.uid).update({ 
                     "estado":parseInt(1)
                 }).then(function(result) { 
                     db.collection('cuentasusuarios').doc(cred.user.uid).get().then( doc =>{
-                      
-                       if(doc.data().tipo==="usuario"){
-                        window.location.href = "homeUsuario.html"; 
-                       }else if(doc.data().tipo === "restaurante"){
-                        window.location.href = "homeRestaurante.html"; 
-                       }else if(doc.data().tipo === "repartidor"){
-                        window.location.href = "homeRepartidor.html"; 
-                        }
+                    
+                    if(doc.data().tipo===0){
+                        window.location.href = "solicitante.html"; 
+                    }else if(doc.data().tipo === 1){
+                        window.location.href = "trabajador.html"; 
+                    }
                     }); 
                 }).catch(function(error) {
                     floatingMessage(error.code,"","firebase");
-                }); 
-            }, function(error) { 
-                floatingMessage(error.title,error.message,"error");
-            }); 
+                });
         }).catch( err => { 
             floatingMessage(err.code,"","firebase");
-        });
-    } else {
-         ///error print console
-        console.log("Ubication error");
-    }
+        }); 
     
 });
+ 

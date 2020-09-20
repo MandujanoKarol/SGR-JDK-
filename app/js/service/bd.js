@@ -7,7 +7,8 @@ var firebaseConfig = {
     storageBucket: "perfilados-94e2e.appspot.com",
     messagingSenderId: "581918333297",
     appId: "1:581918333297:web:35baa5b5b6938fa0cdbed0"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig); 
-  const db = firebase.firestore(); 
+  }; 
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   const auth = firebase.auth(); 
+   const db = firebase.firestore(); 
