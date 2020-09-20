@@ -80,8 +80,10 @@
   .owl-carousel.owl-refresh .owl-item {
     visibility: hidden; }
   .owl-carousel.owl-drag .owl-item {
-    -ms-touch-action: none;
-        touch-action: none;
+    /* Cambio para poder deslizar atravez del touch */
+
+    /*-ms-touch-action: none;
+        touch-action: none;*/
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

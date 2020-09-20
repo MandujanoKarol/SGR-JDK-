@@ -20,6 +20,14 @@ p {
   width: 77.5%;
   float: right;
 }
+@-webkit-keyframes fade{
+  from {opacity: 0;};
+  to{ opacity: 1;}
+}
+@keyframes fade{
+  from {opacity: 0;};
+  to{ opacity: 1;}
+}
 
 .content-section {
   padding-top: 80px;
@@ -33,7 +41,10 @@ p {
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
-  transform: translateX(-50%);
+  transform: translateX(-50%); 
+  -webkit-transition: opacity 600ms,visibility 600ms;
+  transition: opacity 600ms,visibility 600ms;
+  opacity: 0;
 }
 
 .section-heading {
@@ -146,7 +157,7 @@ header {
 
 #main-nav ul {
   text-align: center;
-  background-color: rgba(0,0,0,0.9);
+  background-color: black;
   margin-top: 59px;
   width: 100%;
 }

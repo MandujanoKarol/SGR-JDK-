@@ -90,21 +90,39 @@ jQuery(document).ready(function($) {
           $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top -0 }, 500, 'linear');
         });
 
+        ///arrays id links section area
         let idsection = ["mapa", "featured","projects","video","blog","contacto"];
+        ///Ocultar todos las areas o secciones
         idsection.forEach( function(valor, indice, array) { 
             if(indice>0){
-                document.getElementById(valor).style.display = "none";
-            } 
+                document.getElementById(valor).style.display = "none"; 
+                document.getElementById(valor).style.visibility = "hidden"; 
+                document.getElementById(valor).style.opacity = "0"; 
+            }; 
         }); 
+
+
+        ///click sobre los enlaces a secciones
         $("#links ul > li > a").click(function (event) {   
+            ///esconder menu colapsado
+            $('.navbar-collapse.in').collapse('hide');
+            ///remover la clase de cualquier link activo
             $('#links ul > li a').removeClass('active-section');
+            ///agrego activo el link seleccionado
             $(this).addClass("active-section"); 
             
+            ///obtengo el id del link a mostrar
             var idshow=$(this).attr("href").replace('#', '');
-            console.log(idshow);
+            ///escondo toda area 
             idsection.forEach( function(valor, indice, array) {  
                     document.getElementById(valor).style.display = "none"; 
+                    document.getElementById(valor).style.visibility = "hidden"; 
+                    document.getElementById(valor).style.opacity = "0"; 
             }); 
+            ///nuestro solo el area seleccionada atravez del id del link seleccionado
             document.getElementById(idshow).style.display = "block";
+            document.getElementById(idshow).style.visibility = "visible";
+            document.getElementById(idshow).style.animation = "fade 1s";
+            document.getElementById(idshow).style.opacity = "1"; 
         });
 }); 
