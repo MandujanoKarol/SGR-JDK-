@@ -31,30 +31,51 @@
               </div>
               <p class="login-card-description">Ingrese con su cuenta o registrese</p>
                <div class="form">
+
+
                 <form class="login-form" name="loginForm">
                   <div>
-                    <input type="email" placeholder="correo" name="email"/>
+                    <input type="email" placeholder="correo" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                   </div>
                   <div style="position: relative;">
                     <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
-                    <input type="password" placeholder="contrasena" name="password"/>
+                    <input type="password" placeholder="contrasena" name="password" required />
                   </div> 
-                  <button>Iniciar sesion</button>
+                  <button type="submit"  >Iniciar sesion</button>
                   <p class="message">No registrado? <a href="#">Crear una cuenta</a></p>
                 </form>
 
-                  <form class="register-form">
-                    <input type="text" placeholder="Nombre"/>
-                    <input type="text" placeholder="Apellido"/>
-                    <input type="text" placeholder="Telefono"/>
+                  <form class="register-form"  name="registerForm">
+                    <p class="message">Selecione el tipo de cuenta</p>
+                    <div class="radioselect">
+                      <input type="radio" id="solicitante" name="solicitantetrabajador" onclick="console.log(document.getElementById('trabajador').checked)" required>
+                      <input type="radio" id="trabajador" name="solicitantetrabajador" onclick="console.log(document.getElementById('solicitante').checked)" required> 
+                      <div> 
+                        <label for="solicitante">Solicitante</label>
+                        <label for="trabajador">Trabajador</label>
+                      </div>
+                    </div>
+                  
+                    <input type="text" placeholder="Nombre" required/>
+                    <input type="text" placeholder="Apellido" required/>
+                    <div >
+                      <select  name="genero" required>
+                        <option value="" hidden>Genero...</option>
+                       </select>
+                    </div>
+                    <input type="date" placeholder="Apellido" required/>
+                    <input type="text" placeholder="Telefono" required/>
                     <div class="form-group"> 
                       <input id="phone" type="tel"  placeholder="N° Teléfono" name="telefono" onkeyup="onkeyuptelefono()">
                       <span id ="error_telefono" class="help-inline"></span></td>
                     </div> 
-                    <input type="text" placeholder="Direccion"/>
-                    <input type="email" placeholder="Correo"/>
-                    <input type="password" placeholder="Contrasena"/>
-                    <button>Crear cuenta</button>
+                    <input type="text" placeholder="Direccion" required/>
+                    <input type="email" placeholder="Correo" style="box-shadow: inset 0 0 0 4px #45489a;" required/>
+                    <div style="position: relative;">
+                      <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
+                      <input type="password" placeholder="contrasena" name="password" required style="box-shadow: inset 0 0 0 4px #45489a;"/>
+                    </div> 
+                    <button type="submit">Crear cuenta</button>
                     <p class="message">Estas registrado? <a href="#">Iniciar sesion</a></p>
                   </form>
                   

@@ -14,7 +14,7 @@ showPass = 0;
 }
 
 });
-///Telefono
+///INPUT Telefono
 var input = document.querySelector("#phone");
   window.intlTelInput(input, {
     // any initialisation options go here
@@ -23,8 +23,12 @@ var input = document.querySelector("#phone");
     //preferredCountries: ["mx","us" ],
     onlyCountries: ["mx"]
   }); 
-
  
+
+
+
+
+  
 ////DOM form  LogIn
 const formLogIn =   document.forms['loginForm'];
 ////DOM form  LogIn event  submit on button LogIn
@@ -38,20 +42,19 @@ formLogIn.addEventListener('submit',(e)=>{
     ///signIn With Email And Password
         auth.signInWithEmailAndPassword(email,password).then( cred =>{   
         ///SAVE key current user on localStorage
-        localStorage.removeItem("uid");
-        localStorage.setItem("uid", cred.user.uid);  
+        localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");
+        localStorage.setItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af", cred.user.uid);  
                 ///update user data on database firebase
                 return db.collection('cuentasusuarios').doc(cred.user.uid).update({ 
                     "estado":parseInt(1)
                 }).then(function(result) { 
-                    db.collection('cuentasusuarios').doc(cred.user.uid).get().then( doc =>{
-                    
-                    if(doc.data().tipo===0){
-                        window.location.href = "solicitante.html"; 
-                    }else if(doc.data().tipo === 1){
-                        window.location.href = "trabajador.html"; 
-                    }
-                    }); 
+                            db.collection('cuentasusuarios').doc(cred.user.uid).get().then( doc =>{
+                            if(doc.data().tipo===0){
+                                window.location.href = "solicitante.html"; 
+                            }else if(doc.data().tipo === 1){
+                                window.location.href = "trabajador.html"; 
+                            }
+                            }); 
                 }).catch(function(error) {
                     floatingMessage(error.code,"","firebase");
                 });
@@ -59,5 +62,14 @@ formLogIn.addEventListener('submit',(e)=>{
             floatingMessage(err.code,"","firebase");
         }); 
     
-});
- 
+}); 
+
+
+////DOM form  LogIn
+const formRegister =   document.forms['registerForm'];
+////DOM form  LogIn event  submit on button LogIn
+formRegister.addEventListener('submit',(e)=>{
+    e.preventDefault(); 
+    
+}); 
+
