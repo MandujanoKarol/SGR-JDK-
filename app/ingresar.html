@@ -48,8 +48,8 @@
                   <form class="register-form"  name="registerForm">
                     <p class="message">Selecione el tipo de cuenta</p>
                     <div class="radioselect">
-                      <input type="radio" id="solicitante" name="solicitantetrabajador" onclick="console.log(document.getElementById('trabajador').checked)" required>
-                      <input type="radio" id="trabajador" name="solicitantetrabajador" onclick="console.log(document.getElementById('solicitante').checked)" required> 
+                      <input type="radio" id="solicitante" name="solicitantetrabajador"  required>
+                      <input type="radio" id="trabajador" name="solicitantetrabajador"  required> 
                       <div> 
                         <label for="solicitante">Solicitante</label>
                         <label for="trabajador">Trabajador</label>
@@ -63,7 +63,7 @@
                         <option value="" hidden>Genero...</option>
                        </select>
                     </div>
-                    <input type="date" placeholder="Apellido" required/>
+                    <input type="date" id="dob"   required />
                     <input type="text" placeholder="Telefono" required/>
                     <div class="form-group"> 
                       <input id="phone" type="tel"  placeholder="N° Teléfono" name="telefono" onkeyup="onkeyuptelefono()">
