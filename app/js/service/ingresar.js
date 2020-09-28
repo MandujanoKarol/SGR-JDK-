@@ -13,7 +13,7 @@ $(document).ready(function () {
         });
 
     ///select genero 
-    fetch('/js/service/gender.json').then(function (respuesta) {
+    fetch('https://mandujanokarol.github.io/SGR-JDK-/app/js/service/gender.json').then(function (respuesta) {
         if (respuesta.ok) {
             respuesta.json().then(dato => {
                 dato.forEach(function (entrada) { 
