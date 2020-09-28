@@ -11,6 +11,28 @@ $(document).ready(function () {
             $('#longitude').html(location.longitude);
             $('#ip').html(location.IPv4);**/
         });
+
+    ///select genero 
+    fetch('gender.json').then(function (respuesta) {
+        if (respuesta.ok) {
+            respuesta.json().then(dato => {
+                dato.forEach(function (entrada) { 
+                    var option = document.createElement("option"); 
+                    option.value = entrada.Genero;
+                    option.text = entrada.Genero;
+                    document.getElementById("gender").add(option);
+                }); 
+            }).catch(function (error) {
+                console.log(error.message);
+            });
+        } else {
+            console.log(respuesta);
+        }
+    }).catch(function (error) {
+        console.log('Hubo un problema con la petición Fetch:' + error.message);
+    });
+
+    
 });
 $(function () {
     ///date input 18 years
@@ -63,10 +85,10 @@ const formLogIn = document.forms['loginForm'];
 formLogIn.addEventListener('submit', (e) => {
     e.preventDefault();
     ///print test
-    console.log(formLogIn['email'].value + "  " + formLogIn['password'].value);
+    console.log(formLogIn['txtemaillogin'].value + "  " + formLogIn['txtpasswordlogin'].value);
     ////Data
-    let email = formLogIn['email'].value;
-    let password = formLogIn['password'].value;
+    let email = formLogIn['txtemaillogin'].value;
+    let password = formLogIn['txtpasswordlogin'].value;
     ///signIn With Email And Password
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         ///SAVE key current user on localStorage
@@ -98,6 +120,13 @@ const formRegister = document.forms['registerForm'];
 ////DOM form  LogIn event  submit on button LogIn
 formRegister.addEventListener('submit', (e) => {
     e.preventDefault();
+    var rd_t = document.getElementById('trabajador').checked;
+    var rd_s = document.getElementById('solicitante').checked;
 
+    if (rd_t != false || rd_s != false) {
+
+        return false;
+    }
+    return true;
 });
 
