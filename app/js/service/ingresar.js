@@ -13,7 +13,7 @@ $(document).ready(function () {
         });
 
     ///select genero 
-    fetch('gender.json').then(function (respuesta) {
+    fetch('/js/service/gender.json').then(function (respuesta) {
         if (respuesta.ok) {
             respuesta.json().then(dato => {
                 dato.forEach(function (entrada) { 
