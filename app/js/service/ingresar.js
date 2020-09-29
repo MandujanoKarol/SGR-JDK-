@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    console.log(document.getElementById('trabajador').checked);
-    console.log(document.getElementById('solicitante').checked);
     $.getJSON('https://geolocation-db.com/json/')
         .done(function (location) {
             console.log(location);
@@ -16,12 +14,30 @@ $(document).ready(function () {
     fetch('https://mandujanokarol.github.io/SGR-JDK-/app/js/service/gender.json').then(function (respuesta) {
         if (respuesta.ok) {
             respuesta.json().then(dato => {
-                dato.forEach(function (entrada) { 
-                    var option = document.createElement("option"); 
+                dato.forEach(function (entrada) {
+                    var option = document.createElement("option");
                     option.value = entrada.Genero;
                     option.text = entrada.Genero;
                     document.getElementById("gender").add(option);
-                }); 
+                });
+            }).catch(function (error) {
+                console.log(error.message);
+            });
+        } else {
+            console.log(respuesta);
+        }
+    }).catch(function (error) {
+        console.log('Hubo un problema con la petición Fetch:' + error.message);
+    });
+    fetch('https://mandujanokarol.github.io/SGR-JDK-/app/js/service/oficios.json').then(function (respuesta) {
+        if (respuesta.ok) {
+            respuesta.json().then(dato => {
+                dato.forEach(function (entrada) {
+                    var option = document.createElement("option");
+                    option.value = entrada.Oficio;
+                    option.text = entrada.Oficio;
+                    document.getElementById("oficio").add(option);
+                });
             }).catch(function (error) {
                 console.log(error.message);
             });
@@ -32,7 +48,7 @@ $(document).ready(function () {
         console.log('Hubo un problema con la petición Fetch:' + error.message);
     });
 
-    
+
 });
 $(function () {
     ///date input 18 years
@@ -48,6 +64,8 @@ $(function () {
     var maxDate = year + '-' + month + '-' + day;
     $('#dob').attr('max', maxDate);
 });
+
+
 var showPass = 0;
 $('.btn-show-pass').on('click', function () {
     if (showPass == 0) {
@@ -114,19 +132,214 @@ formLogIn.addEventListener('submit', (e) => {
 
 });
 
+////onblurs
+function onblurnombre() {
+    if (document.registerForm.txtnombreregister.value == "") {
+        document.forms['registerForm'].elements["txtnombreregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+    else if (!/^[a-zA-Z ]{3,30}$/.test(document.registerForm.txtnombreregister.value)) {
+        document.forms['registerForm'].elements["txtnombreregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        console.log(document.registerForm.txtnombreregister.value);
+        return 1;
+    }
+    else {
+        document.forms['registerForm'].elements["txtnombreregister"].style = " ";
+        return 0;
+    }
+}
+function onblurapellido() {
+    ///Apellido
+    if (document.forms["registerForm"]["txtapellidoregister"].value == "") {
+        document.forms['registerForm'].elements["txtapellidoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+    else if (!/^[a-zA-Z ]{2,30}$/.test(document.registerForm.txtapellidoregister.value)) {
+        document.forms['registerForm'].elements["txtapellidoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+    else {
+        document.forms['registerForm'].elements["txtapellidoregister"].style = "";
+        return 0;
+    }
+}
+function onbluremail() {
+    ///Correo electronico
+    const testcorreo = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (document.forms["registerForm"]["txtemailregister"].value == "") {
+        document.forms['registerForm'].elements["txtemailregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    } else if (testcorreo.test(document.registerForm.txtemailregister.value.toLowerCase())) {
+        document.forms['registerForm'].elements["txtemailregister"].style = " ";
+        return 0;
+    }
+    else {
+        document.forms['registerForm'].elements["txtemailregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
+function onblurpassword() {
+    ///contrasena
+    const testcontrasena = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+    if (document.forms["registerForm"]["txtpasswordregister"].value == "") {
+        document.forms['registerForm'].elements["txtpasswordregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+    else if (testcontrasena.test(document.registerForm.txtpasswordregister.value)) {
+        document.forms['registerForm'].elements["txtpasswordregister"].style = " ";
+        return 0;
+    }
+    else {
+        document.forms['registerForm'].elements["txtpasswordregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
+function onblurtelefono() {
+    if (document.forms["registerForm"]["txttelefonoregister"].value != "") {
+        if (document.forms["registerForm"]["txttelefonoregister"].value.length == 10) {
+            var phoneNumberString = document.forms["registerForm"]["txttelefonoregister"].value
+            var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+            var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
+            if (match) {
+                document.forms["registerForm"]["txttelefonoregister"].value = '(' + match[1] + ') ' + match[2] + '-' + match[3];
+                document.forms['registerForm'].elements["txttelefonoregister"].style = " ";
+                return 0;
+            }
+        } else {
+            if (document.forms["registerForm"]["txttelefonoregister"].value.length == 14) {
+                document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+                return 0;
+            } else {
+                document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+                return 1;
+            }
+        }
+    } else {
+        document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
+function onblurdireccion() {
+    ///Direccion
+    if (document.forms["registerForm"]["txtdireccionregister"].value == "") {
+        document.forms['registerForm'].elements["txtdireccionregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
 
-////DOM form  LogIn
-const formRegister = document.forms['registerForm'];
-////DOM form  LogIn event  submit on button LogIn
-formRegister.addEventListener('submit', (e) => {
-    e.preventDefault();
-    var rd_t = document.getElementById('trabajador').checked;
-    var rd_s = document.getElementById('solicitante').checked;
+    }
+    else if (!/^[a-zA-Z ]{3,30}$/.test(document.registerForm.txtdireccionregister.value)) {
+        document.forms['registerForm'].elements["txtdireccionregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+    else {
+        document.forms['registerForm'].elements["txtdireccionregister"].style = " ";
+        return 0;
+    }
+}
+////Funcion register
+function register() {
+    //data
+    const email = document.forms["formRegisterUser"]['correo'].value;
+    const password = document.forms["formRegisterUser"]['contrasena'].value;
+    ////if the navigator containe geolocation
+    if (navigator.geolocation) {
+        ///create User With Email And Password
+        auth.createUserWithEmailAndPassword(email, password).then(cred => {
+            ///Almacenar key del actual usuario logueado en localStorage 
+            localStorage.removeItem("uid");
+            localStorage.setItem("uid", cred.user.uid);
+            ///get position
+            navigator.geolocation.getCurrentPosition(function (position) {
+                ///cords
+                var coordenadas = {
+                    Latitud: position.coords.latitude,
+                    Longitud: position.coords.longitude
+                }
+                //registrar nuevos datos en firebase database with id user auth
+                return db.collection('cuentasusuarios').doc(cred.user.uid).set({
+                    "nombre": document.forms["formRegisterUser"]['nombre'].value,
+                    "apellido": document.forms["formRegisterUser"]['apellido'].value,
+                    "correo": document.forms["formRegisterUser"]['correo'].value,
+                    "telefono": document.forms["formRegisterUser"]['telefono'].value,
+                    "direccion": document.forms["formRegisterUser"]['direccion'].value,
+                    "coordenadas": coordenadas,
+                    "fechaRegistro": new Date().toLocaleString(),
+                    "tipo": "usuario",
+                    "estado": parseInt(1)
+                }).then(function (result) {
+                    window.location.href = "homeUsuario.html";
+                }).catch(function (error) {
+                    floatingMessage(error.code, "", "firebase");
+                });
 
-    if (rd_t != false || rd_s != false) {
+            }, function (error) {
+                ////error al obtener coordenadas
+                floatingMessage(error.title, error.message, "error");
+            });
+        }).catch(err => {
+            floatingMessage(err.code, "", "firebase");
+        });
 
+
+    } else {
+        floatingMessage("error al obtener las coordenadas", "error ubicacion", "error");
+    }
+
+
+};
+////Funcion validar campos forms
+function validarForms() {
+    var errores = 0;
+    if (document.getElementById('trabajador').checked != false || document.getElementById('solicitante').checked != false) {
+        errores += 0;
+    } else {
+        errores += 1;
+    } 
+    
+    if ($("#gender option:selected").text() != "Genero") {
+        errores += 0;
+        document.forms['registerForm'].elements["selgeneroregister"].style = " ";
+    } else {
+        errores += 1;
+        document.forms['registerForm'].elements["selgeneroregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+    }
+
+
+    if ($("#oficio option:selected").text() != "Oficio") {
+        errores += 0;
+        document.forms['registerForm'].elements["seloficioregister"].style = " ";
+    } else {
+        errores += 1;
+        document.forms['registerForm'].elements["seloficioregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+    }
+
+
+    if(document.forms["registerForm"]["dateregister"].value !=""){
+        errores += 0;
+        document.forms['registerForm'].elements["dateregister"].style = " ";
+    }else{
+        errores += 1;
+        document.forms['registerForm'].elements["dateregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+    }
+    errores += onblurnombre();
+    errores += onblurapellido();
+    errores += onbluremail();
+    errores += onblurpassword();
+    errores += onblurtelefono();
+    errores += onblurdireccion();
+
+
+    if (errores == 0) {
+        return true;
+    } else {
         return false;
     }
-    return true;
-});
+};
+////funcion click button
+function validator() {
+    if (validarForms().toString() == "true") {
+        register();
+    } else {
+        floatingMessage("Formulario", "Ingrese cada uno de los paramentros requeridos!", "error");
+    }
+} 
 
