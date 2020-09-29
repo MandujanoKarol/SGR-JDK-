@@ -235,6 +235,33 @@ function onblurdireccion() {
         return 0;
     }
 }
+function onchangeselectoficio(){
+    if ($("#oficio option:selected").text() != "Oficio") {
+        document.forms['registerForm'].elements["seloficioregister"].style = " ";
+        return 0;
+    } else {
+        document.forms['registerForm'].elements["seloficioregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
+function onchangeselectgener(){
+    if ($("#gender option:selected").text() != "Genero") { 
+        document.forms['registerForm'].elements["selgeneroregister"].style = " ";
+        return 0;
+    } else { 
+        document.forms['registerForm'].elements["selgeneroregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
+function onchangeselectdate(){
+    if(document.forms["registerForm"]["dateregister"].value !=""){ 
+        document.forms['registerForm'].elements["dateregister"].style = " ";
+        return 0;
+    }else{ 
+        document.forms['registerForm'].elements["dateregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
 ////Funcion register
 function register() {
     //data
@@ -294,32 +321,10 @@ function validarForms() {
     } else {
         errores += 1;
     } 
-    
-    if ($("#gender option:selected").text() != "Genero") {
-        errores += 0;
-        document.forms['registerForm'].elements["selgeneroregister"].style = " ";
-    } else {
-        errores += 1;
-        document.forms['registerForm'].elements["selgeneroregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-    }
 
-
-    if ($("#oficio option:selected").text() != "Oficio") {
-        errores += 0;
-        document.forms['registerForm'].elements["seloficioregister"].style = " ";
-    } else {
-        errores += 1;
-        document.forms['registerForm'].elements["seloficioregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-    }
-
-
-    if(document.forms["registerForm"]["dateregister"].value !=""){
-        errores += 0;
-        document.forms['registerForm'].elements["dateregister"].style = " ";
-    }else{
-        errores += 1;
-        document.forms['registerForm'].elements["dateregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-    }
+    errores += onchangeselectdate();
+    errores += onchangeselectgener();
+    errores += onchangeselectoficio();
     errores += onblurnombre();
     errores += onblurapellido();
     errores += onbluremail();

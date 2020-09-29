@@ -68,11 +68,11 @@
                     <input type="text" placeholder="Nombre" name="txtnombreregister"  onblur="onblurnombre();" required/>
                     <input type="text" placeholder="Apellido" name="txtapellidoregister" onblur="onblurapellido();"  required/>
                     <div >
-                      <select   required name="selgeneroregister" id="gender" >
+                      <select   required name="selgeneroregister" id="gender" onchange="onchangeselectgener();">
                         <option value="" hidden>Genero</option>
                        </select>
                     </div>
-                    <input type="date" id="dob"   required name="dateregister" /> 
+                    <input type="date" id="dob"   required name="dateregister" onchange="onchangeselectdate()"/> 
                     <div class="form-group"> 
                       <input id="phone" type="tel"  placeholder="N° Teléfono" name="txttelefonoregister" onblur="onblurtelefono();">
                       <span id ="error_telefono" class="help-inline"></span></td>
@@ -80,7 +80,7 @@
                     <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();" required/>
 
                     <div >
-                      <select   required name="seloficioregister" id="oficio" >
+                      <select   required name="seloficioregister" id="oficio" onchange="onchangeselectoficio();" >
                         <option value="" hidden>Oficio</option>
                        </select>
                     </div>
