@@ -48,7 +48,10 @@ $(document).ready(function () {
         console.log('Hubo un problema con la petición Fetch:' + error.message);
     });
 
-
+    $('input[type=radio]').click(function(){
+        document.getElementById("rd1").style = " ";
+        document.getElementById("rd2").style = " ";
+    });
 });
 $(function () {
     ///date input 18 years
@@ -262,6 +265,17 @@ function onchangeselectdate(){
         return 1;
     }
 }
+function radioinputs(){
+    if (document.getElementById('trabajador').checked != false || document.getElementById('solicitante').checked != false) {
+        document.getElementById("rd1").style = " ";
+        document.getElementById("rd2").style = " ";
+        return 0;
+    } else {
+        document.getElementById("rd1").style = "box-shadow: inset 0 0 0 4px #e60346;";
+        document.getElementById("rd2").style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    } 
+}
 ////Funcion register
 function register() {
     //data
@@ -316,12 +330,8 @@ function register() {
 ////Funcion validar campos forms
 function validarForms() {
     var errores = 0;
-    if (document.getElementById('trabajador').checked != false || document.getElementById('solicitante').checked != false) {
-        errores += 0;
-    } else {
-        errores += 1;
-    } 
-
+    
+    errores += radioinputs();
     errores += onchangeselectdate();
     errores += onchangeselectgener();
     errores += onchangeselectoficio();
@@ -342,7 +352,7 @@ function validarForms() {
 ////funcion click button
 function validator() {
     if (validarForms().toString() == "true") {
-        register();
+       // register();
     } else {
         floatingMessage("Formulario", "Ingrese cada uno de los paramentros requeridos!", "error");
     }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es_MX">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,20 +12,21 @@
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/ingresar.css"> 
-   <!-- Toastr style -->
-   <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-   <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet"> 
+  <link rel="stylesheet" href="css/ingresar.css">
+  <!-- Toastr style -->
+  <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+  <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
 
-   <!-- Favicon -->
-   <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-   <link rel="manifest" href="img/favicon/site.webmanifest">
-   <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-   <meta name="msapplication-TileColor" content="#da532c">
-   <meta name="theme-color" content="#ffffff">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
   <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
     <div class="container">
@@ -39,71 +41,134 @@
                 <img src="img/logo.svg" alt="logo" class="logo">
               </div>
               <p class="login-card-description">Ingrese con su cuenta o registrese</p>
-               <div class="form">
+              <style>
+                select {
+
+                  /* styling */
+                  background-color: white;
+                  border: thin solid blue;
+                  border-radius: 4px;
+                  display: inline-block;
+                  font: inherit;
+                  line-height: 1.5em;
+                  padding: 0.5em 3.5em 0.5em 1em;
+
+                  /* reset */
+
+                  margin: 0;
+                  -webkit-box-sizing: border-box;
+                  -moz-box-sizing: border-box;
+                  box-sizing: border-box;
+                  -webkit-appearance: none;
+                  -moz-appearance: none;
+                }
+                select.minimal {
+  background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%) ;
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px) ;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.minimal:focus {
+  background-image:
+    linear-gradient(45deg, #45489a 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, #45489a 50%) ;
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em ;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: #45489a;
+  outline: 0;
+}
+
+                select:-moz-focusring {
+                  color: transparent;
+                  text-shadow: 0 0 0 #000;
+                }
+              </style>
+              <div class="form">
 
 
                 <form class="login-form" name="loginForm">
                   <div>
-                    <input type="email" placeholder="correo" name="txtemaillogin" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                    <input type="email" placeholder="correo" name="txtemaillogin" required
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                   </div>
                   <div style="position: relative;">
                     <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
                     <input type="password" placeholder="contrasena" name="txtpasswordlogin" required />
-                  </div> 
-                  <button type="submit"  >Iniciar sesion</button>
+                  </div>
+                  <button type="submit">Iniciar sesion</button>
                   <p class="message">No registrado? <a href="JavaScript:void(0);">Crear una cuenta</a></p>
                 </form>
 
-                  <form class="register-form"  name="registerForm">
-                    <p class="message">Selecione el tipo de cuenta</p>
-                    <div class="radioselect">
-                      <input type="radio" id="solicitante" name="solicitantetrabajador"  >
-                      <input type="radio" id="trabajador" name="solicitantetrabajador"  > 
-                      <div> 
-                        <label for="solicitante">Solicitante</label>
-                        <label for="trabajador">Trabajador</label>
-                      </div>
+                <form class="register-form" name="registerForm">
+                  <p class="message">Selecione el tipo de cuenta</p>
+                  <div class="radioselect">
+                    <input type="radio" id="solicitante" name="solicitantetrabajador">
+                    <input type="radio" id="trabajador" name="solicitantetrabajador">
+                    <div>
+                      <label for="solicitante" id="rd1">Solicitante</label>
+                      <label for="trabajador" id="rd2">Trabajador</label>
                     </div>
-                  
-                    <input type="text" placeholder="Nombre" name="txtnombreregister"  onblur="onblurnombre();" required/>
-                    <input type="text" placeholder="Apellido" name="txtapellidoregister" onblur="onblurapellido();"  required/>
-                    <div >
-                      <select   required name="selgeneroregister" id="gender" onchange="onchangeselectgener();">
-                        <option value="" hidden>Genero</option>
-                       </select>
-                    </div>
-                    <input type="date" id="dob"   required name="dateregister" onchange="onchangeselectdate()"/> 
-                    <div class="form-group"> 
-                      <input id="phone" type="tel"  placeholder="N° Teléfono" name="txttelefonoregister" onblur="onblurtelefono();">
-                      <span id ="error_telefono" class="help-inline"></span></td>
-                    </div> 
-                    <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();" required/>
+                  </div>
 
-                    <div >
-                      <select   required name="seloficioregister" id="oficio" onchange="onchangeselectoficio();" >
-                        <option value="" hidden>Oficio</option>
-                       </select>
-                    </div>
+                  <input type="text" placeholder="Nombre" name="txtnombreregister" onblur="onblurnombre();" required />
+                  <input type="text" placeholder="Apellido" name="txtapellidoregister" onblur="onblurapellido();"
+                    required />
+                  <div>
+                    <select class="minimal" required name="selgeneroregister" id="gender"
+                      onchange="onchangeselectgener();">
+                      <option value="" hidden>Genero</option>
+                    </select>
+                  </div>
+                  <input type="date" id="dob" required name="dateregister" onchange="onchangeselectdate()" />
+                  <div class="form-group">
+                    <input id="phone" type="tel" placeholder="N° Teléfono" name="txttelefonoregister"
+                      onblur="onblurtelefono();">
+                    <span id="error_telefono" class="help-inline"></span></td>
+                  </div>
+                  <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();"
+                    required />
 
-                    <input type="email" placeholder="Correo" style="box-shadow: inset 0 0 0 4px #45489a;"  name="txtemailregister"  onblur="onbluremail();" required/>
-                    <div style="position: relative;">
-                      <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
-                      <input type="password" placeholder="contrasena" name="txtpasswordregister" required style="box-shadow: inset 0 0 0 4px #45489a;" onblur="onblurpassword();"/>
-                    </div> 
-                    <button type="submit" onclick="validator()">Crear cuenta</button>
-                    <p class="message">Estas registrado? <a href="JavaScript:void(0);">Iniciar sesion</a></p>
-                  </form>
-                  
-                </div>  
-                <nav class="login-card-footer-nav">
-                  <a href="#!">Terms of use.</a>
-                  <a href="#!">Privacy policy</a>
-                </nav>
+                  <div>
+                    <select class="minimal" required name="seloficioregister" id="oficio" onchange="onchangeselectoficio();">
+                      <option value="" hidden>Oficio</option>
+                    </select>
+                  </div>
+
+                  <input type="email" placeholder="Correo" style="box-shadow: inset 0 0 0 4px #45489a;"
+                    name="txtemailregister" onblur="onbluremail();" required />
+                  <div style="position: relative;">
+                    <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
+                    <input type="password" placeholder="contrasena" name="txtpasswordregister" required
+                      style="box-shadow: inset 0 0 0 4px #45489a;" onblur="onblurpassword();" />
+                  </div>
+                  <button type="submit" onclick="validator()">Crear cuenta</button>
+                  <p class="message">Estas registrado? <a href="JavaScript:void(0);">Iniciar sesion</a></p>
+                </form>
+
+              </div>
+              <nav class="login-card-footer-nav">
+                <a href="#!">Terms of use.</a>
+                <a href="#!">Privacy policy</a>
+              </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
     </div>
   </main>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -112,7 +177,7 @@
 
 
   <script src="js/intlTelInput/intlTelInput.js"></script>
-    <script src="js/intlTelInput/utils.js"></script>
+  <script src="js/intlTelInput/utils.js"></script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
@@ -121,14 +186,15 @@
   <!-- Toastr -->
   <script src="js/plugins/toastr/toastr.min.js"></script>
 
-  <script src="js/service/bd.js"></script> 
+  <script src="js/service/bd.js"></script>
   <script src="js/service/floatingMessage.js"></script>
   <script src="js/service/ingresar.js"></script>
   <script>
-      $('.message a').click(function(){
-   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-});
+    $('.message a').click(function () {
+      $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
 
   </script>
 </body>
+
 </html>
