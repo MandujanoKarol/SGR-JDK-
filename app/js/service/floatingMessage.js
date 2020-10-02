@@ -1,10 +1,10 @@
 ///funcion de mensaje de error firebase
-function mensajeError(codigo) { 
-    let mensaje = ''; 
-    switch(codigo) {
+function mensajeError(codigo) {
+    let mensaje = '';
+    switch (codigo) {
         case 'auth/wrong-password':
-          mensaje = 'Su contraseña no es correcta';
-          break;
+            mensaje = 'Su contraseña no es correcta';
+            break;
         case 'auth/user-not-found':
             mensaje = 'El usuario no existe o el correo no esta registrado';
             break;
@@ -22,11 +22,11 @@ function mensajeError(codigo) {
             break;
         default:
             mensaje = 'Ocurrió un error al ingresar con este usuario';
-      }
+    }
     return mensaje;
 }
-async function floatingMessage(title,message,type){
-    if(type=="firebase"){ 
+async function floatingMessage(title, message, type) {
+    if (type == "firebase") {
         setTimeout(function () {
             toastr.options = {
                 closeButton: true,
@@ -34,9 +34,9 @@ async function floatingMessage(title,message,type){
                 showMethod: 'slideDown',
                 timeOut: 4000
             };
-            toastr.error(mensajeError(title),title);
+            toastr.error(mensajeError(title), title);
         }, 1300);
-    }else if(type=="success"){
+    } else if (type == "success") {
         setTimeout(function () {
             toastr.options = {
                 closeButton: true,
@@ -44,9 +44,9 @@ async function floatingMessage(title,message,type){
                 showMethod: 'slideDown',
                 timeOut: 4000
             };
-            toastr.success(message,title);
+            toastr.success(message, title);
         }, 1300);
-    }else if(type=="error"){
+    } else if (type == "error") {
         setTimeout(function () {
             toastr.options = {
                 closeButton: true,
@@ -54,19 +54,19 @@ async function floatingMessage(title,message,type){
                 showMethod: 'slideDown',
                 timeOut: 4000
             };
-            toastr.error(message,title);
+            toastr.error(message, title);
         }, 1300);
-    }else if(type=="registeruser"){
+    } else if (type == "registeruser") {
         setTimeout(function () {
             toastr.options = {
                 closeButton: true,
                 progressBar: true,
                 showMethod: 'slideDown',
                 timeOut: 4000,
-                onclick: function() {console.log('you clicked on the info toaster n.1')}
+                onclick: function () { console.log('you clicked on the info toaster n.1') }
             };
-            toastr.success(message,title);
+            toastr.success(message, title);
         }, 1300);
     }
-    
+
 }
