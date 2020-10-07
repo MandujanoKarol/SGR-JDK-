@@ -87,9 +87,9 @@ $('.btn-show-pass').on('click', function () {
 });
 ///INPUT Telefono
 var input = document.querySelector("#phone");
-window.intlTelInput(input, {
+var iti = window.intlTelInput(input, {
     // any initialisation options go here
-    // initial country
+    // initial country 
     initialCountry: "mx",
     //preferredCountries: ["mx","us" ],
     onlyCountries: ["mx"]
@@ -197,25 +197,42 @@ function onblurpassword() {
         return 1;
     }
 }
+function onkeyuptelefono(){ 
+    var tel=document.forms["registerForm"]["txttelefonoregister"].value;
+    tel=tel.replace("-","").replace("(","").replace(")","").replace(" ","");
+    var arraytel=Array.from(tel) 
+    var length=arraytel.length; 
+    if(length>10){   
+        arraytel.pop();   
+        var phoneNumberString = arraytel.join('');
+        var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+        var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/) 
+        if (match) {
+            document.forms["registerForm"]["txttelefonoregister"].value = '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            document.forms['registerForm'].elements["txttelefonoregister"].style = " ";
+            return 0;
+        } 
+    }
+    if(length==10){
+        var phoneNumberString = tel;
+        var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+        var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/) 
+        if (match) {
+            document.forms["registerForm"]["txttelefonoregister"].value = '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            document.forms['registerForm'].elements["txttelefonoregister"].style = " ";
+            return 0;
+        }  
+    }
+}
 function onblurtelefono() {
     if (document.forms["registerForm"]["txttelefonoregister"].value != "") {
-        if (document.forms["registerForm"]["txttelefonoregister"].value.length == 10) {
-            var phoneNumberString = document.forms["registerForm"]["txttelefonoregister"].value
-            var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
-            var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/)
-            if (match) {
-                document.forms["registerForm"]["txttelefonoregister"].value = '(' + match[1] + ') ' + match[2] + '-' + match[3];
-                document.forms['registerForm'].elements["txttelefonoregister"].style = " ";
-                return 0;
-            }
+        var tel=document.forms["registerForm"]["txttelefonoregister"].value.replace("-","").replace("(","").replace(")","").replace(" ","");
+        if (tel.length == 10) {
+            document.forms['registerForm'].elements["txttelefonoregister"].style = " ";
+            return 0;
         } else {
-            if (document.forms["registerForm"]["txttelefonoregister"].value.length == 14) {
-                document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-                return 0;
-            } else {
-                document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-                return 1;
-            }
+            document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+            return 1;
         }
     } else {
         document.forms['registerForm'].elements["txttelefonoregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
@@ -276,6 +293,62 @@ function radioinputs() {
         return 1;
     }
 }
+
+////Funcion validar campos forms
+function validarForms() {
+    var errores = 0;
+
+    errores += radioinputs();
+    errores += onchangeselectdate();
+    errores += onchangeselectgener();
+    errores += onchangeselectoficio();
+    errores += onblurnombre();
+    errores += onblurapellido();
+    errores += onbluremail();
+    errores += onblurpassword();
+    errores += onblurtelefono();
+    errores += onblurdireccion();
+
+
+    if (errores == 0) {
+        return true;
+    } else {
+        return false;
+    }
+};
+////funcion click button
+function validator() {
+    if (validarForms().toString() == "true") {
+        // register();
+        var txtnombreregister=document.registerForm.txtnombreregister.value;
+        console.log(txtnombreregister);
+        var txtapellidoregister=document.registerForm.txtapellidoregister.value;
+        console.log(txtapellidoregister);
+        var txtemailregister=document.registerForm.txtemailregister.value;
+        console.log(txtemailregister);
+        var txtpasswordregister=document.registerForm.txtpasswordregister.value;
+        console.log(txtpasswordregister);
+        var dialCode=iti.getNumber();
+        var txttelefonoregister=document.registerForm.txttelefonoregister.value;
+        console.log(dialCode+" "+txttelefonoregister);
+        var txtdireccionregister=document.registerForm.txtdireccionregister.value;
+        console.log(txtdireccionregister);
+        var oficio=$("#oficio option:selected").text();
+        console.log(oficio);
+        var rd1=document.getElementById('trabajador').checked ;
+        console.log(rd1);
+        var rd2=document.getElementById('solicitante').checked;
+        console.log(rd2);
+        var genero=$("#gender option:selected").text(); 
+        console.log(genero);
+        var fechanacimiento=document.forms["registerForm"]["dateregister"].value;
+        console.log(fechanacimiento);
+
+    } else {
+        floatingMessage("Formulario", "Ingrese cada uno de los paramentros requeridos!", "error");
+    }
+}
+
 ////Funcion register
 function register() {
     //data
@@ -327,34 +400,3 @@ function register() {
 
 
 };
-////Funcion validar campos forms
-function validarForms() {
-    var errores = 0;
-
-    errores += radioinputs();
-    errores += onchangeselectdate();
-    errores += onchangeselectgener();
-    errores += onchangeselectoficio();
-    errores += onblurnombre();
-    errores += onblurapellido();
-    errores += onbluremail();
-    errores += onblurpassword();
-    errores += onblurtelefono();
-    errores += onblurdireccion();
-
-
-    if (errores == 0) {
-        return true;
-    } else {
-        return false;
-    }
-};
-////funcion click button
-function validator() {
-    if (validarForms().toString() == "true") {
-        // register();
-    } else {
-        floatingMessage("Formulario", "Ingrese cada uno de los paramentros requeridos!", "error");
-    }
-}
-
