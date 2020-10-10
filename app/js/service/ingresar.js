@@ -116,8 +116,7 @@ formLogIn.addEventListener('submit', (e) => {
         localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");
         localStorage.setItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af", cred.user.uid);
         ///update user data on database firebase
-        window.location.href = "solicitante.html";
-        /*return db.collection('cuentasusuarios').doc(cred.user.uid).update({
+        return db.collection('cuentasusuarios').doc(cred.user.uid).update({
             "estado": parseInt(1)
         }).then(function (result) {
             db.collection('cuentasusuarios').doc(cred.user.uid).get().then(doc => {
@@ -129,7 +128,7 @@ formLogIn.addEventListener('submit', (e) => {
             });
         }).catch(function (error) {
             floatingMessage(error.code, "", "firebase");
-        });*/
+        });
     }).catch(err => {
         floatingMessage(err.code, "", "firebase");
     });
