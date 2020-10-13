@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () { 
     $.getJSON('https://geolocation-db.com/json/')
         .done(function (location) {
             console.log(location);
@@ -105,30 +105,27 @@ const formLogIn = document.forms['loginForm'];
 ////DOM form  LogIn event  submit on button LogIn
 formLogIn.addEventListener('submit', (e) => {
     e.preventDefault();
-    ///print test
-    console.log(formLogIn['txtemaillogin'].value + "  " + formLogIn['txtpasswordlogin'].value);
+    
     ////Data
     let email = formLogIn['txtemaillogin'].value;
     let password = sha256(formLogIn['txtpasswordlogin'].value);
+    ///print test
+    console.log(formLogIn['txtemaillogin'].value + "  " + password); 
     ///signIn With Email And Password
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         ///SAVE key current user on localStorage
         localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");
         localStorage.setItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af", cred.user.uid);
-        ///update user data on database firebase
-        return db.collection('cuentasusuarios').doc(cred.user.uid).update({
-            "estado": parseInt(1)
-        }).then(function (result) {
+        ///get user data on database firebase 
             db.collection('cuentasusuarios').doc(cred.user.uid).get().then(doc => {
                 if (doc.data().tipo === 0) {
                     window.location.href = "solicitante.html";
                 } else if (doc.data().tipo === 1) {
                     window.location.href = "trabajador.html";
                 }
-            });
-        }).catch(function (error) {
-            floatingMessage(error.code, "", "firebase");
-        });
+            }).catch(function (error) {
+                floatingMessage(error.code, "", "firebase");
+            }); 
     }).catch(err => {
         floatingMessage(err.code, "", "firebase");
     });
@@ -335,84 +332,69 @@ function validarForms() {
 ////funcion click button
 function validator() {
     if (validarForms().toString() == "true") {
-        // register();
-        var txtnombreregister=document.registerForm.txtnombreregister.value;
-        console.log(txtnombreregister);
-        var txtapellidoregister=document.registerForm.txtapellidoregister.value;
-        console.log(txtapellidoregister);
-        var txtemailregister=document.registerForm.txtemailregister.value;
-        console.log(txtemailregister);
-        var txtpasswordregister=document.registerForm.txtpasswordregister.value;
-        console.log(txtpasswordregister);
-        var dialCode=iti.getNumber();
-        var txttelefonoregister=document.registerForm.txttelefonoregister.value;
-        console.log(dialCode+" "+txttelefonoregister);
-        var txtdireccionregister=document.registerForm.txtdireccionregister.value;
-        console.log(txtdireccionregister);
-        var oficio=$("#oficio option:selected").text();
-        console.log(oficio);
-        var rd1=document.getElementById('trabajador').checked ;
-        console.log(rd1);
-        var rd2=document.getElementById('solicitante').checked;
-        console.log(rd2);
-        var genero=$("#gender option:selected").text(); 
-        console.log(genero);
-        var fechanacimiento=document.forms["registerForm"]["dateregister"].value;
-        console.log(fechanacimiento);
-
+        registro(); 
     } else {
         floatingMessage("Formulario", "Ingrese cada uno de los paramentros requeridos!", "error");
     }
 }
 
 ////Funcion register
-function register() {
-    //data
-    const email = document.forms["formRegisterUser"]['correo'].value;
-    const password = sha256(document.forms["formRegisterUser"]['contrasena'].value);
-    ////if the navigator containe geolocation
-    if (navigator.geolocation) {
+function registro() {
+    //data 
+        var txtnombreregister=document.registerForm.txtnombreregister.value; 
+        var txtapellidoregister=document.registerForm.txtapellidoregister.value; 
+        var txtemailregister=document.registerForm.txtemailregister.value; 
+        var txtpasswordregister= sha256(document.registerForm.txtpasswordregister.value); 
+        var txttelefonoregister=iti.getNumber();  
+        var txtdireccionregister=document.registerForm.txtdireccionregister.value; 
+        var oficio=$("#oficio option:selected").text(); 
+        var tipousuario=0;
+        if(document.getElementById('solicitante').checked){
+            tipousuario=0;
+        }
+        if(document.getElementById('trabajador').checked){
+            tipousuario=1;
+        } 
+        var genero=$("#gender option:selected").text();  
+        var fechanacimiento=document.forms["registerForm"]["dateregister"].value; 
+
+ 
         ///create User With Email And Password
-        auth.createUserWithEmailAndPassword(email, password).then(cred => {
+        auth.createUserWithEmailAndPassword(txtemailregister,txtpasswordregister).then(cred => {
             ///Almacenar key del actual usuario logueado en localStorage 
-            localStorage.removeItem("uid");
-            localStorage.setItem("uid", cred.user.uid);
-            ///get position
-            navigator.geolocation.getCurrentPosition(function (position) {
+            localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");
+            localStorage.setItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af", cred.user.uid); 
                 ///cords
                 var coordenadas = {
-                    Latitud: position.coords.latitude,
-                    Longitud: position.coords.longitude
+                    Latitud: 0,
+                    Longitud: 0
                 }
                 //registrar nuevos datos en firebase database with id user auth
                 return db.collection('cuentasusuarios').doc(cred.user.uid).set({
-                    "nombre": document.forms["formRegisterUser"]['nombre'].value,
-                    "apellido": document.forms["formRegisterUser"]['apellido'].value,
-                    "correo": document.forms["formRegisterUser"]['correo'].value,
-                    "telefono": document.forms["formRegisterUser"]['telefono'].value,
-                    "direccion": document.forms["formRegisterUser"]['direccion'].value,
+                    "nombre": txtnombreregister,
+                    "apellido": txtapellidoregister,
+                    "correo": txtemailregister,
+                    "telefono": txttelefonoregister,
+                    "direccion": txtdireccionregister,
                     "coordenadas": coordenadas,
+                    "oficio": oficio,
+                    "fechaNacimiento": fechanacimiento,
                     "fechaRegistro": new Date().toLocaleString(),
-                    "tipo": "usuario",
+                    "genero": genero,
+                    "tipo":tipousuario,
                     "estado": parseInt(1)
                 }).then(function (result) {
-                    window.location.href = "homeUsuario.html";
+                    if (tipousuario === 0) {
+                        window.location.href = "solicitante.html";
+                    } else if (tipousuario === 1) {
+                        window.location.href = "trabajador.html";
+                    }
                 }).catch(function (error) {
                     floatingMessage(error.code, "", "firebase");
-                });
-
-            }, function (error) {
-                ////error al obtener coordenadas
-                floatingMessage(error.title, error.message, "error");
-            });
+                }); 
         }).catch(err => {
             floatingMessage(err.code, "", "firebase");
-        });
-
-
-    } else {
-        floatingMessage("error al obtener las coordenadas", "error ubicacion", "error");
-    }
+        }); 
 
 
 };
