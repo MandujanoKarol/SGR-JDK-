@@ -369,7 +369,7 @@ function validator() {
 function register() {
     //data
     const email = document.forms["formRegisterUser"]['correo'].value;
-    const password = document.forms["formRegisterUser"]['contrasena'].value;
+    const password = sha256(document.forms["formRegisterUser"]['contrasena'].value);
     ////if the navigator containe geolocation
     if (navigator.geolocation) {
         ///create User With Email And Password
