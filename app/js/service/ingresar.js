@@ -109,7 +109,7 @@ formLogIn.addEventListener('submit', (e) => {
     console.log(formLogIn['txtemaillogin'].value + "  " + formLogIn['txtpasswordlogin'].value);
     ////Data
     let email = formLogIn['txtemaillogin'].value;
-    let password = formLogIn['txtpasswordlogin'].value;
+    let password = sha256(formLogIn['txtpasswordlogin'].value);
     ///signIn With Email And Password
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         ///SAVE key current user on localStorage
