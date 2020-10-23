@@ -91,7 +91,7 @@ jQuery(document).ready(function ($) {
     });
 
     ///arrays id links section area
-    let idsection = ["mapa", "featured", "projects", "video", "blog", "contacto"];
+    let idsection = ["mapa", "featured", "projects", "video", "desplazarme", "contacto"];
     ///Ocultar todos las areas o secciones
     idsection.forEach(function (valor, indice, array) {
         if (indice > 0) {

@@ -1,6 +1,5 @@
-$(document).ready(function () {
-    var user = auth.currentUser; 
-    if (user != null) { 
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
         console.log(user.uid);
         db.collection('cuentasusuarios').doc(user.uid).get().then(doc => {
             if (doc.data().tipo === 0) {
@@ -11,5 +10,5 @@ $(document).ready(function () {
         }).catch(function (error) {
             floatingMessage(error.code, "", "firebase");
         });
-    }   
+    } 
 });

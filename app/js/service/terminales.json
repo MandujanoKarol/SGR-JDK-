@@ -1,0 +1,793 @@
+{
+   "html_attributions" : [],
+   "next_page_token" : "CrQCIgEAAPSBemQlFVpyHcc0ciCV1s4k6TFvPXOeWHSbRRjxw35xYXB0i2rhe0zsavJw_qtjxqQ6w250_WvP-L5FtN9tRGrB870XR_SV3MwjZ5lzl1N3UUOv3qos20RJ-3QCE9yVVrwg1TfralZRcFJRQM72kfwcUcdNUtVD0WBca5h-Oou6C0vKj6jXm5COQIvS2rKIVxAVPGHnuU4_d1MF8X1wbkEBCwC109-cFSNJCzj4p9EwQoYEB_vpZL8VcFrBsbGk4c3JAqBHhahZKKsq9v6UGSW_EeaSqnHFkUJgOI3eKt9UQttyUH9PIye1N3Ef0frxpcb5fh9IBjCG1hwV-svfEAimHuQGAShYskOso0kUfCxYF0RIhhAalmnV2zMQ5KkkTGqUZeNSgi6bwPjU0n5SHykSEMXkbt8U2W3uABtPV_dMegAaFO7NW9ZXhvO62qaPhT3bAw9bpCQt",
+   "results" : [
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Blvd. Hilario Medina S/N, Españita, 37270 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1202395,
+               "lng" : -101.6620729
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12161582989273,
+                  "lng" : -101.6608556701073
+               },
+               "southwest" : {
+                  "lat" : 21.11891617010728,
+                  "lng" : -101.6635553298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "ETN Turistar",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 1536,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/113041218250822993445\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAVDEmrV7fgBN5AyajdkViyLsCz0OJzAem-7wpgSsxPAhZNY10OrH2UG9CrWqqPdZEhk0WyMz6eDB565tD775eCaNQRzL4YDT65_ZGemBhjqHfbH2Xpdr_nCtOScPFRKbLEhDjr0eE-xaNW6dJPqZY7KjoGhSPrlgz7S2sCRal8WVwC78MPJ8l7Q",
+               "width" : 2560
+            }
+         ],
+         "place_id" : "ChIJv1-tLQC_K4QRSdEhBQcFZv4",
+         "plus_code" : {
+            "compound_code" : "48CQ+35 León, Guanajuato",
+            "global_code" : "75HW48CQ+35"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJv1-tLQC_K4QRSdEhBQcFZv4",
+         "types" : [ "moving_company", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 5910
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Fraccionamiento de los Gomez Predio, León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1497404,
+               "lng" : -101.6749631
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.15113612989272,
+                  "lng" : -101.6735947701073
+               },
+               "southwest" : {
+                  "lat" : 21.14843647010728,
+                  "lng" : -101.6762944298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bus-71.png",
+         "name" : "Terminal San Jeronimo",
+         "photos" : [
+            {
+               "height" : 2748,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111107303718281245649\"\u003e51Pin\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAnBymwE1lOjCoK5hWaNRFgpKRF5whwcHKJ4oSRiGUSrNSKeQ13AYO6M5RYtY1cpljjO9XxaWDY-LnJ2BgdTdH3xCiRFC5Od0guyweLYns20srZvvozNaIusdGwaGb2fQSEhCYz8Li8ALg0D2YEr5shUEgGhTI6bjrZZibuACoxd3lJVDbeUHzRA",
+               "width" : 3664
+            }
+         ],
+         "place_id" : "ChIJ8QGAHzu_K4QR8sBcMF0Qw3w",
+         "plus_code" : {
+            "compound_code" : "48XG+V2 León, Guanajuato",
+            "global_code" : "75HW48XG+V2"
+         },
+         "rating" : 4,
+         "reference" : "ChIJ8QGAHzu_K4QR8sBcMF0Qw3w",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 544
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Bellavista, 37000 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1177416,
+               "lng" : -101.6874637
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.11909172989272,
+                  "lng" : -101.6861153201073
+               },
+               "southwest" : {
+                  "lat" : 21.11639207010728,
+                  "lng" : -101.6888149798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Paradero Centro De Salud",
+         "opening_hours" : {},
+         "photos" : [
+            {
+               "height" : 2448,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/111225045436415451120\"\u003ekarla suarez\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAARHX470iAiaXhzEmYa8r3mb5ozqEpPZ9AvQpi1o8ATY8-U0OsySEcJfRrLmES22Xnc30RxECaHE4puy7NO4M-eZ637OgzYD81SQxMCKnXVczu0WlTtyHVy_jHCIA7fTGyEhBWw8hDUuYOQSLwK95U11lvGhQE6a_UWfDYduXi1mmoMIa8p4_aqQ",
+               "width" : 3264
+            }
+         ],
+         "place_id" : "ChIJXUVRmHW_K4QRSKPF7yq8wIs",
+         "plus_code" : {
+            "compound_code" : "4897+32 León, Guanajuato",
+            "global_code" : "75HW4897+32"
+         },
+         "rating" : 3.5,
+         "reference" : "ChIJXUVRmHW_K4QRSKPF7yq8wIs",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 27
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Vibar, 37353 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1321657,
+               "lng" : -101.716128
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.13351552989272,
+                  "lng" : -101.7147781701073
+               },
+               "southwest" : {
+                  "lat" : 21.13081587010728,
+                  "lng" : -101.7174778298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bus-71.png",
+         "name" : "Terminal San Juan Bosco",
+         "photos" : [
+            {
+               "height" : 3456,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110960449654136552655\"\u003eAlejandro Mejia F.\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAJC9FtC3LeZ8x85BR9TQG8SlvmUjISvcCBgeNJMRacrBVscic1hDQEAJ2ktWt97Adh4TpCchG65FZOiNXLoJ9dSQpC7ltizjXQRFEKW7dXVhevVxuZGPG5VsHN8gxKzPzEhD8AL7DQsDxljTMP-3N8-I7GhTElhBGhlzeNHEndne_RXKXnsV52Q",
+               "width" : 4608
+            }
+         ],
+         "place_id" : "ChIJ_xpuiJnAK4QR8Uae25a-14c",
+         "plus_code" : {
+            "compound_code" : "47JM+VG León, Guanajuato",
+            "global_code" : "75HW47JM+VG"
+         },
+         "rating" : 3.4,
+         "reference" : "ChIJ_xpuiJnAK4QR8Uae25a-14c",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 136
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Av. Panorama 614 A, Panorama, 37160 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1509344,
+               "lng" : -101.6975116
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.15235747989272,
+                  "lng" : -101.6962193701073
+               },
+               "southwest" : {
+                  "lat" : 21.14965782010728,
+                  "lng" : -101.6989190298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Terminal 10",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 2592,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115210636141469989017\"\u003eA Google User\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAwY0pGE7qlQH-KNFQ382J0LDp56-hD8BZ0i_7t4yKpdbSPDkr100h7llwCZmdmxTv3c7g-qX9ViIf98zaTPqCcUHj4geSpzZ_FkFqQwsUWTmGfjmtZxYhECKcI8Gy5puSEhC1Rgsey6ZJKhPeWn6AVcbkGhQLmoXNOlDpxy_t2DlgeqeJgBH_aA",
+               "width" : 3872
+            }
+         ],
+         "place_id" : "ChIJ9TJHglq_K4QRXMCPcPhQdjU",
+         "plus_code" : {
+            "compound_code" : "5822+9X León, Guanajuato",
+            "global_code" : "75HW5822+9X"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ9TJHglq_K4QRXMCPcPhQdjU",
+         "types" : [ "travel_agency", "lodging", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 4
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1401216,
+               "lng" : -101.6317928
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.14143502989272,
+                  "lng" : -101.6305983201073
+               },
+               "southwest" : {
+                  "lat" : 21.13873537010728,
+                  "lng" : -101.6332979798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bus-71.png",
+         "name" : "Terminal Maravillas",
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/117121682994998250166\"\u003eCesar Cordova\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAwMbEHx2SF_ehakZT-KP2fPtX18pp3RUeHhIr3ci9f08Mr8HfUaEgv_MyOoym5F-xFvvMlEVGEJgWvZ7QeOVy1jWa3VOkQI54DH_HuQdh7UW7_GycjCuJnHaVdXcEr2TAEhD-6rmAkkby-XYjCWbked-vGhT4iNBGhw_KqYdATkCBbrIe-zMAuw",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJ9QoBjpa-K4QRgY1M0CYSi4I",
+         "plus_code" : {
+            "compound_code" : "49R9+27 León, Guanajuato",
+            "global_code" : "75HW49R9+27"
+         },
+         "rating" : 3.7,
+         "reference" : "ChIJ9QoBjpa-K4QRgY1M0CYSi4I",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 23
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Fraccion de San Nicolas, 37477 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.090743,
+               "lng" : -101.6765488
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.09195457989272,
+                  "lng" : -101.6752904201073
+               },
+               "southwest" : {
+                  "lat" : 21.08925492010728,
+                  "lng" : -101.6779900798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bus-71.png",
+         "name" : "Terminal Timoteo Lozano",
+         "place_id" : "ChIJeekF4sa_K4QRq7eVRrkC6_c",
+         "plus_code" : {
+            "compound_code" : "38RF+79 León, Guanajuato",
+            "global_code" : "75HW38RF+79"
+         },
+         "rating" : 4,
+         "reference" : "ChIJeekF4sa_K4QRq7eVRrkC6_c",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Centro, 37000 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.122808,
+               "lng" : -101.685187
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12416332989272,
+                  "lng" : -101.6838542201073
+               },
+               "southwest" : {
+                  "lat" : 21.12146367010728,
+                  "lng" : -101.6865538798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Parada Oficial Ubicada En Calle Belisario Dominguez Y Calle Josefa Ortiz De Domingo",
+         "place_id" : "ChIJN3PoXnO_K4QRsVTbYoS39gY",
+         "plus_code" : {
+            "compound_code" : "48F7+4W León, Guanajuato",
+            "global_code" : "75HW48F7+4W"
+         },
+         "rating" : 0,
+         "reference" : "ChIJN3PoXnO_K4QRsVTbYoS39gY",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 0
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Centro, 37000 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.122191,
+               "lng" : -101.686516
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12353477989272,
+                  "lng" : -101.6851493701073
+               },
+               "southwest" : {
+                  "lat" : 21.12083512010728,
+                  "lng" : -101.6878490298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Parada Oficial Ubicada En Calle Reforma Y Calle Belisario Dominguez",
+         "place_id" : "ChIJG3s8hnS_K4QRrdvolYk2nq8",
+         "plus_code" : {
+            "compound_code" : "48C7+V9 León, Guanajuato",
+            "global_code" : "75HW48C7+V9"
+         },
+         "rating" : 0,
+         "reference" : "ChIJG3s8hnS_K4QRrdvolYk2nq8",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 0
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Blvd. Hilario Medina 202, Killian, 37260 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1207204,
+               "lng" : -101.6613935
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12214992989272,
+                  "lng" : -101.6601462701073
+               },
+               "southwest" : {
+                  "lat" : 21.11945027010728,
+                  "lng" : -101.6628459298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Primera Plus",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/100646599031204502039\"\u003eMarco Leon Camarena\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAH7Sf515yyd1GcAFvoL4_Ret8s8sZ-ukScZN68wGvhT-tbfyd3aRLOGrnrXN50Y3sAtY3tnXwuqJw1anfVReu_pAuGsApP67hS2EL36Bl3hX59pFzq6uMOxkM1f9MJI39EhBOeGCFOf14oK7HPo-MKL5oGhRdWuQ6udz1OaxkvtkSuqytTS9VvQ",
+               "width" : 4000
+            }
+         ],
+         "place_id" : "ChIJ92v3MwC_K4QRuOhiodypW60",
+         "plus_code" : {
+            "compound_code" : "48CQ+7C León, Guanajuato",
+            "global_code" : "75HW48CQ+7C"
+         },
+         "rating" : 4.3,
+         "reference" : "ChIJ92v3MwC_K4QRuOhiodypW60",
+         "types" : [ "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1034
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Españita, 37270 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1209829,
+               "lng" : -101.6613501
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.1228808,
+                  "lng" : -101.6599355701073
+               },
+               "southwest" : {
+                  "lat" : 21.1190092,
+                  "lng" : -101.6626352298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Estación Central de Autobuses",
+         "opening_hours" : {},
+         "photos" : [
+            {
+               "height" : 1666,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/104126294460699665947\"\u003eCentral de Autobuses\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAcyQwUzWKlCkIw9mfnFKg_aJjkNcyuLXEWfVAqZINKTG7K8h4BaG-KXKZ_gwbAMzasjwhXgxXXjoHJuTg-dNPEC1WbtWEXFq3GXNLCZrA3MCo53I7AdUVcqadiY4Bbq9IEhC9g6KbMglrKKuOXJ5l5giZGhRRviAM-7XR4UpMnWypbG14c3-qGQ",
+               "width" : 2048
+            }
+         ],
+         "place_id" : "ChIJnQJyKgC_K4QRnnIkqZp3ReE",
+         "plus_code" : {
+            "compound_code" : "48CQ+9F León, Guanajuato",
+            "global_code" : "75HW48CQ+9F"
+         },
+         "rating" : 4,
+         "reference" : "ChIJnQJyKgC_K4QRnnIkqZp3ReE",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 156
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "37477, Blvrd Timoteo Lozano 1665, Fraccion de San Nicolas, 37477 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.0907985,
+               "lng" : -101.6766114
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.09200302989272,
+                  "lng" : -101.6753576701073
+               },
+               "southwest" : {
+                  "lat" : 21.08930337010727,
+                  "lng" : -101.6780573298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Terminal Optibus Timoteo Lozano",
+         "opening_hours" : {
+            "open_now" : true
+         },
+         "photos" : [
+            {
+               "height" : 3120,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/107348858598345411058\"\u003eGeiser Damian Rodríguez\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAMoKKXyiRucKGgYPYaE_dYgED9RO21fMdEMl79XD3D-zMhJbzHNiLs7FxwhwU56ldLUxQ-BPhvAo9REnf2EJb0CwxX7Y29Qu1gXzgE54ae4uC8ifym2ADYjbrWxA6rJDdEhDy5W1JkJgkeHx_6FqzwvclGhT2-VlXLkbmEfGkSX7LxYkywxrMXw",
+               "width" : 4160
+            }
+         ],
+         "place_id" : "ChIJLT0cVca_K4QRQ-uKzjmsajE",
+         "plus_code" : {
+            "compound_code" : "38RF+89 León, Guanajuato",
+            "global_code" : "75HW38RF+89"
+         },
+         "rating" : 4,
+         "reference" : "ChIJLT0cVca_K4QRQ-uKzjmsajE",
+         "types" : [ "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2078
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Centro, 37000 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1237223,
+               "lng" : -101.6862345
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12507162989272,
+                  "lng" : -101.6848816201073
+               },
+               "southwest" : {
+                  "lat" : 21.12237197010728,
+                  "lng" : -101.6875812798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Paradero Soledad",
+         "place_id" : "ChIJibyacnO_K4QR9yWQ3_MQXTQ",
+         "plus_code" : {
+            "compound_code" : "48F7+FG León, Guanajuato",
+            "global_code" : "75HW48F7+FG"
+         },
+         "rating" : 2.5,
+         "reference" : "ChIJibyacnO_K4QR9yWQ3_MQXTQ",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 2
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "San Agustin, 37240 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1371531,
+               "lng" : -101.6716796
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.13850497989272,
+                  "lng" : -101.6703377201073
+               },
+               "southwest" : {
+                  "lat" : 21.13580532010728,
+                  "lng" : -101.6730373798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Parada Oficial Ubicada En Calle Jiquilpan Y Privada Autlan",
+         "place_id" : "ChIJkw9FNRi_K4QRQq2HhMY6h2U",
+         "plus_code" : {
+            "compound_code" : "48PH+V8 León, Guanajuato",
+            "global_code" : "75HW48PH+V8"
+         },
+         "rating" : 0,
+         "reference" : "ChIJkw9FNRi_K4QRQq2HhMY6h2U",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 0
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Los Gavilanes, 37270 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1182617,
+               "lng" : -101.6617871
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.11957987989272,
+                  "lng" : -101.6604482201073
+               },
+               "southwest" : {
+                  "lat" : 21.11688022010728,
+                  "lng" : -101.6631478798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Paradero Central Camionera",
+         "opening_hours" : {},
+         "photos" : [
+            {
+               "height" : 1440,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115504709998370424818\"\u003eGuillermo Colín Castillo\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAKpgXLNOacymZ2pwLRW3scMBnWTM1m20Nh-_JJG2ZjSBZERKfuLLytk9XHRSDELE8GJZYSK7krDJUQLxiQr38nmT2QrotXgft6BUJk90IdEe7N2VZvV1mDGCH2oFIVm1mEhB2rroaDMEpqt49myyWNmkfGhSpmb4vzvekslmzAt1byKRjOIOrbQ",
+               "width" : 2560
+            }
+         ],
+         "place_id" : "ChIJdwxwBwC_K4QR8grdYtD5uOU",
+         "plus_code" : {
+            "compound_code" : "489Q+87 León, Guanajuato",
+            "global_code" : "75HW489Q+87"
+         },
+         "rating" : 3.9,
+         "reference" : "ChIJdwxwBwC_K4QR8grdYtD5uOU",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 26
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Centro, 37000 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1222144,
+               "lng" : -101.6862016
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12357982989272,
+                  "lng" : -101.6848463701073
+               },
+               "southwest" : {
+                  "lat" : 21.12088017010728,
+                  "lng" : -101.6875460298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Parada 283 Zona Centro",
+         "place_id" : "ChIJrb_XnHS_K4QRorZs7r3D6io",
+         "plus_code" : {
+            "compound_code" : "48C7+VG León, Guanajuato",
+            "global_code" : "75HW48C7+VG"
+         },
+         "rating" : 0,
+         "reference" : "ChIJrb_XnHS_K4QRorZs7r3D6io",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 0
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Portales de la Arboleda, León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1722113,
+               "lng" : -101.6706373
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.17349452989272,
+                  "lng" : -101.6693281201073
+               },
+               "southwest" : {
+                  "lat" : 21.17079487010728,
+                  "lng" : -101.6720277798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bus-71.png",
+         "name" : "Terminal Portales",
+         "place_id" : "ChIJhW6WvNG4K4QRp5-E2qBlUdI",
+         "plus_code" : {
+            "compound_code" : "58CH+VP León, Guanajuato",
+            "global_code" : "75HW58CH+VP"
+         },
+         "rating" : 5,
+         "reference" : "ChIJhW6WvNG4K4QRp5-E2qBlUdI",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 1
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Blvd. Delta 101, Fracciones de Santa Julia, 37530 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.094588,
+               "lng" : -101.6178126
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.09593252989272,
+                  "lng" : -101.6165344201073
+               },
+               "southwest" : {
+                  "lat" : 21.09323287010728,
+                  "lng" : -101.6192340798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/bus-71.png",
+         "name" : "Delta",
+         "photos" : [
+            {
+               "height" : 3120,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/118313159184976235749\"\u003eLina Martinez\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAhPxCMiFRg6wH9CYU1DzmwR8WeCWNzs_dXHPd4GLjS2vl3yULO-JN4WOmGc5C_as5b0eLjG00Qag-5mmS8l7BWfqf5Gm6rubtfjUrNrMLSZUBOtkjZHBkG55Bl143Hgm8EhAW_d9OrC1KzK7B_Nb_P0h7GhRYh9dfWguyA50vRzP-DRN2UvVyhQ",
+               "width" : 4160
+            }
+         ],
+         "place_id" : "ChIJV_swAwu-K4QRmIGcOtkj1BM",
+         "plus_code" : {
+            "compound_code" : "39VJ+RV León, Guanajuato",
+            "global_code" : "75HW39VJ+RV"
+         },
+         "rating" : 2.8,
+         "reference" : "ChIJV_swAwu-K4QRmIGcOtkj1BM",
+         "types" : [
+            "bus_station",
+            "transit_station",
+            "point_of_interest",
+            "establishment"
+         ],
+         "user_ratings_total" : 188
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Centro, 37000 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.119704,
+               "lng" : -101.683218
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12103592989272,
+                  "lng" : -101.6818760201073
+               },
+               "southwest" : {
+                  "lat" : 21.11833627010728,
+                  "lng" : -101.6845756798927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Parada Oficial Ubicada En Calle Pino Suarez Y Calle Juarez",
+         "place_id" : "ChIJ0wn8Jwu_K4QRpXznrYOqhS4",
+         "plus_code" : {
+            "compound_code" : "4898+VP León, Guanajuato",
+            "global_code" : "75HW4898+VP"
+         },
+         "rating" : 5,
+         "reference" : "ChIJ0wn8Jwu_K4QRpXznrYOqhS4",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 1
+      },
+      {
+         "business_status" : "OPERATIONAL",
+         "formatted_address" : "Centro, 37327 León, Gto., México",
+         "geometry" : {
+            "location" : {
+               "lat" : 21.1225175,
+               "lng" : -101.6742273
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 21.12389557989272,
+                  "lng" : -101.6728649701073
+               },
+               "southwest" : {
+                  "lat" : 21.12119592010728,
+                  "lng" : -101.6755646298927
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+         "name" : "Paradero Expiatorio",
+         "opening_hours" : {},
+         "photos" : [
+            {
+               "height" : 3024,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/110404703680828810268\"\u003eJuan Escamilla\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAA88BT90m_EP0ejRx8pB2NcNffPgkc53_CcL9w_mIfQXy3xXyPIdSeiarihGC25n364lOl_jBTrMJF8FlKwQ-ObqB31XzxiWqBPsZFT-wy72fsQgsCmH9XH6YM_cB7jWahEhDay0MRGQLd78vnOKrSU0fnGhT26mlbSJ0ZSlc70RCrjnc4DuiUYg",
+               "width" : 4032
+            }
+         ],
+         "place_id" : "ChIJy5VwyAi_K4QR2AceDsSrMgs",
+         "plus_code" : {
+            "compound_code" : "48FG+28 León, Guanajuato",
+            "global_code" : "75HW48FG+28"
+         },
+         "rating" : 3.9,
+         "reference" : "ChIJy5VwyAi_K4QR2AceDsSrMgs",
+         "types" : [ "transit_station", "point_of_interest", "establishment" ],
+         "user_ratings_total" : 12
+      }
+   ],
+   "status" : "OK"
+}
