@@ -393,13 +393,24 @@
                 </div>
             </div>
         </section>
-        <section id="desplazarme"  class="content-section" style="opacity: 1;padding-top: 0px;">
-            <div>
-                <iframe  src="js/service/usuario-solicitante/mapdesplazarse.html" width="100%" height="600px" frameborder="0" style="border:0">
+        <section id="desplazarme"  class="content-section" style="opacity: 1;">
+            <div id="mapadesplazarpos" style="position:relative;
+            overflow: hidden;">
+                <iframe  src="js/service/usuario-solicitante/mapdesplazarse.html"  frameborder="0" style="z-index: 3;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                padding: 0px;
+                border-width: 0px;
+                margin: 0px;
+                left: 0px;
+                top: 0px;
+                touch-action: pan-x pan-y;
+                cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;">
  
                 </iframe>
             </div>
-            <div id="contact-content">
+            <div id="contact-content" style="visibility: hidden;">
                 <div class="section-heading">
                     <h1>Contact<br><em>Sentra</em></h1>
                     <p>Curabitur hendrerit mauris mollis ipsum vulputate rutrum.
@@ -513,6 +524,9 @@
 
     <script>
         // Hide Header on on scroll down
+        $('document').ready(function(){
+            setTimeout(function(){ document.getElementById('mapadesplazarpos').style="position:initial;" }, 3000);
+        });
         var didScroll;
         var lastScrollTop = 0;
         var delta = 5;
