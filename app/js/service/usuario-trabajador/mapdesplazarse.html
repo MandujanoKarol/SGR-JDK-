@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+</head>
+<body style=" 
+background-color: grey;
+">
+    <div id="mapadesplazarme" style="z-index: 3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px;
+    touch-action: pan-x pan-y;
+    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;" ></div> 
+
+    <script>  
+     // https://mandujanokarol.github.io/SGR-JDK-/app/js/service/terminales.json
+    //  https://maps.googleapis.com/maps/api/place/textsearch/json?query=terminal&location=21.125132,-101.674798&radius=1000&key=AIzaSyCAN7lSxDxT-4bhikKwEt13Y3L2d7JlWXc
+    fetch('https://mandujanokarol.github.io/SGR-JDK-/app/js/service/terminales.json').then(function (respuesta) {
+        if (respuesta.ok) {
+            respuesta.json().then(datos => {
+                //console.log(datos);
+                var markers=[];  
+                ///Mapa estilos
+                const tilesProvider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                ///centrar mapa en cierta coordenada
+                let Mapview = L.map('mapadesplazarme').setView([21.125132,-101.674798],13);
+                ///Agregar a  mapa propiedades
+                L.tileLayer(tilesProvider,{
+                    maxZoom: 15,
+		            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    id: 'mapbox/light-v9'
+                    }).addTo(Mapview); 
+                datos.results.forEach(function (entrada) { 
+
+                    console.log(entrada);
+                    console.log("icon: "+ entrada.icon);
+                    console.log("name: "+ entrada.name);
+                    console.log("coordenadas de terminal: lat:"+ entrada.geometry.location.lat +", long: "+entrada.geometry.location.lng);
+                    L.marker([
+                    entrada.geometry.location.lat,
+                    entrada.geometry.location.lng],
+                    {icon: 
+                        L.icon({    
+                        iconUrl:entrada.icon,    
+                        iconSize:[12,12],    
+                        iconAnchor:[6,6],    
+                        popupAnchor:[-1,-6]
+                        })
+                    }).addTo(Mapview).bindPopup("<b>"+entrada.name+"</b><br />"+entrada.business_status+"<br />"+entrada.formatted_address);
+                }); 
+            }).catch(function (error) {
+                console.log(error.message);
+            });
+        } else {
+            console.log(respuesta);
+        }
+    }).catch(function (error) {
+        console.log('Hubo un problema con la petición Fetch:' + error.message);
+    });
+
+     
+    </script> 
+
+</body>
+
+</html>
