@@ -387,9 +387,9 @@ function registro() {
                     "estado": parseInt(1)
                 }).then(function (result) {
                     if (tipousuario === 0) {
-                        //window.location.href = "solicitante.html";
+                        window.location.href = "solicitante.html";
                     } else if (tipousuario === 1) {
-                        ///window.location.href = "trabajador.html";
+                        window.location.href = "trabajador.html";
                     }
                 }).catch(function (error) {
                     floatingMessage(error.code, "", "firebase");
