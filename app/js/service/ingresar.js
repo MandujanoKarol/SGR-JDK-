@@ -373,7 +373,7 @@ function registro() {
         } 
         var genero=$("#gender option:selected").text();  
         var fechanacimiento=document.forms["registerForm"]["dateregister"].value; 
-
+        var edad=getAge(fechanacimiento);
  
         ///create User With Email And Password
         auth.createUserWithEmailAndPassword(txtemailregister,txtpasswordregister).then(cred => {
@@ -389,6 +389,7 @@ function registro() {
                 return db.collection('cuentasusuarios').doc(cred.user.uid).set({
                     "nombre": txtnombreregister,
                     "apellido": txtapellidoregister,
+                    "edad":edad,
                     "imagen": "img/perfil/perfil.png",
                     "correo": txtemailregister,
                     "telefono": txttelefonoregister,
@@ -416,3 +417,15 @@ function registro() {
 
 
 };
+function getAge(dateString) 
+{ 
+    var today = new Date(); 
+    var birthDate = new Date(dateString); 
+    var age = today.getFullYear() - birthDate.getFullYear(); 
+    var m = today.getMonth() - birthDate.getMonth(); 
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    { 
+     age--; 
+    } 
+    return age; 
+} 
