@@ -39,12 +39,7 @@ background-color: grey;
                         'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
                     id: 'mapbox/light-v9'
                     }).addTo(Mapview); 
-                datos.results.forEach(function (entrada) { 
-
-                    console.log(entrada);
-                    console.log("icon: "+ entrada.icon);
-                    console.log("name: "+ entrada.name);
-                    console.log("coordenadas de terminal: lat:"+ entrada.geometry.location.lat +", long: "+entrada.geometry.location.lng);
+                datos.results.forEach(function (entrada) {  
                     L.marker([
                     entrada.geometry.location.lat,
                     entrada.geometry.location.lng],
