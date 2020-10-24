@@ -186,6 +186,59 @@
                     <br>sed pellentesque neque malesuada vitae.</p>
             </div>
             <div class="section-content">
+
+
+                <form class="register-form" name="registerForm">
+                    <p class="message">Selecione el tipo de cuenta</p>
+                    <div class="radioselect">
+                      <input type="radio" id="solicitante" name="solicitantetrabajador">
+                      <input type="radio" id="trabajador" name="solicitantetrabajador">
+                      <div>
+                        <label for="solicitante" id="rd1">Solicitante</label>
+                        <label for="trabajador" id="rd2">Trabajador</label>
+                      </div>
+                    </div>
+  
+                    <input type="text" placeholder="Nombre" name="txtnombreregister" onblur="onblurnombre();" required />
+                    <input type="text" placeholder="Apellido" name="txtapellidoregister" onblur="onblurapellido();"
+                      required />
+                    <div>
+                      <select class="minimal" required name="selgeneroregister" id="gender"
+                        onchange="onchangeselectgener();">
+                        <option value="" hidden>Genero</option>
+                      </select>
+                    </div>
+                    <input type="date" id="dob" required name="dateregister" onchange="onchangeselectdate()" />
+                    <div class="form-group">
+                      <input id="phone" type="tel" placeholder="N° Teléfono" name="txttelefonoregister"
+                        onblur="onblurtelefono();" onkeyup="onkeyuptelefono()"/> 
+                    </div>
+                    <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();"
+                      required />
+  
+                    <div>
+                      <select class="minimal" required name="seloficioregister" id="oficio"
+                        onchange="onchangeselectoficio();">
+                        <option value="" hidden>Oficio</option>
+                      </select>
+                    </div>
+  
+                    <input type="email" placeholder="Correo" style="box-shadow: inset 0 0 0 4px #45489a;"
+                      name="txtemailregister" onblur="onbluremail();" required />
+                    <div style="position: relative;">
+                      <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
+                      <input type="password" placeholder="contrasena" name="txtpasswordregister" required
+                        style="box-shadow: inset 0 0 0 4px #45489a;" onblur="onblurpassword();" />
+                    </div>
+                    <button type="button" onclick="validator()">Crear cuenta</button>
+                    <p class="message">Estas registrado? <a href="JavaScript:void(0);">Iniciar sesion</a></p>
+                  </form>
+
+
+
+
+
+                  
                 <div class="owl-carousel owl-theme">
                     <div class="item">
                         <div class="image">
