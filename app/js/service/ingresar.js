@@ -361,7 +361,7 @@ function registro() {
         var txtapellidoregister=document.registerForm.txtapellidoregister.value; 
         var txtemailregister=document.registerForm.txtemailregister.value; 
         var txtpasswordregister= sha256(document.registerForm.txtpasswordregister.value); 
-        var txttelefonoregister=iti.getNumber();  
+        var txttelefonoregister=document.registerForm.txttelefonoregister.value;  
         var txtdireccionregister=document.registerForm.txtdireccionregister.value; 
         var oficio=$("#oficio option:selected").text(); 
         var tipousuario=0;

@@ -34,6 +34,8 @@ $(document).ready(function() {
         });
 
         document.getElementById('direccionperfil').value = usuarioinfo.data().direccion;
+        document.getElementById('imagenperfil').src=usuarioinfo.data().imagen;
+        document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
     });
  
 });  
@@ -46,3 +48,46 @@ var iti = window.intlTelInput(input, {
     //preferredCountries: ["mx","us" ],
     onlyCountries: ["mx"]
 });
+
+function onkeyuptelefono(){ 
+    var tel=document.getElementById('telefonoperfil').value;
+    tel=tel.replace("-","").replace("(","").replace(")","").replace(" ","");
+    var arraytel=Array.from(tel) 
+    var length=arraytel.length; 
+    if(length>10){   
+        arraytel.pop();   
+        var phoneNumberString = arraytel.join('');
+        var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+        var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/) 
+        if (match) {
+            document.getElementById('telefonoperfil').value = '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            document.getElementById('telefonoperfil').style = " ";
+            return 0;
+        } 
+    }
+    if(length==10){
+        var phoneNumberString = tel;
+        var cleaned = ('' + phoneNumberString).replace(/\D/g, '')
+        var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/) 
+        if (match) {
+            document.getElementById('telefonoperfil').value = '(' + match[1] + ') ' + match[2] + '-' + match[3];
+            document.getElementById('telefonoperfil').style = " ";
+            return 0;
+        }  
+    }
+}
+function onblurtelefono() {
+    if (document.getElementById('telefonoperfil').value != "") {
+        var tel=document.getElementById('telefonoperfil').value.replace("-","").replace("(","").replace(")","").replace(" ","");
+        if (tel.length == 10) {
+            document.getElementById('telefonoperfil').style = " ";
+            return 0;
+        } else {
+            document.getElementById('telefonoperfil').style = "box-shadow: inset 0 0 0 4px #e60346;";
+            return 1;
+        }
+    } else {
+        document.getElementById('telefonoperfil').style = "box-shadow: inset 0 0 0 4px #e60346;";
+        return 1;
+    }
+}
