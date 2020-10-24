@@ -1,11 +1,10 @@
+var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
 $(document).ready(function() {  
     /*auth.signOut().then(()=>{  
         localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af"); 
     }).then(()=>{ 
-    });*/
-
-    var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
-    db.collection('cuentasusuarios').doc(uid).get().then( usuarioinfo => {   
+    });*/ 
+    db.collection('cuentasusuarios').doc(uid).onSnapshot(function(usuarioinfo) {   
         console.log(usuarioinfo.data());
         document.getElementById('nombreperfil').value = usuarioinfo.data().nombre;
         document.getElementById('apellidoperfil').value = usuarioinfo.data().apellido;
@@ -36,6 +35,7 @@ $(document).ready(function() {
         document.getElementById('direccionperfil').value = usuarioinfo.data().direccion;
         document.getElementById('imagenperfil').src=usuarioinfo.data().imagen;
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
+        document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
     });
  
 });  
@@ -91,3 +91,19 @@ function onblurtelefono() {
         return 1;
     }
 }
+const formcontacto = document.forms['formactualizarperfil']; 
+    formcontacto.addEventListener('submit', (e) => {
+        e.preventDefault();   
+        db.collection('cuentasusuarios').doc(uid).update({ 
+            "nombre": txtnombreregister,
+            "apellido": txtapellidoregister,
+            "edad":edad,
+            "imagen": "img/perfil/perfil.png",
+            "correo": txtemailregister,
+            "telefono": txttelefonoregister,
+            "direccion": txtdireccionregister, 
+            "fechaNacimiento": fechanacimiento, 
+            "genero": genero
+        });  
+        //formcontacto.submit(); 
+});
