@@ -895,6 +895,21 @@ header {
   margin-bottom: 25px;
 }
 
+select#genero {
+  border-radius: 0px;
+  padding-left: 15px;
+  font-size: 13px;
+  color: #aaa;
+  background-color: #f4f4f4;
+  border: 1px solid #eee;
+  outline: none;
+  box-shadow: none;
+  line-height: 40px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
 #contact textarea {
   border-radius: 0px;
   padding-left: 15px;
