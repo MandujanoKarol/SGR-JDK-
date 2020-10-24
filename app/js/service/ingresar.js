@@ -268,14 +268,20 @@ function onblurdireccion() {
         return 0;
     }
 }
+var inputoficion=true;
 function onchangeselectoficio() {
-    if ($("#oficio option:selected").text() != "Oficio") {
-        document.forms['registerForm'].elements["seloficioregister"].style = " ";
+    if(inputoficion){
+        if ($("#oficio option:selected").text() != "Oficio") {
+            document.forms['registerForm'].elements["seloficioregister"].style = " ";
+            return 0;
+        } else {
+            document.forms['registerForm'].elements["seloficioregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
+            return 1;
+        }
+    }else{
         return 0;
-    } else {
-        document.forms['registerForm'].elements["seloficioregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-        return 1;
     }
+    
 }
 function onchangeselectgener() {
     if ($("#gender option:selected").text() != "Genero") {
@@ -295,7 +301,8 @@ function onchangeselectdate() {
         return 1;
     }
 }
-function radioinputs() {
+
+function radioinputs() { 
     if (document.getElementById('trabajador').checked != false || document.getElementById('solicitante').checked != false) {
         document.getElementById("rd1").style = " ";
         document.getElementById("rd2").style = " ";
@@ -305,8 +312,17 @@ function radioinputs() {
         document.getElementById("rd2").style = "box-shadow: inset 0 0 0 4px #e60346;";
         return 1;
     }
+} 
+function disabledselectoficio(){
+    document.getElementById('oficio').disabled = true;
+    document.getElementById('oficio').required = false;
+    inputoficion=false;
 }
-
+function enableselectoficio(){
+    document.getElementById('oficio').disabled = false;
+    document.getElementById('oficio').required = true;
+    inputoficion=true;
+}
 ////Funcion validar campos forms
 function validarForms() {
     var errores = 0;
