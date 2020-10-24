@@ -95,15 +95,26 @@ const formcontacto = document.forms['formactualizarperfil'];
     formcontacto.addEventListener('submit', (e) => {
         e.preventDefault();   
         db.collection('cuentasusuarios').doc(uid).update({ 
-            "nombre": txtnombreregister,
-            "apellido": txtapellidoregister,
-            "edad":edad,
-            "imagen": "img/perfil/perfil.png",
-            "correo": txtemailregister,
-            "telefono": txttelefonoregister,
-            "direccion": txtdireccionregister, 
-            "fechaNacimiento": fechanacimiento, 
-            "genero": genero
+            "nombre": document.getElementById('nombreperfil').value,
+            "apellido": document.getElementById('apellidoperfil').value,
+            "edad":getAge(document.getElementById('nacimientoperfil').value) ,
+            "imagen": "img/perfil/perfil.png", 
+            "telefono":  document.getElementById('telefonoperfil').value,
+            "direccion": document.getElementById('direccionperfil').value, 
+            "fechaNacimiento": document.getElementById('nacimientoperfil').value, 
+            "genero": document.getElementById("generoperfil").value
         });  
         //formcontacto.submit(); 
 });
+function getAge(dateString) 
+{ 
+    var today = new Date(); 
+    var birthDate = new Date(dateString); 
+    var age = today.getFullYear() - birthDate.getFullYear(); 
+    var m = today.getMonth() - birthDate.getMonth(); 
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+    { 
+     age--; 
+    } 
+    return age; 
+} 
