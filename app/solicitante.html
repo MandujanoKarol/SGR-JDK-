@@ -32,7 +32,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-
+    <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
 </head>
 
 <body>
@@ -248,10 +248,11 @@
 
 
                             <div class="col-md-4">
-                                <fieldset>
-                                    <input name="telefonoperfil" type="tel" class="form-control" id="telefonoperfil"
-                                        placeholder="Teléfono" required="">
-                                </fieldset>
+                                <fieldset> 
+                                    <div class="form-group">
+                                        <input  id="telefonoperfil" type="tel" placeholder="N° Teléfono" name="telefonoperfil" /> 
+                                    </div>
+                                    </fieldset>
                             </div>
                             <div class="col-md-4">
                                 <fieldset>
@@ -467,7 +468,8 @@
 
     <script src="js/plugins.js"></script>
     <script src="js/main_us.js"></script>
-
+    <script src="js/intlTelInput/intlTelInput.js"></script>
+    <script src="js/intlTelInput/utils.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
