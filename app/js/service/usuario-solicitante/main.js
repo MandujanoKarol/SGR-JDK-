@@ -4,8 +4,7 @@ $(document).ready(function() {
         localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af"); 
     }).then(()=>{ 
     });*/ 
-    db.collection('cuentasusuarios').doc(uid).onSnapshot(function(usuarioinfo) {   
-        console.log(usuarioinfo.data());
+    db.collection('cuentasusuarios').doc(uid).onSnapshot(function(usuarioinfo) {    
         document.getElementById('nombreperfil').value = usuarioinfo.data().nombre;
         document.getElementById('apellidoperfil').value = usuarioinfo.data().apellido;
         document.getElementById('emailperfil').value = usuarioinfo.data().correo;
@@ -37,7 +36,6 @@ $(document).ready(function() {
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
         document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
     });
- 
 });  
 ///INPUT Telefono
 var input = document.querySelector("#telefonoperfil");
@@ -92,7 +90,7 @@ function onblurtelefono() {
     }
 }
 const formcontacto = document.forms['formactualizarperfil']; 
-    formcontacto.addEventListener('submit', (e) => {
+formcontacto.addEventListener('submit', (e) => {
         e.preventDefault();   
         db.collection('cuentasusuarios').doc(uid).update({ 
             "nombre": document.getElementById('nombreperfil').value,
@@ -103,9 +101,11 @@ const formcontacto = document.forms['formactualizarperfil'];
             "direccion": document.getElementById('direccionperfil').value, 
             "fechaNacimiento": document.getElementById('nacimientoperfil').value, 
             "genero": document.getElementById("generoperfil").value
-        });  
-        //formcontacto.submit(); 
+        });   
 });
+
+
+
 function getAge(dateString) 
 { 
     var today = new Date(); 
