@@ -373,6 +373,7 @@ function registro() {
                 return db.collection('cuentasusuarios').doc(cred.user.uid).set({
                     "nombre": txtnombreregister,
                     "apellido": txtapellidoregister,
+                    "imagen": "img/perfil/perfil.png",
                     "correo": txtemailregister,
                     "telefono": txttelefonoregister,
                     "direccion": txtdireccionregister,
@@ -382,6 +383,7 @@ function registro() {
                     "fechaRegistro": new Date().toLocaleString(),
                     "genero": genero,
                     "tipo":tipousuario,
+                    "puntuacion":0,
                     "estado": parseInt(1)
                 }).then(function (result) {
                     if (tipousuario === 0) {
