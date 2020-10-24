@@ -31,7 +31,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> 
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
 </head>
 
@@ -63,7 +63,7 @@
 
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="index.html"><img src="img/logos/logo2-tam.png" width="280px"/></a>
+            <a href="index.html"><img src="img/logos/logo2-tam.png" width="280px" /></a>
         </div>
         <nav id="links">
             <ul>
@@ -188,51 +188,26 @@
             <div class="section-content">
 
 
-                <form class="" name="">
-                    <p class="message">Selecione el tipo de cuenta</p>
-                    <div class="radioselect">
-                      <input type="radio" id="solicitante" name="solicitantetrabajador">
-                      <input type="radio" id="trabajador" name="solicitantetrabajador">
-                      <div>
-                        <label for="solicitante" id="rd1">Solicitante</label>
-                        <label for="trabajador" id="rd2">Trabajador</label>
-                      </div>
-                    </div>
-  
-                    <input type="text" placeholder="Nombre" name="txtnombreregister" onblur="onblurnombre();" required />
-                    <input type="text" placeholder="Apellido" name="txtapellidoregister" onblur="onblurapellido();"
-                      required />
-                    <div>
-                      <select class="minimal" required name="selgeneroregister" id="gender"
-                        onchange="onchangeselectgener();">
-                        <option value="" hidden>Genero</option>
-                      </select>
-                    </div>
-                    <input type="date" id="dob" required name="dateregister" onchange="onchangeselectdate()" />
-                    <div class="form-group">
-                      <input id="phone" type="tel" placeholder="N° Teléfono" name="txttelefonoregister"
-                        onblur="onblurtelefono();" onkeyup="onkeyuptelefono()"/> 
-                    </div>
-                    <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();"
-                      required />
-  
-                    <div>
-                      <select class="minimal" required name="seloficioregister" id="oficio"
-                        onchange="onchangeselectoficio();">
-                        <option value="" hidden>Oficio</option>
-                      </select>
-                    </div>
-  
-                    <input type="email" placeholder="Correo" style="box-shadow: inset 0 0 0 4px #45489a;"
-                      name="txtemailregister" onblur="onbluremail();" required />
-                    <div style="position: relative;">
-                      <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
-                      <input type="password" placeholder="contrasena" name="txtpasswordregister" required
-                        style="box-shadow: inset 0 0 0 4px #45489a;" onblur="onblurpassword();" />
-                    </div>
-                    <button type="button" onclick="validator()">Crear cuenta</button>
-                    <p class="message">Estas registrado? <a href="JavaScript:void(0);">Iniciar sesion</a></p>
-                  </form>
+
+                <div class="container">
+                    <h2>Vertical (basic) form</h2>
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password"
+                                name="pwd">
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="remember"> Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+
 
 
 
@@ -446,10 +421,10 @@
                 </div>
             </div>
         </section>
-        <section id="desplazarme"  class="content-section" style="opacity: 1;">
+        <section id="desplazarme" class="content-section" style="opacity: 1;">
             <div id="mapadesplazarpos" style="position:relative;
             overflow: hidden;">
-                <iframe  src="js/service/usuario-solicitante/mapdesplazarse.html"  frameborder="0" style="z-index: 3;
+                <iframe src="js/service/usuario-solicitante/mapdesplazarse.html" frameborder="0" style="z-index: 3;
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -460,13 +435,14 @@
                 top: 0px;
                 touch-action: pan-x pan-y;
                 cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;">
- 
+
                 </iframe>
             </div>
             <div id="contact-content" style="visibility: hidden;">
                 <div class="section-heading">
                     <h1>Encuentra<br><em>las terminales</em></h1>
-                    <p>Ubica las rutas dentro de León, Guanajuato, para que puedas trasladarte hacia el lugar esperado, mediante este mapa de terminales dentro de nuestra ciudad.</p>
+                    <p>Ubica las rutas dentro de León, Guanajuato, para que puedas trasladarte hacia el lugar esperado,
+                        mediante este mapa de terminales dentro de nuestra ciudad.</p>
 
                 </div>
                 <div class="section-content">
@@ -576,8 +552,8 @@
 
     <script>
         // Hide Header on on scroll down
-        $('document').ready(function(){
-            setTimeout(function(){ document.getElementById('mapadesplazarpos').style="position:initial;" }, 3000);
+        $('document').ready(function () {
+            setTimeout(function () { document.getElementById('mapadesplazarpos').style = "position:initial;" }, 3000);
         });
         var didScroll;
         var lastScrollTop = 0;
