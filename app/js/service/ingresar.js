@@ -368,7 +368,7 @@ function registro() {
                 var coordenadas = {
                     Latitud: 0,
                     Longitud: 0
-                }
+                };
                 //registrar nuevos datos en firebase database with id user auth
                 return db.collection('cuentasusuarios').doc(cred.user.uid).set({
                     "nombre": txtnombreregister,
@@ -383,7 +383,7 @@ function registro() {
                     "fechaRegistro": new Date().toLocaleString(),
                     "genero": genero,
                     "tipo":tipousuario,
-                    "puntuacion":0,
+                    "puntuacion":parseInt(0),
                     "estado": parseInt(1)
                 }).then(function (result) {
                     if (tipousuario === 0) {
