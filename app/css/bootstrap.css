@@ -7834,6 +7834,11 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered th, .table-bordered td {
     border: 1px solid #dee2e6 !important;
   }
+
+  i.fas.fa-star.colores {
+    color: aqua !important;
+}
+
 }
 
 /*# sourceMappingURL=bootstrap.css.map */

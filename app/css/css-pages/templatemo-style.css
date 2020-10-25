@@ -1146,6 +1146,8 @@ select#genero {
     padding-right: 15px;
   }
 
-
+  .i.fas.fa-star.colores {
+    color: aqua;
+  }
 
 }
