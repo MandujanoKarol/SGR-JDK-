@@ -1152,6 +1152,14 @@ select#genero {
   .strong.textobold {
     float: left;
   }
+
+  .textobold {
+    float: left;
+  }
+
+  #textobold {
+    float: left;
+  }
   
 
 }
