@@ -1146,7 +1146,7 @@ select#genero {
     padding-right: 15px;
   }
 
-  .textobold {
+  .strong.textobold {
     text-align: left !important;
     float: left;
 }
