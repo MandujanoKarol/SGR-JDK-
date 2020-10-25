@@ -21,6 +21,9 @@
     <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <!-- Fontawesome 5 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/css-pages/bootstrap.min.css">
     <link rel="stylesheet" href="css/css-pages/bootstrap-theme.min.css">
@@ -198,7 +201,8 @@
 
                             <div class="col-md-12">
                                 <fieldset>
-                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil" name="imagenperfil">
+                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
+                                        name="imagenperfil">
                                 </fieldset>
                             </div>
 
@@ -206,8 +210,8 @@
 
                             <div class="col-md-4">
                                 <fieldset>
-                                    <input name="nombreperfil" type="text" class="form-control" id="nombreperfil" placeholder="Nombre"
-                                        required="">
+                                    <input name="nombreperfil" type="text" class="form-control" id="nombreperfil"
+                                        placeholder="Nombre" required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-4">
@@ -227,7 +231,8 @@
 
                             <div class="col-md-4">
                                 <fieldset>
-                                    <select class="form-control selectstyle" required="" name="generoperfil" id="generoperfil">
+                                    <select class="form-control selectstyle" required="" name="generoperfil"
+                                        id="generoperfil">
                                         <option value="" hidden="">Género</option>
                                     </select>
                                 </fieldset>
@@ -240,27 +245,38 @@
                             </div>
                             <div class="col-md-4">
                                 <fieldset>
-                                    <input name="puntuacionperfil" type="number" class="form-control" id="puntuacionperfil"
-                                        placeholder="Puntuación" readonly>
+                                    <input name="nacimientoperfil" type="date" class="form-control"
+                                        id="nacimientoperfil" placeholder="Fecha de nacimiento" required="">
                                 </fieldset>
                             </div>
 
 
 
+
                             <div class="col-md-4">
-                                <fieldset> 
+                                <fieldset>
+                                    <strong class="textobold">N° Teléfono</strong><br>
                                     <div class="form-group">
-                                        <input  id="telefonoperfil" type="tel" placeholder="N° Teléfono" name="telefonoperfil" 
-                                        onblur="onblurtelefono();" onkeyup="onkeyuptelefono()"/> 
+                                        <input id="telefonoperfil" type="tel" placeholder="N° Teléfono"
+                                            name="telefonoperfil" onblur="onblurtelefono();"
+                                            onkeyup="onkeyuptelefono()" />
                                     </div>
-                                    </fieldset>
+                                </fieldset>
                             </div>
                             <div class="col-md-4">
                                 <fieldset>
-                                    <input name="nacimientoperfil" type="date" class="form-control" id="nacimientoperfil"
-                                        placeholder="Fecha de nacimiento" required="">
+                                    <strong >Puntuación</strong><br>
+                                    <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+
                                 </fieldset>
-                            </div>
+                            </div><br>
+                            
+
+
 
 
                             <div class="col-md-12">
