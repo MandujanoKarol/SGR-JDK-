@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#45489a">
     <meta name="apple-mobile-web-app-status-bar-style" content="#45489a">
 
-    <title>Sentra - Free Bootstrap Theme</title>
+    <title>Perfilados - Trabajador</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -21,6 +21,9 @@
     <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <!-- Fontawesome 5 -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/css-pages/bootstrap.min.css">
     <link rel="stylesheet" href="css/css-pages/bootstrap-theme.min.css">
@@ -32,10 +35,17 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
 </head>
 
 <body>
-
+    <style type="text/css">
+        #boton {
+            background: red;
+            float: left;
+            position: absolute;
+        }
+    </style>
 
 
     <header class="nav-down responsive-nav hidden-lg hidden-md">
@@ -50,7 +60,7 @@
             <nav id="links">
                 <ul class="nav navbar-nav">
                     <li><a href="#mapa">Home</a></li>
-                    <li><a href="#featured">Featured</a></li>
+                    <li><a href="#featured">Información Personal</a></li>
                     <li><a href="#projects">Recent Projects</a></li>
                     <li><a href="#video">Presentation</a></li>
                     <li><a href="#desplazarme">¿Cómo me desplazo?</a></li>
@@ -62,7 +72,10 @@
 
     <div class="sidebar-navigation hidde-sm hidden-xs">
         <div class="logo">
-            <a href="index.html">Perfilados<em>.com</em></a>
+            <a href="index.html"><img src="img/logos/logo2-tam.png" height="70%" /></a>
+        </div>
+        <div class="logo hidde-md hidden-lx hidden-lg">
+            <a href="index.html"><img src="img/logos/logo1B.png" width="130px" /></a>
         </div>
         <nav id="links">
             <ul>
@@ -77,7 +90,7 @@
                     <a href="#featured">
                         <span class="rect"></span>
                         <span class="circle"></span>
-                        Featured
+                        Información personal
                     </a>
                 </li>
                 <li>
@@ -180,141 +193,150 @@
         </section>
         <section id="featured" class="content-section">
             <div class="section-heading">
-                <h1>Featured<br><em>Places</em></h1>
-                <p>Praesent pellentesque efficitur magna,
-                    <br>sed pellentesque neque malesuada vitae.</p>
+                <h1>Información<br><em>personal</em></h1>
+                <p>Visualice su información y en caso de ser necesario puede actualizarla.
+                    <br>Únicamente la que está habilitada.</p>
             </div>
             <div class="section-content">
-                <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_1.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
+                <div class="section-content">
+                    <form id="contact" name="formactualizarperfil">
+                        <div class="row">
+
+
+                            <div class="col-md-12" style="padding-bottom: 35px; float: center;"
+                                enctype="multipart/form-data">
+                                <fieldset>
+                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagentrabajador"
+                                        name="imagentrabajador">
+                                    <div>
+                                        <input id="image" type="file" name="image" style="display: none;">
+                                        <button id="image_alt" type="submit"
+                                            style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center;"
+                                            class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <input name="nombretrabajador" type="text" class="form-control"
+                                        id="nombretrabajador" placeholder="Nombre" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Apellidos:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <input name="apellidotrabajador" type="text" class="form-control"
+                                        id="apellidotrabajador" placeholder="Apellidos" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Correo
+                                        electrónico:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <input name="emailperfil" type="emailtrabajador" class="form-control"
+                                        id="emailtrabajador" placeholder="Correo electrónico" readonly>
+                                </fieldset>
+                            </div>
+
+
+
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Seleccione el
+                                        género:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <select class="form-control selectstyle" required="" name="generotrabajador"
+                                        id="generotrabajador">
+                                        <option value="" hidden="">Género</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <input name="direcciontrabajador" type="text" class="form-control"
+                                        id="direcciontrabajador" placeholder="Dirección" required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Fecha de
+                                        nacimiento:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <input name="nacimientotrabajador" type="date" class="form-control"
+                                        id="nacimientotrabajador" placeholder="Fecha de nacimiento" required="">
+                                </fieldset>
+                            </div>
+
+
+
+
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">N° Teléfono:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input id="telefonotrabajador" type="tel" placeholder="N° Teléfono"
+                                            name="telefonotrabajador" onblur="onblurtelefono();"
+                                            onkeyup="onkeyuptelefono()" />
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="col-md-4" style="padding-top: 5px;">
+                                <fieldset>
+                                    <h5 style="font-weight: bold;">Puntuación:</h5>
+                                    <div style="color: rgb(255, 209, 6);">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star "></i>
+                                        <i class="fas fa-star "></i>
+                                        <i class="fas fa-star "></i>
+                                        <i class="fas fa-star "></i>
+                                    </div>
+                                </fieldset>
+                            </div><br>
+
+                            <div class="col-md-4">
+                                <div style="text-align: initial;">
+                                    <strong style="text-align: initial; font-weight: bold;">Seleccione el
+                                        oficio:</strong><br>
+                                </div>
+                                <fieldset>
+                                    <select class="form-control selectstyle" required="" name="oficiotrabajador"
+                                        id="oficiotrabajador">
+                                        <option value="" hidden="">Género</option>
+                                    </select>
+                                </fieldset>
+                            </div>
+
+
+
+
+
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <button type="submit" id="form-submit" class="btn">Actualizar información</button>
+                                </fieldset>
                             </div>
                         </div>
-                        <div class="text-content">
-                            <h4>Lorem ipsum dolor</h4>
-                            <span>Proin et sapien</span>
-                            <p>#1 You are allowed to use Sentra Template for your business or client websites. You can
-                                use it for commercial or non-commercial or educational purposes.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_2.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Phasellus a lacus ac odio</h4>
-                            <span>Maximus</span>
-                            <p>#2 You are NOT allowed to re-distribute this on any template website. You <strong>can
-                                    post</strong> a screenshot and a link back to original template page on your blog or
-                                site. Thank you.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_3.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Proin sit amet fringilla</h4>
-                            <span>Vulputate</span>
-                            <p>#3 Aliquam mollis lacus eget metus efficitur lobortis. Suspendisse libero lacus, accumsan
-                                vitae commodo tristique, luctus gravida metus.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_2.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>In volutpat augue lectus</h4>
-                            <span>Elementum</span>
-                            <p>#4 Aliquam mollis lacus eget metus efficitur lobortis. Suspendisse libero lacus, accumsan
-                                vitae commodo tristique, luctus gravida metus.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_1.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Cras commodo odio</h4>
-                            <span>Aliquam</span>
-                            <p>#5 Mauris lacinia pretium libero, ut tincidunt lacus molestie ornare. Phasellus a
-                                facilisis erat. Praesent eleifend nibh mauris, quis sodales lorem convallis pulvinar.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_3.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Sed at massa turpis</h4>
-                            <span>Curabitur</span>
-                            <p>#6 Vestibulum tincidunt ornare ligula vel molestie. Curabitur hendrerit mauris mollis
-                                ipsum vulputate rutrum. Phasellus luctus odio eget dui imperdiet.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_2.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Aliquam mollis lacus</h4>
-                            <span>Suspendisse</span>
-                            <p>#7 Suspendisse suscipit nulla sed nisl fermentum, auctor suscipit nunc rhoncus. Proin
-                                faucibus metus diam, nec hendrerit purus pharetra in.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_1.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Mauris lacinia pretium</h4>
-                            <span>Vestibulum</span>
-                            <p>#8 Suspendisse suscipit nulla sed nisl fermentum, auctor suscipit nunc rhoncus. Proin
-                                faucibus metus diam, nec hendrerit purus pharetra in.</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="image">
-                            <img src="img/featured_3.jpg" alt="">
-                            <div class="featured-button button">
-                                <a href="#projects">Continue Reading</a>
-                            </div>
-                        </div>
-                        <div class="text-content">
-                            <h4>Proin sit amet fringilla erat</h4>
-                            <span>Convallis</span>
-                            <p>#9 Suspendisse suscipit nulla sed nisl fermentum, auctor suscipit nunc rhoncus. Proin
-                                faucibus metus diam, nec hendrerit purus pharetra in.</p>
-                        </div>
-                    </div>
+                    </form>
                 </div>
+
             </div>
         </section>
         <section id="projects" class="content-section">
@@ -392,10 +414,10 @@
                 </div>
             </div>
         </section>
-        <section id="desplazarme"  class="content-section" style="opacity: 1;">
+        <section id="desplazarme" class="content-section" style="opacity: 1;">
             <div id="mapadesplazarpos" style="position:relative;
             overflow: hidden;">
-                <iframe  src="js/service/usuario-trabajador/mapdesplazarse.html"  frameborder="0" style="z-index: 3;
+                <iframe src="js/service/usuario-trabajador/mapdesplazarse.html" frameborder="0" style="z-index: 3;
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -406,13 +428,14 @@
                 top: 0px;
                 touch-action: pan-x pan-y;
                 cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;">
- 
+
                 </iframe>
             </div>
             <div id="contact-content" style="visibility: hidden;">
                 <div class="section-heading">
                     <h1>Encuentra<br><em>las terminales</em></h1>
-                    <p>Ubica las rutas dentro de León, Guanajuato, para que puedas trasladarte hacia el lugar esperado, mediante este mapa de terminales dentro de nuestra ciudad.</p>
+                    <p>Ubica las rutas dentro de León, Guanajuato, para que puedas trasladarte hacia el lugar esperado,
+                        mediante este mapa de terminales dentro de nuestra ciudad.</p>
 
                 </div>
                 <div class="section-content">
@@ -511,7 +534,8 @@
 
     <script src="js/plugins.js"></script>
     <script src="js/main_ut.js"></script>
-
+    <script src="js/intlTelInput/intlTelInput.js"></script>
+    <script src="js/intlTelInput/utils.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
@@ -521,8 +545,8 @@
     <script src="js/service/usuario-trabajador/main.js"></script>
 
     <script>
-         $('document').ready(function(){
-            setTimeout(function(){ document.getElementById('mapadesplazarpos').style="position:initial;" }, 3000);
+        $('document').ready(function () {
+            setTimeout(function () { document.getElementById('mapadesplazarpos').style = "position:initial;" }, 3000);
         });
         // Hide Header on on scroll down
         var didScroll;
