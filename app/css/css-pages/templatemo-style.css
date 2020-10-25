@@ -1146,15 +1146,6 @@ select#genero {
     padding-right: 15px;
   }
 
-  
 
-  .textobold {
-    float: left;
-  }
-
-  .strong.textobold {
-    max-width: max-content;
-    float: left;
-  }
 
 }
