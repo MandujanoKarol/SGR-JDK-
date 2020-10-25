@@ -1147,7 +1147,11 @@ select#genero {
   }
 
   .i.fas.fa-star.colores {
-    color: aqua;
+    color: aqua !important;
+  }
+
+  .colores {
+    color: aqua !important;
   }
 
 }

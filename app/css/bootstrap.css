@@ -7835,9 +7835,12 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important;
   }
 
-  i.fas.fa-star.colores {
+  .i.fas.fa-star.colores {
     color: aqua !important;
-}
+  }
+  .colores {
+    color: aqua !important;
+  } 
 
 }
 
