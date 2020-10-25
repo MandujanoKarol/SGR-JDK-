@@ -39,7 +39,13 @@
 </head>
 
 <body>
-
+    <style type="text/css">
+        #boton {
+            background: red;
+            float: left;
+            position: absolute;
+        }
+    </style>
 
 
     <header class="nav-down responsive-nav hidden-lg hidden-md">
@@ -189,7 +195,7 @@
             <div class="section-heading">
                 <h1>Información<br><em>personal</em></h1>
                 <p>Visualice su información y en caso de ser necesario puede actualizarla.
-                    <br>Únicamente la que está habilitada</p>
+                    <br>Únicamente la que está habilitada.</p>
             </div>
             <div class="section-content">
 
@@ -199,10 +205,17 @@
                         <div class="row">
 
 
-                            <div class="col-md-12" style="padding-bottom: 35px;">
+                            <div class="col-md-12" style="padding-bottom: 35px; float: center;"
+                                enctype="multipart/form-data">
                                 <fieldset>
                                     <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
                                         name="imagenperfil">
+                                    <div>
+                                        <input id="image" type="file" name="image" style="display: none;">
+                                        <button id="image_alt" type="submit"
+                                            style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center;"
+                                            class="opacidad">Editar</button>
+                                    </div>
                                 </fieldset>
                             </div>
 
@@ -290,7 +303,7 @@
                             <div class="col-md-4" style="padding-top: 5px;">
                                 <fieldset>
                                     <h5 style="font-weight: bold;">Puntuación:</h5>
-                                    <div  style="color: rgb(255, 209, 6);">
+                                    <div style="color: rgb(255, 209, 6);">
                                         <i class="fas fa-star"></i>
                                         <i class="fas fa-star "></i>
                                         <i class="fas fa-star "></i>
@@ -299,6 +312,7 @@
                                     </div>
                                 </fieldset>
                             </div><br>
+
 
 
 
@@ -354,6 +368,7 @@
                                         alt="image 5"></a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -566,5 +581,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 
 </body>
+<script>
+    /*Este script es del botón para editar la foto, era para quitar la leyenda de que aún no se escogía ningún archivo, por eso arriba del botón hay un input oculto*/
+    document.getElementById('image_alt').addEventListener('click', function () {
+        document.getElementById('image').click();
+    });
+</script>
 
 </html>
