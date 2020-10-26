@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/css-pages/light-box.css">
     <link rel="stylesheet" href="css/css-pages/owl-carousel.css">
     <link rel="stylesheet" href="css/css-pages/templatemo-style.css">
+    <link rel="stylesheet" href="css/buttonsignOut-style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -38,6 +39,7 @@
     <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
     <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -71,6 +73,7 @@
                     <li><a href="#video">Presentation</a></li>
                     <li><a href="#desplazarme">¿Cómo me desplazo?</a></li>
                     <li><a href="#contacto">Contact Us</a></li>
+                    <li><a onclick="CerrarSesion()">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </div>
@@ -271,7 +274,8 @@
                             <div class="col-md-12">
                                 <ul class="list-group" id="listaempleos">
                                     <ul class="nav nav-stacked list-group" id="listaempleos">
-                                        <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                        <li class="panel"> 
+                                            <a data-toggle="collapse" data-parent="#listaempleos"
                                                 href="#firstLink" style="background: #1c1f64; color: white;">Nombre de
                                                 la primera publicación</a>
                                             <ul id="firstLink" class="collapse"
@@ -404,7 +408,8 @@
                                                 </form>
                                             </ul>
                                         </li>
-                                        <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                        <li class="panel"> 
+                                            <a data-toggle="collapse" data-parent="#listaempleos"
                                                 href="#secondLink" style="background: #1c1f64; color: white;">Nombre de
                                                 la segunda publicación</a>
 
@@ -875,6 +880,7 @@
                 </div>
             </div>
         </section>
+            </div>
         <section class="footer">
             <p>Copyright &copy; 2020 Perfilados
 
@@ -899,6 +905,7 @@
     <!-- Toastr -->
     <script src="js/plugins/toastr/toastr.min.js"></script>
     <script src="js/service/bd.js"></script>
+    <script src="js/service/guard.js"></script>
     <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-solicitante/main.js"></script>
 

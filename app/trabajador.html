@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="css/css-pages/light-box.css">
     <link rel="stylesheet" href="css/css-pages/owl-carousel.css">
     <link rel="stylesheet" href="css/css-pages/templatemo-style.css">
-
+    <link rel="stylesheet" href="css/buttonsignOut-style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
@@ -70,6 +70,7 @@
                     <li><a href="#video">Presentation</a></li>
                     <li><a href="#desplazarme">¿Cómo me desplazo?</a></li>
                     <li><a href="#contacto">Contact Us</a></li>
+                    <li><a onclick="CerrarSesion()">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </div>
@@ -1049,6 +1050,11 @@
                 </div>
             </div>
         </section>
+        <div class="hidde-sm hidden-xs">
+        <a href="#" class="float" data-toggle="tooltip" data-placement="left" title="Cerrar sesión" onclick="CerrarSesion()">
+            <i class="fa fa-sign-out my-float" ></i>
+            </a>
+        </div>
         <section class="footer">
             <p>Copyright &copy; 2020 Perfilados
 
@@ -1073,9 +1079,10 @@
     <!-- Toastr -->
     <script src="js/plugins/toastr/toastr.min.js"></script>
     <script src="js/service/bd.js"></script>
+    <script src="js/service/guard.js"></script>
     <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-trabajador/main.js"></script>
-
+    
     <script>
         $('document').ready(function () {
             setTimeout(function () { document.getElementById('mapadesplazarpos').style = "position:initial;" }, 3000);
