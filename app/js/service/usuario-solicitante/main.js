@@ -229,8 +229,7 @@ formactualizarperfil.addEventListener('submit', (e) => {
         db.collection('cuentasusuarios').doc(uid).update({ 
             "nombre": document.getElementById('nombreperfil').value,
             "apellido": document.getElementById('apellidoperfil').value,
-            "edad":getAge(document.getElementById('nacimientoperfil').value) ,
-            "imagen": "img/perfil/perfil.png", 
+            "edad":getAge(document.getElementById('nacimientoperfil').value) , 
             "telefono":  document.getElementById('telefonoperfil').value,
             "direccion": document.getElementById('direccionperfil').value, 
             "fechaNacimiento": document.getElementById('nacimientoperfil').value, 
@@ -256,8 +255,10 @@ function getAge(dateString)
 /**
  * Agregar trabajo o empleo
  **/
-function agregarEmpleo(){
-    ///cords
+const formanuevoempleo = document.forms['formanuevoempleo'];
+formanuevoempleo.addEventListener('submit', (e) => {
+    e.preventDefault();   
+     ///cords
     var coordenadas = {
         Latitud: 0,
         Longitud: 0
@@ -265,7 +266,7 @@ function agregarEmpleo(){
     db.collection('trabajos').doc().set({
         "id_usuario_sol": uid, 
         "nombre": document.getElementById('nombrenuevotrabajo').value,
-        "descripcion":getAge(document.getElementById('descripcionnuevotrabajo').value) , 
+        "descripcion":document.getElementById('descripcionnuevotrabajo').value, 
         "pago": document.getElementById('pagonuevotrabajo').value,
         "fechaInicio":  document.getElementById('fechainicionuevotrabajo').value,
         "fechaTermino": document.getElementById('fechaterminonuevotrabajo').value, 
@@ -280,7 +281,7 @@ function agregarEmpleo(){
     }).catch(function (error) {
         floatingMessage(error.code, "", "firebase");
     }); 
-};
+}); 
 /**
  * Actualizar trabajo o empleo
  **/
