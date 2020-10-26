@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="css/css-pages/light-box.css">
     <link rel="stylesheet" href="css/css-pages/owl-carousel.css">
     <link rel="stylesheet" href="css/css-pages/templatemo-style.css">
+    <link rel="stylesheet" href="css/buttonsignOut-style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
@@ -38,6 +39,7 @@
     <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
     <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -875,6 +877,9 @@
                 </div>
             </div>
         </section>
+        <a href="#" class="float" data-toggle="tooltip" data-placement="left" title="Cerrar sesión" onclick="CerrarSesion()">
+            <i class="fa fa-sign-out my-float" ></i>
+            </a>
         <section class="footer">
             <p>Copyright &copy; 2020 Perfilados
 
@@ -899,9 +904,14 @@
     <!-- Toastr -->
     <script src="js/plugins/toastr/toastr.min.js"></script>
     <script src="js/service/bd.js"></script>
+    <script src="js/service/guard.js"></script>
     <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-solicitante/main.js"></script>
-
+    <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();   
+        });
+        </script>
     <script>
         // Hide Header on on scroll down
         $('document').ready(function () {
