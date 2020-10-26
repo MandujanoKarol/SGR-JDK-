@@ -36,6 +36,8 @@
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
+     <!-- Toastr style -->
+     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
 
 
@@ -214,11 +216,11 @@
                             <div class="col-md-12" style="padding-bottom: 35px; float: center;"
                                 enctype="multipart/form-data">
                                 <fieldset>
-                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagentrabajador"
-                                        name="imagentrabajador">
+                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
+                                        name="imagenperfil">
                                     <div>
                                         <input id="image" type="file" name="image" style="display: none;">
-                                        <button id="image_alt" type="submit"
+                                        <button id="image_alt" type="button"
                                             style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
                                             class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
                                     </div>
@@ -232,8 +234,8 @@
                                     <strong style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <input name="nombretrabajador" type="text" class="form-control"
-                                        id="nombretrabajador" placeholder="Nombre" required="">
+                                    <input name="nombreperfil" type="text" class="form-control"
+                                        id="nombreperfil" placeholder="Nombre" required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-4">
@@ -241,8 +243,8 @@
                                     <strong style="text-align: initial; font-weight: bold;">Apellidos:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <input name="apellidotrabajador" type="text" class="form-control"
-                                        id="apellidotrabajador" placeholder="Apellidos" required="">
+                                    <input name="apellidoperfil" type="text" class="form-control"
+                                        id="apellidoperfil" placeholder="Apellidos" required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-4">
@@ -251,8 +253,8 @@
                                         electrónico:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <input name="emailperfil" type="emailtrabajador" class="form-control"
-                                        id="emailtrabajador" placeholder="Correo electrónico" readonly>
+                                    <input name="emailperfil" type="email" class="form-control"
+                                        id="emailperfil" placeholder="Correo electrónico" readonly>
                                 </fieldset>
                             </div>
 
@@ -264,8 +266,8 @@
                                         género:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <select class="form-control selectstyle" required="" name="generotrabajador"
-                                        id="generotrabajador">
+                                    <select class="form-control selectstyle" required="" name="generoperfil"
+                                        id="generoperfil">
                                         <option value="" hidden="">Género</option>
                                     </select>
                                 </fieldset>
@@ -275,8 +277,8 @@
                                     <strong style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <input name="direcciontrabajador" type="text" class="form-control"
-                                        id="direcciontrabajador" placeholder="Dirección" required="">
+                                    <input name="direccionperfil" type="text" class="form-control"
+                                        id="direccionperfil" placeholder="Dirección" required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-4">
@@ -285,8 +287,8 @@
                                         nacimiento:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <input name="nacimientotrabajador" type="date" class="form-control"
-                                        id="nacimientotrabajador" placeholder="Fecha de nacimiento" required="">
+                                    <input name="nacimientoperfil" type="date" class="form-control"
+                                        id="nacimientoperfil" placeholder="Fecha de nacimiento" required="">
                                 </fieldset>
                             </div>
 
@@ -299,8 +301,8 @@
                                 </div>
                                 <fieldset>
                                     <div class="form-group">
-                                        <input id="telefonotrabajador" type="tel" placeholder="N° Teléfono"
-                                            name="telefonotrabajador" onblur="onblurtelefono();"
+                                        <input id="telefonoperfil" type="tel" placeholder="N° Teléfono"
+                                            name="telefonoperfil" onblur="onblurtelefono();"
                                             onkeyup="onkeyuptelefono()" />
                                     </div>
                                 </fieldset>
@@ -325,8 +327,8 @@
                                         oficio:</strong><br>
                                 </div>
                                 <fieldset>
-                                    <select class="form-control selectstyle" required="" name="oficiotrabajador"
-                                        id="oficiotrabajador">
+                                    <select class="form-control selectstyle" required="" name="oficioperfil"
+                                        id="oficioperfil">
                                         <option value="" hidden="">Oficio</option>
                                     </select>
                                 </fieldset>
@@ -548,8 +550,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
-
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
     <script src="js/service/bd.js"></script>
+    <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-trabajador/main.js"></script>
 
     <script>
