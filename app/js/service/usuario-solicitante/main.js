@@ -1,4 +1,7 @@
 var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
+var generos=[];
+var oficios=[];
+
 $(document).ready(function() {  
     /*auth.signOut().then(()=>{  
         localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af"); 
@@ -17,6 +20,7 @@ $(document).ready(function() {
             if (respuesta.ok) {
                 respuesta.json().then(dato => {
                     dato.forEach(function (entrada) {
+                        generos.push(entrada.Genero);
                         var option = document.createElement("option");
                         option.value = entrada.Genero;
                         option.text = entrada.Genero;
@@ -51,6 +55,7 @@ $(document).ready(function() {
         if (respuesta.ok) {
             respuesta.json().then(dato => {
                 dato.forEach(function (entrada) {
+                    oficios.push(entrada.Oficio);
                     var option = document.createElement("option");
                     option.value = entrada.Oficio;
                     option.text = entrada.Oficio; 
@@ -69,7 +74,7 @@ $(document).ready(function() {
      *Empleos publicados del solicitante
      **/
     db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {  
-        if (trabajos.exists) {
+        //if (trabajos.exists) {
         document.getElementById('listaempleos').innerHTML="";
         trabajos.forEach(function(doc) { 
             var li = document.createElement("li"); 
@@ -80,7 +85,7 @@ $(document).ready(function() {
             document.getElementById('listaempleos').appendChild(li);
             
             var ul = document.createElement("ul"); 
-            ul.setAttribute("id", "Link" + doc.id); 
+            ul.setAttribute("id", "Link"+doc.id); 
             ul.setAttribute("style","margin-top: 50px; margin-bottom: 50px; margin-right: 40px;"); 
             ul.innerHTML=` <form id="contact" name="formactualizarperfil">
                                     <div class="row">
@@ -90,9 +95,9 @@ $(document).ready(function() {
                                                     style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <input name="nombrenuevotrabajo" type="text"
+                                                <input  type="text"
                                                     class="form-control" id="nombrenuevotrabajo"
-                                                    placeholder="Nombre" required="">
+                                                    placeholder="Nombre" required="" value=${doc.data().nombre}>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-12">
@@ -101,11 +106,11 @@ $(document).ready(function() {
                                                     style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <textarea name="descripcionnuevotrabajo" rows="6"
-                                                    class="form-control" id="descripcionnuevotrabajo"
+                                                <textarea  rows="6"
+                                                    class="form-control" id=${"textareadescripcionempleados"+doc.id}
                                                     placeholder="Descripción de la publicación..."
                                                     required=""
-                                                    style="color: black; height: 50px;"></textarea>
+                                                    style="color: black; height: 50px;" ></textarea>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-4">
@@ -114,9 +119,9 @@ $(document).ready(function() {
                                                     style="text-align: initial; font-weight: bold;">Pago:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <input name="pagonuevotrabajo" type="number"
+                                                <input  type="number"
                                                     class="form-control" id="pagonuevotrabajo"
-                                                    placeholder="Pago" required="">
+                                                    placeholder="Pago" required=""  value=${doc.data().pago}>
                                             </fieldset>
                                         </div>
 
@@ -130,9 +135,9 @@ $(document).ready(function() {
                                                     inicio:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <input name="fechainicionuevotrabajo" type="date"
+                                                <input  type="date"
                                                     class="form-control" id="fechainicionuevotrabajo"
-                                                    placeholder="Fecha de nacimiento" required="">
+                                                     required=""  value=${doc.data().fechaInicio}>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-4">
@@ -143,9 +148,9 @@ $(document).ready(function() {
                                                     término:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <input name="fechaterminonuevotrabajo" type="date"
+                                                <input  type="date"
                                                     class="form-control" id="fechaterminonuevotrabajo"
-                                                    placeholder="Fecha de término" required="">
+                                                     required=""  value=${doc.data().fechaTermino}>
                                             </fieldset>
                                         </div>
 
@@ -156,9 +161,9 @@ $(document).ready(function() {
                                                     style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <input name="direccionnuevotrabajo" type="text"
+                                                <input  type="text"
                                                     class="form-control" id="direccionnuevotrabajo"
-                                                    placeholder="Dirección" required="">
+                                                    placeholder="Dirección" required="" value=${doc.data().direccion}>
                                             </fieldset>
                                         </div>
 
@@ -171,9 +176,7 @@ $(document).ready(function() {
                                                     oficio:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <select class="form-control selectstyle" required=""
-                                                    name="oficionuevotrabajo" id="oficionuevotrabajo">
-                                                    <option value="" hidden="">Oficio</option>
+                                                <select class="form-control selectstyle" required=""  id=${"selectoficioempleos"+doc.id}> 
                                                 </select>
                                             </fieldset>
                                         </div>
@@ -184,16 +187,16 @@ $(document).ready(function() {
                                                     style="text-align: initial; font-weight: bold;">Requisitos:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <textarea name="requisitosnuevotrabajo" rows="6"
-                                                    class="form-control" id="requisitosnuevotrabajo"
+                                                <textarea  rows="6"
+                                                    class="form-control" id=${"textarearequisitosempleados"+doc.id}
                                                     placeholder="Requisitos..." required=""
-                                                    style="color: black; height: 50px;"></textarea>
+                                                    style="color: black; height: 50px;" ></textarea>
                                             </fieldset>
                                         </div>
 
                                         <div class="col-md-6">
                                             <fieldset>
-                                                <button type="submit" id="form-submit" class="btn"
+                                                <button type="button" id="form-submit" class="btn"
                                                     style="background: rgb(170, 65, 65);"><i
                                                         class="fa fa-trash" aria-hidden="true"></i>
                                                     Borrar</button>
@@ -201,7 +204,7 @@ $(document).ready(function() {
                                         </div>
                                         <div class="col-md-6">
                                             <fieldset>
-                                                <button type="submit" id="form-submit" class="btn"><i
+                                                <button type="button" id="form-submit" class="btn"><i
                                                         class="fa fa-pencil-square-o"
                                                         aria-hidden="true"></i> Actualizar</button>
                                             </fieldset>
@@ -209,8 +212,19 @@ $(document).ready(function() {
                                     </div>
                                 </form> `;
             document.getElementById("li" + doc.id).appendChild(ul); 
+            $("#textareadescripcionempleados"+doc.id).val(doc.data().descripcion);
+            $("#textarearequisitosempleados"+doc.id).val(doc.data().requisitos); 
+            oficios.forEach(function (Oficio) {
+                var option = document.createElement("option");
+                option.value = Oficio;
+                option.text = Oficio;
+                if(doc.data().oficio==Oficio){
+                    option.setAttribute("selected", "selected");
+                }
+                document.getElementById("selectoficioempleos"+doc.id).add(option);
+            });
         });
-        }
+        //}
     }); 
 
 });  
