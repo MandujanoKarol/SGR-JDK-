@@ -80,7 +80,7 @@ $(document).ready(function() {
             var li = document.createElement("li"); 
             li.setAttribute("id", "li" + doc.id); 
             li.setAttribute("class", "panel");
-            li.innerHTML=`<a data-toggle="collapse" data-parent="#listaempleos"
+            li.innerHTML=`<a data-toggle="collapse" aria-expanded="false" data-parent="#listaempleos"
             href="#Link${doc.id}" style="background: #1c1f64; color: white;">${doc.data().nombre}</a>`  
             document.getElementById('listaempleos').appendChild(li);
             
@@ -96,7 +96,7 @@ $(document).ready(function() {
                                             </div>
                                             <fieldset>
                                                 <input  type="text"
-                                                    class="form-control" id="nombrenuevotrabajo"
+                                                    class="form-control" id=${"inputnombreempleados"+doc.id}
                                                     placeholder="Nombre" required="" value=${doc.data().nombre}>
                                             </fieldset>
                                         </div>
@@ -120,7 +120,7 @@ $(document).ready(function() {
                                             </div>
                                             <fieldset>
                                                 <input  type="number"
-                                                    class="form-control" id="pagonuevotrabajo"
+                                                    class="form-control"  id=${"inputpagoempleados"+doc.id}
                                                     placeholder="Pago" required=""  value=${doc.data().pago}>
                                             </fieldset>
                                         </div>
@@ -136,7 +136,7 @@ $(document).ready(function() {
                                             </div>
                                             <fieldset>
                                                 <input  type="date"
-                                                    class="form-control" id="fechainicionuevotrabajo"
+                                                    class="form-control"  id=${"inputfechainicioempleados"+doc.id}
                                                      required=""  value=${doc.data().fechaInicio}>
                                             </fieldset>
                                         </div>
@@ -149,7 +149,7 @@ $(document).ready(function() {
                                             </div>
                                             <fieldset>
                                                 <input  type="date"
-                                                    class="form-control" id="fechaterminonuevotrabajo"
+                                                    class="form-control" id=${"inputfechaterminoempleados"+doc.id}
                                                      required=""  value=${doc.data().fechaTermino}>
                                             </fieldset>
                                         </div>
@@ -162,7 +162,7 @@ $(document).ready(function() {
                                             </div>
                                             <fieldset>
                                                 <input  type="text"
-                                                    class="form-control" id="direccionnuevotrabajo"
+                                                    class="form-control" id=${"inputdireccionempleados"+doc.id}
                                                     placeholder="Dirección" required="" value=${doc.data().direccion}>
                                             </fieldset>
                                         </div>
@@ -204,9 +204,14 @@ $(document).ready(function() {
                                         </div>
                                         <div class="col-md-6">
                                             <fieldset>
-                                                <button type="button" id="form-submit" class="btn"><i
+                                                <button type="button" id="form-submit" class="btn" 
+                                                onclick='actualizarEmpleo(${JSON.stringify(doc.id)},${JSON.stringify("inputnombreempleados"+doc.id)},
+                                                        ${JSON.stringify("textareadescripcionempleados"+doc.id)},${JSON.stringify("inputpagoempleados"+doc.id)},
+                                                        ${JSON.stringify("inputfechainicioempleados"+doc.id)},${JSON.stringify("inputfechaterminoempleados"+doc.id)},
+                                                        ${JSON.stringify("inputdireccionempleados"+doc.id)},${JSON.stringify("textarearequisitosempleados"+doc.id)},
+                                                        ${JSON.stringify("selectoficioempleos"+doc.id)})'><i
                                                         class="fa fa-pencil-square-o"
-                                                        aria-hidden="true"></i> Actualizar</button>
+                                                        aria-hidden="true" ></i> Actualizar</button>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -363,7 +368,7 @@ formanuevoempleo.addEventListener('submit', (e) => {
 /**
  * Actualizar trabajo o empleo
  **/
-function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaTermino,direccion,requisitos,oficio,coordenadas){
+function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaTermino,direccion,requisitos,oficio){
     ///cords
     var coordenadas = {
         Latitud: 0,
@@ -371,7 +376,7 @@ function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaT
     };
     db.collection('trabajos').doc(iddocempleo).update({ 
         "nombre": document.getElementById(nombre).value,
-        "descripcion":getAge(document.getElementById(descripcion).value) , 
+        "descripcion":document.getElementById(descripcion).value , 
         "pago": document.getElementById(pago).value,
         "fechaInicio":  document.getElementById(fechaInicio).value,
         "fechaTermino": document.getElementById(fechaTermino).value, 
@@ -383,7 +388,7 @@ function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaT
         floatingMessage("Actualizar Empleo","Empleo actualizado", "success");
     }).catch(function (error) {
         floatingMessage(error.code, "", "firebase");
-    }); 
+    });  
 };
 
 /**
