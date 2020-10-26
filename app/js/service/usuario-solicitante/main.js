@@ -307,9 +307,7 @@ $(function () {
 /**
  * Funcion para actualizar perfil
  **/
-const formactualizarperfil = document.forms['formactualizarperfil']; 
-formactualizarperfil.addEventListener('submit', (e) => {
-        e.preventDefault();   
+function actualizarperfil(){
         db.collection('cuentasusuarios').doc(uid).update({ 
             "nombre": document.getElementById('nombreperfil').value,
             "apellido": document.getElementById('apellidoperfil').value,
@@ -323,7 +321,7 @@ formactualizarperfil.addEventListener('submit', (e) => {
         }).catch(function (error) {
             floatingMessage(error.code, "", "firebase");
         });  
-});
+};
 function getAge(dateString) 
 { 
     var today = new Date(); 

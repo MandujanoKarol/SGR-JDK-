@@ -452,32 +452,27 @@
             </div>
             <div class="section-content">
                 <div class="section-content">
+                    <div class="row"> 
+                        <div class="col-md-12" style="padding-bottom: 35px; float: center; "
+                            enctype="multipart/form-data"> 
+                                <form id="form-imagenes">
+                                    <label class="btn btn-file">
+                                        <img src="img/perfil/perfil.png" width="370px" height="230px"
+                                            id="imagenperfil" name="imagenperfil" alt="descargar"
+                                            style="width:200px; height:200px; border-radius:150px;">
+                                        <div>
+                                            <input type="file" value="" id="fichero" name="image"
+                                                style="display: none;">
+                                            <button id="image_alt" type="button"
+                                                style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
+                                                class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
+                                        </div>
+                                    </label>
+                                </form> 
+                        </div>
+                    </div>
                     <form id="contact" name="formactualizarperfil">
-                        <div class="row">
-
-
-                            <div class="col-md-12" style="padding-bottom: 35px; float: center; "
-                                enctype="multipart/form-data">
-                                <fieldset>
-                                    <form id="form-imagenes">
-                                        <label class="btn btn-file">
-                                            <img src="img/perfil/perfil.png" width="370px" height="230px"
-                                                id="imagenperfil" name="imagenperfil" alt="descargar"
-                                                style="width:200px; height:200px; border-radius:150px;">
-                                            <div>
-                                                <input type="file" value="" id="fichero" name="image"
-                                                    style="display: none;">
-                                                <button id="image_alt" type="button"
-                                                    style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
-                                                    class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
-                                            </div>
-                                        </label>
-                                    </form>
-                                </fieldset>
-                            </div>
-
-
-
+                        <div class="row">  
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
@@ -505,10 +500,7 @@
                                     <input name="emailperfil" type="email" class="form-control" id="emailperfil"
                                         placeholder="Correo electrónico" readonly>
                                 </fieldset>
-                            </div>
-
-
-
+                            </div> 
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">Seleccione el
@@ -539,11 +531,7 @@
                                     <input name="nacimientoperfil" type="date" class="form-control"
                                         id="nacimientoperfil" placeholder="Fecha de nacimiento" required="">
                                 </fieldset>
-                            </div>
-
-
-
-
+                            </div> 
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">N° Teléfono:</strong><br>
@@ -555,8 +543,7 @@
                                             onkeyup="onkeyuptelefono()" />
                                     </div>
                                 </fieldset>
-                            </div>
-
+                            </div> 
                             <div class="col-md-4" style="padding-top: 5px;">
                                 <fieldset>
                                     <h5 style="font-weight: bold;">Puntuación:</h5>
@@ -568,8 +555,7 @@
                                         <i class="fas fa-star "></i>
                                     </div>
                                 </fieldset>
-                            </div><br>
-
+                            </div><br> 
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">Seleccione el
@@ -581,15 +567,10 @@
                                         <option value="" hidden="">Oficio</option>
                                     </select>
                                 </fieldset>
-                            </div>
-
-
-
-
-
+                            </div> 
                             <div class="col-md-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Actualizar información</button>
+                                    <button type="button" id="form-submit" class="btn" onclick="actualizarperfil()">Actualizar información</button>
                                 </fieldset>
                             </div>
                         </div>
