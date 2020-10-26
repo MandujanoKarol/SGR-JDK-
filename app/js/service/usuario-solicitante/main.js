@@ -86,6 +86,7 @@ $(document).ready(function() {
             
             var ul = document.createElement("ul"); 
             ul.setAttribute("id", "Link"+doc.id); 
+            ul.setAttribute("class", "collapse"); 
             ul.setAttribute("style","margin-top: 50px; margin-bottom: 50px; margin-right: 40px;"); 
             ul.innerHTML=` <form id="contact" name="formactualizarperfil">
                                     <div class="row">
