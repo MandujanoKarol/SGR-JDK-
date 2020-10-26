@@ -137,14 +137,129 @@
 
     <div class="page-content">
         <section id="mapa" class="content-section" style="opacity: 1;">
-            <div id="map"> 
+            <div id="map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1197183.8373802372!2d-1.9415093691103689!3d6.781986417238027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb96f349e85efd%3A0xb8d1e0b88af1f0f5!2sKumasi+Central+Market!5e0!3m2!1sen!2sth!4v1532967884907"
                     width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
             <div id="contact-content">
-                <div class="section-heading">
-                    <h1>Mis publicaciones</h1>
+
+
+
+                <form id="contact" name="formactualizarperfil">
+                    <div class="row">
+                        <div class="section-heading">
+                            <h1>Nueva <em>publicación</em></h1>
+                            <p>Agregue una nueva publicación para que los trabajadores puedan postularse
+                                <br>y así puedan agendar una cita.</p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                            </div>
+                            <fieldset>
+                                <input name="nombrenuevotrabajo" type="text" class="form-control"
+                                    id="nombrenuevotrabajo" placeholder="Nombre" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Descripcion:</strong><br>
+                            </div>
+                            <fieldset>
+                                <textarea name="descripcionnuevotrabajo" rows="6" class="form-control"
+                                    id="descripcionnuevotrabajo" placeholder="Descripción de la publicación..."
+                                    required=""></textarea>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Pago:</strong><br>
+                            </div>
+                            <fieldset>
+                                <input name="pagonuevotrabajo" type="number" class="form-control" id="pagonuevotrabajo"
+                                    placeholder="Pago" required="">
+                            </fieldset>
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Fecha de
+                                    inicio:</strong><br>
+                            </div>
+                            <fieldset>
+                                <input name="fechainicionuevotrabajo" type="date" class="form-control"
+                                    id="fechainicionuevotrabajo" placeholder="Fecha de nacimiento" required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-md-4">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Fecha de
+                                    término:</strong><br>
+                            </div>
+                            <fieldset>
+                                <input name="fechaterminonuevotrabajo" type="date" class="form-control"
+                                    id="fechaterminonuevotrabajo" placeholder="Fecha de término" required="">
+                            </fieldset>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                            </div>
+                            <fieldset>
+                                <input name="direccionnuevotrabajo" type="text" class="form-control"
+                                    id="direccionnuevotrabajo" placeholder="Pago" required="">
+                            </fieldset>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Seleccione el
+                                    oficio:</strong><br>
+                            </div>
+                            <fieldset>
+                                <select class="form-control selectstyle" required="" name="oficionuevotrabajo"
+                                    id="oficionuevotrabajo">
+                                    <option value="" hidden="">Oficio</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Requisitos:</strong><br>
+                            </div>
+                            <fieldset>
+                                <textarea name="requisitosnuevotrabajo" rows="6" class="form-control"
+                                    id="requisitosnuevotrabajo" placeholder="Requisitos..." required=""></textarea>
+                            </fieldset>
+                        </div>
+
+
+
+
+
+                        <div class="col-md-12">
+                            <fieldset>
+                                <button type="submit" id="form-submit" class="btn">Actualizar información</button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+
+                <hr>
+
+
+
+                <div class="section-heading" style="margin-top: 50px;">
+                    <h1>Mis <em>publicaciones</em></h1>
                     <p>Visualice las publicaciones de los solicitantes y de esa manera podrá postularse
                         <br>a algún trabajo o tarea por hacer.</p>
 
