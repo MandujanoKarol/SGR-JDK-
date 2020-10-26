@@ -410,3 +410,61 @@ function asignarpostulante(iddocempleo,iddocpostulate){
         floatingMessage(error.code, "", "firebase");
     });
 };
+
+
+
+window.onload = Inicializar;
+var Fichero;
+
+var storageRef;
+
+var imagenRef;
+
+  //inicializa la función en espera de algún cambio para ejecutar subirImagenFirebase
+function Inicializar() {
+    fichero = document.getElementById("fichero");
+    fichero.addEventListener("change", subirImagenFirebase, false);
+    storageRef = firebase.storage().ref();
+}
+
+function subirImagenFirebase() {
+    var imagenSubir = fichero.files[0];
+    var uploadTask = storageRef.child('imagenesperfilsolicitante/' + imagenSubir.name).put(imagenSubir);
+    uploadTask.on('state_changed',
+        function(snapshot) {
+    //Proceso de subida
+        },
+        function(error) {
+            //error de subida
+            alert("Hubo un error")
+        },
+        function() {
+            storageRef.child('imagenesperfilsolicitante/' + imagenSubir.name).getDownloadURL().then(function(url) {
+                // Or inserted into an <img> element:
+                crearNodoEnBDFirebase(imagenSubir.name, url);
+                console.log(url);
+            }).catch(function(error) {
+                // Handle any errors
+            });
+        });
+    }
+    
+    function crearNodoEnBDFirebase(nombrImage,Url){
+        var user = firebase.auth().currentUser;
+        if (user) {
+            console.log(nombrImage)
+            console.log(Url)
+            console.log(user.uid)
+        db.collection("cuentasusuarios").doc(user.uid).update({
+        imagen: Url}
+    ).then(function() {
+        console.log("Registrado");
+        }).catch(function(error) {
+            console.error("Error adding document: ", error);
+            alert("Error al registrar");
+        });
+    }
+    else {
+      console("No hay user logeado")
+      }
+    }
