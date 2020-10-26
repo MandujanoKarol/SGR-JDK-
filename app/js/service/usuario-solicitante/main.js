@@ -68,38 +68,85 @@ $(document).ready(function() {
     /** 
      *Empleos publicados del solicitante
      **/
-    db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(querySnapshot) {  
+    db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {  
+        if (trabajos.exists) {
         document.getElementById('listaempleos').innerHTML="";
-        querySnapshot.forEach(function(doc) { 
-            var tr = document.createElement("tr"); 
-            tr.setAttribute("id", "tr" + doc.id); 
-            document.getElementById('listaempleos').appendChild(tr); 
+        trabajos.forEach(function(doc) { 
+            var li = document.createElement("li"); 
+            li.setAttribute("id", "li" + doc.id); 
+            li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center"); 
+            li.setAttribute("style", "text-align: left;"); 
+            document.getElementById('listaempleos').appendChild(li);
+            
+            var li = document.createElement("form"); 
+            li.setAttribute("id", "forn" + doc.id); 
+            li.setAttribute("class", " "); 
+            li.setAttribute("style", " "); 
+            document.getElementById("li" + doc.id).appendChild(li);
 
-            var tdnombreempleo = document.createElement("td");  
-            tdnombreempleo.textContent = doc.data().nombre;
-            document.getElementById("tr" + doc.id).appendChild(tdnombreempleo); 
 
-            var tddescripcionempleo = document.createElement("td");  
-            tddescripcionempleo.textContent = doc.data().descripcion;
-            document.getElementById("tr" + doc.id).appendChild(tddescripcionempleo);  
+            var strongnombreempleo = document.createElement("strong");  
+            strongnombreempleo.textContent ="Nombre: ";
+            document.getElementById("li" + doc.id).appendChild(strongnombreempleo); 
 
-            var tdpagoempleo= document.createElement("td");  
-            tdpagoempleo.textContent = doc.data().pago;
-            document.getElementById("tr" + doc.id).appendChild(tdpagoempleo); 
+            var inputnombreempleo = document.createElement("input");  
+            inputnombreempleo.setAttribute("id", "inputnombreempleo" + doc.id); 
+            inputnombreempleo.setAttribute("name", "inputnombreempleo" + doc.id); 
+            inputnombreempleo.setAttribute("class", " "); 
+            inputnombreempleo.setAttribute("style", " ");
+            inputnombreempleo.setAttribute("value", doc.data().nombre);
+            document.getElementById("li" + doc.id).appendChild(inputnombreempleo);
+            
+            
+            var strongdescripcionempleo = document.createElement("strong");  
+            strongdescripcionempleo.textContent ="Descripcion: ";
+            document.getElementById("li" + doc.id).appendChild(strongdescripcionempleo); 
+
+            var textareadescripcionempleo = document.createElement("textarea");  
+            textareadescripcionempleo.setAttribute("id", "textareadescripcionempleo" + doc.id); 
+            textareadescripcionempleo.setAttribute("name", "textareadescripcionempleo" + doc.id); 
+            textareadescripcionempleo.setAttribute("class", " "); 
+            textareadescripcionempleo.setAttribute("style", " ");
+            textareadescripcionempleo.setAttribute("value", doc.data().descripcion);
+            document.getElementById("li" + doc.id).appendChild(textareadescripcionempleo);
+  
+            var strongpagoempleo = document.createElement("strong");  
+            strongpagoempleo.textContent ="Descripcion: ";
+            document.getElementById("li" + doc.id).appendChild(strongpagoempleo); 
+
+            var inputpagoempleo = document.createElement("input");  
+            inputpagoempleo.setAttribute("id", "inputpagoempleo" + doc.id); 
+            inputpagoempleo.setAttribute("name", "inputpagoempleo" + doc.id); 
+            inputpagoempleo.setAttribute("class", " "); 
+            inputpagoempleo.setAttribute("style", " ");
+            inputpagoempleo.setAttribute("value", doc.data().pago);
+            document.getElementById("li" + doc.id).appendChild(inputpagoempleo); 
+
+            var strongpagoempleo = document.createElement("strong");  
+            strongpagoempleo.textContent ="Descripcion: ";
+            document.getElementById("li" + doc.id).appendChild(strongpagoempleo); 
+
+            var inputfechaInicioempleo = document.createElement("input");  
+            inputfechaInicioempleo.setAttribute("id", "inputfechaInicioempleo" + doc.id); 
+            inputfechaInicioempleo.setAttribute("name", "inputfechaInicioempleo" + doc.id); 
+            inputfechaInicioempleo.setAttribute("class", " "); 
+            inputfechaInicioempleo.setAttribute("style", " ");
+            inputfechaInicioempleo.setAttribute("value", doc.data().fechaInicio);
+            document.getElementById("li" + doc.id).appendChild(inputpagoempleo);
 
             var tdfechainicio = document.createElement("td");  
             tdfechainicio.textContent = "$"+doc.data().fechaInicio;
-            document.getElementById("tr" + doc.id).appendChild(tdfechainicio);  
+            document.getElementById("li" + doc.id).appendChild(tdfechainicio);  
 
             var tdfechatermino = document.createElement("td");  
             tdfechatermino.textContent = "$"+doc.data().fechaTermino;
-            document.getElementById("tr" + doc.id).appendChild(tdfechatermino); 
+            document.getElementById("li" + doc.id).appendChild(tdfechatermino); 
             
             var tdfechatermino = document.createElement("td");  
             tdfechatermino.textContent = "$"+doc.data().fechaTermino;
-            document.getElementById("tr" + doc.id).appendChild(tdfechatermino); 
+            document.getElementById("li" + doc.id).appendChild(tdfechatermino); 
         });
-        
+        }
     }); 
 
 });  
