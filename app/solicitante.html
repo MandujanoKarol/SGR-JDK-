@@ -47,6 +47,10 @@
             float: left;
             position: absolute;
         }
+
+        #listaempleos li.panel{
+    margin-bottom: 0px;
+}
     </style>
 
 
@@ -166,12 +170,12 @@
                         </div>
                         <div class="col-md-12">
                             <div style="text-align: initial;">
-                                <strong style="text-align: initial; font-weight: bold;">Descripcion:</strong><br>
+                                <strong style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
                             </div>
                             <fieldset>
                                 <textarea name="descripcionnuevotrabajo" rows="6" class="form-control"
                                     id="descripcionnuevotrabajo" placeholder="Descripción de la publicación..."
-                                    required=""></textarea>
+                                    required="" style="color: black;"></textarea>
                             </fieldset>
                         </div>
                         <div class="col-md-4">
@@ -214,7 +218,7 @@
                             </div>
                             <fieldset>
                                 <input name="direccionnuevotrabajo" type="text" class="form-control"
-                                    id="direccionnuevotrabajo" placeholder="Pago" required="">
+                                    id="direccionnuevotrabajo" placeholder="Dirección" required="">
                             </fieldset>
                         </div>
 
@@ -238,13 +242,9 @@
                             </div>
                             <fieldset>
                                 <textarea name="requisitosnuevotrabajo" rows="6" class="form-control"
-                                    id="requisitosnuevotrabajo" placeholder="Requisitos..." required=""></textarea>
+                                    id="requisitosnuevotrabajo" placeholder="Requisitos..." required="" style="color: black;"></textarea>
                             </fieldset>
                         </div>
-
-
-
-
 
                         <div class="col-md-12">
                             <fieldset>
@@ -269,36 +269,31 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="list-group" id="listaempleos">
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"
-                                        style="text-align: left;">
-                                        <strong>Nombre del usuario que publica: </strong>Diego Reyes Guerrero
-                                        <span class="badge badge-primary badge-pill"
-                                            style="color: white; background: rgb(239, 239, 240);"><a>Ver
-                                                detalles</a></span>
-                                        <p class=""><strong>Publicación:</strong> necesito un trabajo para
-                                            realizar una actividad...........................
-                                        </p>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"
-                                        style="text-align: left;">
-                                        <strong>Nombre del usuario que publica: </strong>Diego Reyes Guerrero
-                                        <span class="badge badge-primary badge-pill"
-                                            style="color: white; background: rgb(239, 239, 240);"><a>Ver
-                                                detalles</a></span>
-                                        <p class=""><strong>Publicación:</strong> necesito un trabajo para
-                                            realizar una actividad...........................
-                                        </p>
-                                    </li>
-                                    <li class="list-group-item d-flex justify-content-between align-items-center"
-                                        style="text-align: left;">
-                                        <strong>Nombre del usuario que publica: </strong>Diego Reyes Guerrero
-                                        <span class="badge badge-primary badge-pill"
-                                            style="color: white; background: rgb(239, 239, 240);"><a>Ver
-                                                detalles</a></span>
-                                        <p class=""><strong>Publicación:</strong> necesito un trabajo para
-                                            realizar una actividad...........................
-                                        </p>
-                                    </li>
+                                    <ul class="nav nav-stacked list-group" id="listaempleos">
+                                        <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                                href="#firstLink">Test12</a>
+
+                                            <ul id="firstLink" class="collapse">
+                                                <li>SubTest1</li>
+                                                <li>SubTest1</li>
+                                                <li>SubTest1</li>
+                                            </ul>
+                                        </li>
+                                        <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                                href="#secondLink">Test2</a>
+
+                                            <ul id="secondLink" class="collapse">
+                                                <li>SubTest2</li>
+                                                <li>SubTest2</li>
+                                                <li>SubTest2</li>
+                                                <li>SubTest2</li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Test1</a>
+                                        </li>
+                                        <li><a href="#">Test1</a>
+                                        </li>
+                                    </ul>
                                 </ul>
                             </div>
                         </div>
