@@ -36,6 +36,8 @@
 
     <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
     <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -149,42 +151,47 @@
             </div>
             <div id="contact-content">
                 <div class="section-heading">
-                    <h1>Contact<br><em>Sentra</em></h1>
-                    <p>Curabitur hendrerit mauris mollis ipsum vulputate rutrum.
-                        <br>Phasellus luctus odio eget dui imperdiet.</p>
+                    <h1>Publicaciones<br><em>para postularse</em></h1>
+                    <p>Visualice las publicaciones de los solicitantes y de esa manera podrá postularse
+                        <br>a algún trabajo o tarea por hacer.</p>
 
                 </div>
                 <div class="section-content">
                     <form id="contact" action="#" method="post">
                         <div class="row">
-                            <div class="col-md-4">
-                                <fieldset>
-                                    <input name="name" type="text" class="form-control" id="name"
-                                        placeholder="Your name..." required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-md-4">
-                                <fieldset>
-                                    <input name="email" type="email" class="form-control" id="email"
-                                        placeholder="Your email..." required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-md-4">
-                                <fieldset>
-                                    <input name="subject" type="text" class="form-control" id="subject"
-                                        placeholder="Subject..." required="">
-                                </fieldset>
-                            </div>
                             <div class="col-md-12">
-                                <fieldset>
-                                    <textarea name="message" rows="6" class="form-control" id="message"
-                                        placeholder="Your message..." required=""></textarea>
-                                </fieldset>
-                            </div>
-                            <div class="col-md-12">
-                                <fieldset>
-                                    <button type="submit" id="form-submit" class="btn">Send Message Now</button>
-                                </fieldset>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        style="text-align: left;">
+                                        <strong>Nombre del usuario que publica: </strong>Diego Reyes Guerrero
+                                        <span class="badge badge-primary badge-pill"
+                                            style="color: white; background: rgb(239, 239, 240);"><a>Ver
+                                                detalles</a></span>
+                                        <p class=""><strong>Publicación:</strong> necesito un trabajo para
+                                            realizar una actividad...........................
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        style="text-align: left;">
+                                        <strong>Nombre del usuario que publica: </strong>Diego Reyes Guerrero
+                                        <span class="badge badge-primary badge-pill"
+                                            style="color: white; background: rgb(239, 239, 240);"><a>Ver
+                                                detalles</a></span>
+                                        <p class=""><strong>Publicación:</strong> necesito un trabajo para
+                                            realizar una actividad...........................
+                                        </p>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                                        style="text-align: left;">
+                                        <strong>Nombre del usuario que publica: </strong>Diego Reyes Guerrero
+                                        <span class="badge badge-primary badge-pill"
+                                            style="color: white; background: rgb(239, 239, 240);"><a>Ver
+                                                detalles</a></span>
+                                        <p class=""><strong>Publicación:</strong> necesito un trabajo para
+                                            realizar una actividad...........................
+                                        </p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </form>
@@ -212,7 +219,7 @@
                                         name="imagenperfil">
                                     <div>
                                         <input id="image" type="file" name="image" style="display: none;">
-                                        <button id="image_alt" type="submit"
+                                        <button id="image_alt" 
                                             style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
                                             class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
                                     </div>
@@ -532,7 +539,10 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
 
+    <!-- Toastr -->
+    <script src="js/plugins/toastr/toastr.min.js"></script>
     <script src="js/service/bd.js"></script>
+    <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script>
