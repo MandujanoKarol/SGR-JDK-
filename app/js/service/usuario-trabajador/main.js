@@ -260,52 +260,36 @@ var storageRef;
 
 var imagenRef;
 
+  //inicializa la función en espera de algún cambio para ejecutar subirImagenFirebase
 function Inicializar() {
-
-
     fichero = document.getElementById("fichero");
-
     fichero.addEventListener("change", subirImagenFirebase, false);
- 
     storageRef = firebase.storage().ref();
    
 
 }
-
-
 function subirImagenFirebase() {
-
     var imagenSubir = fichero.files[0];
-
     var uploadTask = storageRef.child('imagenesperfiltrabajador/' + imagenSubir.name).put(imagenSubir);
-
-
     uploadTask.on('state_changed',
-
         function(snapshot) {
     //Proceso de subida
         },
         function(error) {
             //error de subida
             alert("Hubo un error")
-
         },
         function() {
             storageRef.child('imagenesperfiltrabajador/' + imagenSubir.name).getDownloadURL().then(function(url) {
-
                 // Or inserted into an <img> element:
-            
                 crearNodoEnBDFirebase(imagenSubir.name, url);
                 console.log(url);
             }).catch(function(error) {
                 // Handle any errors
             });
-
-
-
-
         });
     }
+    
     function crearNodoEnBDFirebase(nombrImage,Url){
         var user = firebase.auth().currentUser;
         if (user) {
