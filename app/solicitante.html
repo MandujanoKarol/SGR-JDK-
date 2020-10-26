@@ -39,7 +39,7 @@
     <link href="css/intlTelInput/intlTelInput.css" rel="stylesheet">
     <!-- Toastr style -->
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -274,7 +274,8 @@
                             <div class="col-md-12">
                                 <ul class="list-group" id="listaempleos">
                                     <ul class="nav nav-stacked list-group" id="listaempleos">
-                                        <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                        <li class="panel"> 
+                                            <a data-toggle="collapse" data-parent="#listaempleos"
                                                 href="#firstLink" style="background: #1c1f64; color: white;">Nombre de
                                                 la primera publicación</a>
                                             <ul id="firstLink" class="collapse"
@@ -407,7 +408,8 @@
                                                 </form>
                                             </ul>
                                         </li>
-                                        <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                        <li class="panel"> 
+                                            <a data-toggle="collapse" data-parent="#listaempleos"
                                                 href="#secondLink" style="background: #1c1f64; color: white;">Nombre de
                                                 la segunda publicación</a>
 
@@ -878,10 +880,6 @@
                 </div>
             </div>
         </section>
-        <div class="hidde-sm hidden-xs">
-            <a href="#" class="float" data-toggle="tooltip" data-placement="left" title="Cerrar sesión" onclick="CerrarSesion()">
-                <i class="fa fa-sign-out my-float" ></i>
-                </a>
             </div>
         <section class="footer">
             <p>Copyright &copy; 2020 Perfilados
@@ -911,6 +909,11 @@
     <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-solicitante/main.js"></script>
    
+    <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();   
+        });
+        </script>
     <script>
         // Hide Header on on scroll down
         $('document').ready(function () {

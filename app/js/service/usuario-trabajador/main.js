@@ -139,8 +139,7 @@ formactualizarperfil.addEventListener('submit', (e) => {
         db.collection('cuentasusuarios').doc(uid).update({ 
             "nombre": document.getElementById('nombreperfil').value,
             "apellido": document.getElementById('apellidoperfil').value,
-            "edad":getAge(document.getElementById('nacimientoperfil').value) ,
-            "imagen": "img/perfil/perfil.png", 
+            "edad":getAge(document.getElementById('nacimientoperfil').value) , 
             "telefono":  document.getElementById('telefonoperfil').value,
             "direccion": document.getElementById('direccionperfil').value, 
             "fechaNacimiento": document.getElementById('nacimientoperfil').value, 
@@ -252,45 +251,37 @@ function misempleostermiandos(){
     });
 }
 
-
+/**
+ * ACTUALIZAR IMAGEN PERFIL
+ **/
 window.onload = Inicializar;
 var Fichero;
-
 var storageRef;
-
 var imagenRef;
-
   //inicializa la función en espera de algún cambio para ejecutar subirImagenFirebase
 function Inicializar() {
     fichero = document.getElementById("fichero");
     fichero.addEventListener("change", subirImagenFirebase, false);
     storageRef = firebase.storage().ref();
-   
-
 }
 function subirImagenFirebase() {
     var imagenSubir = fichero.files[0];
     var uploadTask = storageRef.child('imagenesperfiltrabajador/' + imagenSubir.name).put(imagenSubir);
     uploadTask.on('state_changed',
-        function(snapshot) {
-    //Proceso de subida
+        function(snapshot) { 
         },
-        function(error) {
-            //error de subida
-            alert("Hubo un error")
+        function(error) { 
+            floatingMessage("Actualizar la imagen","Error al subir la imagen", "error");
         },
         function() {
-            storageRef.child('imagenesperfiltrabajador/' + imagenSubir.name).getDownloadURL().then(function(url) {
-                // Or inserted into an <img> element:
-                crearNodoEnBDFirebase(imagenSubir.name, url);
-                console.log(url);
+            storageRef.child('imagenesperfiltrabajador/' + imagenSubir.name).getDownloadURL().then(function(url) { 
+                crearNodoEnBDFirebase(imagenSubir.name, url); 
             }).catch(function(error) {
-                // Handle any errors
+                floatingMessage(error.code, "", "firebase");
             });
         });
-    }
-    
-    function crearNodoEnBDFirebase(nombrImage,Url){
+}
+function crearNodoEnBDFirebase(nombrImage,Url){
         var user = firebase.auth().currentUser;
         if (user) {
             console.log(nombrImage)
@@ -301,11 +292,10 @@ function subirImagenFirebase() {
     ).then(function() {
         console.log("Registrado");
         }).catch(function(error) {
-            console.error("Error adding document: ", error);
-            alert("Error al registrar");
+            floatingMessage(error.code, "", "firebase");
         });
     }
     else {
       console("No hay user logeado")
       }
-    }
+}
