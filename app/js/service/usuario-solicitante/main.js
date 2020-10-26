@@ -229,8 +229,7 @@ formactualizarperfil.addEventListener('submit', (e) => {
         db.collection('cuentasusuarios').doc(uid).update({ 
             "nombre": document.getElementById('nombreperfil').value,
             "apellido": document.getElementById('apellidoperfil').value,
-            "edad":getAge(document.getElementById('nacimientoperfil').value) ,
-            "imagen": "img/perfil/perfil.png", 
+            "edad":getAge(document.getElementById('nacimientoperfil').value) , 
             "telefono":  document.getElementById('telefonoperfil').value,
             "direccion": document.getElementById('direccionperfil').value, 
             "fechaNacimiento": document.getElementById('nacimientoperfil').value, 
@@ -256,8 +255,10 @@ function getAge(dateString)
 /**
  * Agregar trabajo o empleo
  **/
-function agregarEmpleo(){
-    ///cords
+const formanuevoempleo = document.forms['formanuevoempleo'];
+formanuevoempleo.addEventListener('submit', (e) => {
+    e.preventDefault();   
+     ///cords
     var coordenadas = {
         Latitud: 0,
         Longitud: 0
@@ -265,7 +266,7 @@ function agregarEmpleo(){
     db.collection('trabajos').doc().set({
         "id_usuario_sol": uid, 
         "nombre": document.getElementById('nombrenuevotrabajo').value,
-        "descripcion":getAge(document.getElementById('descripcionnuevotrabajo').value) , 
+        "descripcion":document.getElementById('descripcionnuevotrabajo').value, 
         "pago": document.getElementById('pagonuevotrabajo').value,
         "fechaInicio":  document.getElementById('fechainicionuevotrabajo').value,
         "fechaTermino": document.getElementById('fechaterminonuevotrabajo').value, 
@@ -280,7 +281,7 @@ function agregarEmpleo(){
     }).catch(function (error) {
         floatingMessage(error.code, "", "firebase");
     }); 
-};
+}); 
 /**
  * Actualizar trabajo o empleo
  **/
@@ -409,3 +410,61 @@ function asignarpostulante(iddocempleo,iddocpostulate){
         floatingMessage(error.code, "", "firebase");
     });
 };
+
+
+
+window.onload = Inicializar;
+var Fichero;
+
+var storageRef;
+
+var imagenRef;
+
+  //inicializa la función en espera de algún cambio para ejecutar subirImagenFirebase
+function Inicializar() {
+    fichero = document.getElementById("fichero");
+    fichero.addEventListener("change", subirImagenFirebase, false);
+    storageRef = firebase.storage().ref();
+}
+
+function subirImagenFirebase() {
+    var imagenSubir = fichero.files[0];
+    var uploadTask = storageRef.child('imagenesperfilsolicitante/' + imagenSubir.name).put(imagenSubir);
+    uploadTask.on('state_changed',
+        function(snapshot) {
+    //Proceso de subida
+        },
+        function(error) {
+            //error de subida
+            alert("Hubo un error")
+        },
+        function() {
+            storageRef.child('imagenesperfilsolicitante/' + imagenSubir.name).getDownloadURL().then(function(url) {
+                // Or inserted into an <img> element:
+                crearNodoEnBDFirebase(imagenSubir.name, url);
+                console.log(url);
+            }).catch(function(error) {
+                // Handle any errors
+            });
+        });
+    }
+    
+    function crearNodoEnBDFirebase(nombrImage,Url){
+        var user = firebase.auth().currentUser;
+        if (user) {
+            console.log(nombrImage)
+            console.log(Url)
+            console.log(user.uid)
+        db.collection("cuentasusuarios").doc(user.uid).update({
+        imagen: Url}
+    ).then(function() {
+        console.log("Registrado");
+        }).catch(function(error) {
+            console.error("Error adding document: ", error);
+            alert("Error al registrar");
+        });
+    }
+    else {
+      console("No hay user logeado")
+      }
+    }

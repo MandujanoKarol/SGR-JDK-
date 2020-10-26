@@ -549,14 +549,18 @@
                             <div class="col-md-12" style="padding-bottom: 35px; float: center;"
                                 enctype="multipart/form-data">
                                 <fieldset>
+                                    <form id="form-imagenes">
+                                        <label class="btn btn-file">
                                     <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
-                                        name="imagenperfil">
+                                        name="imagenperfil" alt="descargar">
                                     <div>
-                                        <input id="image" type="file" name="image" style="display: none;">
+                                        <input  type="file" value="" id="fichero" name="image" style="display: none;">
                                         <button id="image_alt" type="button"
                                             style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
-                                            class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
+                                            class="opacidad" ><i class="fas fa-pencil-alt"></i> Editar</button>
                                     </div>
+                                    </label>
+                                    </form>
                                 </fieldset>
                             </div>
 
@@ -872,7 +876,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
     <!-- Toastr -->
     <script src="js/plugins/toastr/toastr.min.js"></script>
     <script src="js/service/bd.js"></script>
