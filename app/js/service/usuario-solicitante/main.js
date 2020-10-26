@@ -74,77 +74,141 @@ $(document).ready(function() {
         trabajos.forEach(function(doc) { 
             var li = document.createElement("li"); 
             li.setAttribute("id", "li" + doc.id); 
-            li.setAttribute("class", "list-group-item d-flex justify-content-between align-items-center"); 
-            li.setAttribute("style", "text-align: left;"); 
+            li.setAttribute("class", "panel");
+            li.innerHTML=`<a data-toggle="collapse" data-parent="#listaempleos"
+            href="#Link${doc.id}" style="background: #1c1f64; color: white;">${doc.data().nombre}</a>`  
             document.getElementById('listaempleos').appendChild(li);
             
-            var li = document.createElement("form"); 
-            li.setAttribute("id", "forn" + doc.id); 
-            li.setAttribute("class", " "); 
-            li.setAttribute("style", " "); 
-            document.getElementById("li" + doc.id).appendChild(li);
+            var ul = document.createElement("ul"); 
+            ul.setAttribute("id", "Link" + doc.id); 
+            ul.setAttribute("style","margin-top: 50px; margin-bottom: 50px; margin-right: 40px;"); 
+            ul.innerHTML=` <form id="contact" name="formactualizarperfil">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <input name="nombrenuevotrabajo" type="text"
+                                                    class="form-control" id="nombrenuevotrabajo"
+                                                    placeholder="Nombre" required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <textarea name="descripcionnuevotrabajo" rows="6"
+                                                    class="form-control" id="descripcionnuevotrabajo"
+                                                    placeholder="Descripción de la publicación..."
+                                                    required=""
+                                                    style="color: black; height: 50px;"></textarea>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Pago:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <input name="pagonuevotrabajo" type="number"
+                                                    class="form-control" id="pagonuevotrabajo"
+                                                    placeholder="Pago" required="">
+                                            </fieldset>
+                                        </div>
 
 
-            var strongnombreempleo = document.createElement("strong");  
-            strongnombreempleo.textContent ="Nombre: ";
-            document.getElementById("li" + doc.id).appendChild(strongnombreempleo); 
 
-            var inputnombreempleo = document.createElement("input");  
-            inputnombreempleo.setAttribute("id", "inputnombreempleo" + doc.id); 
-            inputnombreempleo.setAttribute("name", "inputnombreempleo" + doc.id); 
-            inputnombreempleo.setAttribute("class", " "); 
-            inputnombreempleo.setAttribute("style", " ");
-            inputnombreempleo.setAttribute("value", doc.data().nombre);
-            document.getElementById("li" + doc.id).appendChild(inputnombreempleo);
-            
-            
-            var strongdescripcionempleo = document.createElement("strong");  
-            strongdescripcionempleo.textContent ="Descripcion: ";
-            document.getElementById("li" + doc.id).appendChild(strongdescripcionempleo); 
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    inicio:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <input name="fechainicionuevotrabajo" type="date"
+                                                    class="form-control" id="fechainicionuevotrabajo"
+                                                    placeholder="Fecha de nacimiento" required="">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    término:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <input name="fechaterminonuevotrabajo" type="date"
+                                                    class="form-control" id="fechaterminonuevotrabajo"
+                                                    placeholder="Fecha de término" required="">
+                                            </fieldset>
+                                        </div>
 
-            var textareadescripcionempleo = document.createElement("textarea");  
-            textareadescripcionempleo.setAttribute("id", "textareadescripcionempleo" + doc.id); 
-            textareadescripcionempleo.setAttribute("name", "textareadescripcionempleo" + doc.id); 
-            textareadescripcionempleo.setAttribute("class", " "); 
-            textareadescripcionempleo.setAttribute("style", " ");
-            textareadescripcionempleo.setAttribute("value", doc.data().descripcion);
-            document.getElementById("li" + doc.id).appendChild(textareadescripcionempleo);
-  
-            var strongpagoempleo = document.createElement("strong");  
-            strongpagoempleo.textContent ="Descripcion: ";
-            document.getElementById("li" + doc.id).appendChild(strongpagoempleo); 
 
-            var inputpagoempleo = document.createElement("input");  
-            inputpagoempleo.setAttribute("id", "inputpagoempleo" + doc.id); 
-            inputpagoempleo.setAttribute("name", "inputpagoempleo" + doc.id); 
-            inputpagoempleo.setAttribute("class", " "); 
-            inputpagoempleo.setAttribute("style", " ");
-            inputpagoempleo.setAttribute("value", doc.data().pago);
-            document.getElementById("li" + doc.id).appendChild(inputpagoempleo); 
+                                        <div class="col-md-6">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <input name="direccionnuevotrabajo" type="text"
+                                                    class="form-control" id="direccionnuevotrabajo"
+                                                    placeholder="Dirección" required="">
+                                            </fieldset>
+                                        </div>
 
-            var strongpagoempleo = document.createElement("strong");  
-            strongpagoempleo.textContent ="Descripcion: ";
-            document.getElementById("li" + doc.id).appendChild(strongpagoempleo); 
 
-            var inputfechaInicioempleo = document.createElement("input");  
-            inputfechaInicioempleo.setAttribute("id", "inputfechaInicioempleo" + doc.id); 
-            inputfechaInicioempleo.setAttribute("name", "inputfechaInicioempleo" + doc.id); 
-            inputfechaInicioempleo.setAttribute("class", " "); 
-            inputfechaInicioempleo.setAttribute("style", " ");
-            inputfechaInicioempleo.setAttribute("value", doc.data().fechaInicio);
-            document.getElementById("li" + doc.id).appendChild(inputpagoempleo);
+                                        <div class="col-md-6">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Seleccione
+                                                    el
+                                                    oficio:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <select class="form-control selectstyle" required=""
+                                                    name="oficionuevotrabajo" id="oficionuevotrabajo">
+                                                    <option value="" hidden="">Oficio</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
 
-            var tdfechainicio = document.createElement("td");  
-            tdfechainicio.textContent = "$"+doc.data().fechaInicio;
-            document.getElementById("li" + doc.id).appendChild(tdfechainicio);  
+                                        <div class="col-md-12">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Requisitos:</strong><br>
+                                            </div>
+                                            <fieldset>
+                                                <textarea name="requisitosnuevotrabajo" rows="6"
+                                                    class="form-control" id="requisitosnuevotrabajo"
+                                                    placeholder="Requisitos..." required=""
+                                                    style="color: black; height: 50px;"></textarea>
+                                            </fieldset>
+                                        </div>
 
-            var tdfechatermino = document.createElement("td");  
-            tdfechatermino.textContent = "$"+doc.data().fechaTermino;
-            document.getElementById("li" + doc.id).appendChild(tdfechatermino); 
-            
-            var tdfechatermino = document.createElement("td");  
-            tdfechatermino.textContent = "$"+doc.data().fechaTermino;
-            document.getElementById("li" + doc.id).appendChild(tdfechatermino); 
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <button type="submit" id="form-submit" class="btn"
+                                                    style="background: rgb(170, 65, 65);"><i
+                                                        class="fa fa-trash" aria-hidden="true"></i>
+                                                    Borrar</button>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <button type="submit" id="form-submit" class="btn"><i
+                                                        class="fa fa-pencil-square-o"
+                                                        aria-hidden="true"></i> Actualizar</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </form> `;
+            document.getElementById("li" + doc.id).appendChild(ul); 
         });
         }
     }); 
@@ -415,18 +479,14 @@ function asignarpostulante(iddocempleo,iddocpostulate){
 
 window.onload = Inicializar;
 var Fichero;
-
 var storageRef;
-
 var imagenRef;
-
   //inicializa la función en espera de algún cambio para ejecutar subirImagenFirebase
 function Inicializar() {
     fichero = document.getElementById("fichero");
     fichero.addEventListener("change", subirImagenFirebase, false);
     storageRef = firebase.storage().ref();
 }
-
 function subirImagenFirebase() {
     var imagenSubir = fichero.files[0];
     var uploadTask = storageRef.child('imagenesperfilsolicitante/' + imagenSubir.name).put(imagenSubir);
@@ -447,9 +507,8 @@ function subirImagenFirebase() {
                 // Handle any errors
             });
         });
-    }
-    
-    function crearNodoEnBDFirebase(nombrImage,Url){
+}
+function crearNodoEnBDFirebase(nombrImage,Url){
         var user = firebase.auth().currentUser;
         if (user) {
             console.log(nombrImage)
@@ -467,4 +526,4 @@ function subirImagenFirebase() {
     else {
       console("No hay user logeado")
       }
-    }
+}
