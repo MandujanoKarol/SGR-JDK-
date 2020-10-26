@@ -198,8 +198,9 @@ $(document).ready(function() {
                                         <div class="col-md-6">
                                             <fieldset>
                                                 <button type="button" id="form-submit" class="btn"
-                                                    style="background: rgb(170, 65, 65);"><i
-                                                        class="fa fa-trash" aria-hidden="true"></i>
+                                                    style="background: rgb(170, 65, 65);"
+                                                    onclick='eliminarEmpleo(${JSON.stringify(doc.id)})' >
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
                                                     Borrar</button>
                                             </fieldset>
                                         </div>
@@ -321,7 +322,7 @@ function actualizarperfil(){
         }).catch(function (error) {
             floatingMessage(error.code, "", "firebase");
         });  
-};
+}; 
 function getAge(dateString) 
 { 
     var today = new Date(); 
@@ -394,7 +395,7 @@ function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaT
  * Eliminar trabajo o empleo
  **/
 function eliminarEmpleo(iddocempleo){
-    db.collection('trabajos').doc(iddocempleo).where("id_usuario_sol", "==", uid).delete().then(function() {
+    db.collection('trabajos').doc(iddocempleo).delete().then(function() {
         floatingMessage("Eliminar empleo","Empleo eliminado", "success");
     }).catch(function(error) {
         floatingMessage(error.code, "", "firebase");
