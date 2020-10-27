@@ -406,24 +406,22 @@ function eliminarEmpleo(iddocempleo){
  * Postulantes por empleos pendientes
  **/
 function mostrarempleospendientespostulantes(){
-    db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) { 
+    db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         trabajos.forEach(function(trabajo) { 
-            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then(function(postulates) {
-                postulates.forEach(function(postulante) {  
-                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then(function(usuario) { 
+            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then( postulante => {  
+                if(postulante.exists){
+                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
                         /////tr tds tabla
                         console.log(usuario); 
                     }).catch(function(error) {
                         floatingMessage(error.code, "", "firebase");
                     });
-                
-                });
+                } 
             }).catch(function(error) {
+                
                 floatingMessage(error.code, "", "firebase");
             });
         });
-    }).catch(function(error) {
-        floatingMessage(error.code, "", "firebase");
     });
 };
 
@@ -444,8 +442,6 @@ function mostrarempleosenprocesopostulantes(){
                 floatingMessage(error.code, "", "firebase");
             });
         });
-    }).catch(function(error) {
-        floatingMessage(error.code, "", "firebase");
     });
 };
 
@@ -466,8 +462,6 @@ function mostrarempleosterminadopostulantes(){
                 floatingMessage(error.code, "", "firebase");
             });
         });
-    }).catch(function(error) {
-        floatingMessage(error.code, "", "firebase");
     });
 };
 
