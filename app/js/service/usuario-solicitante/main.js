@@ -429,16 +429,19 @@ function mostrarempleospendientespostulantes(){
  * Postulantes por empleos en proceso
  **/
 function mostrarempleosenprocesopostulantes(){
-    db.collection("trabajos").where("estado", "==",1).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) { 
+    db.collection("trabajos").where("estado", "==",1).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         trabajos.forEach(function(trabajo) { 
-            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then(function(postulante) {
-                db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then(function(usuario) { 
-                    /////tr tds tabla
-                    console.log(usuario); 
-                }).catch(function(error) {
-                    floatingMessage(error.code, "", "firebase");
-                });
+            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then( postulante => {  
+                if(postulante.exists){
+                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
+                        /////tr tds tabla
+                        console.log(usuario); 
+                    }).catch(function(error) {
+                        floatingMessage(error.code, "", "firebase");
+                    });
+                } 
             }).catch(function(error) {
+                
                 floatingMessage(error.code, "", "firebase");
             });
         });
@@ -449,16 +452,19 @@ function mostrarempleosenprocesopostulantes(){
  * Postulantes por empleos terminados
  **/
 function mostrarempleosterminadopostulantes(){
-    db.collection("trabajos").where("estado", "==",2).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) { 
+    db.collection("trabajos").where("estado", "==",2).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         trabajos.forEach(function(trabajo) { 
-            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then(function(postulante) {
-                db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then(function(usuario) { 
-                    /////tr tds tabla
-                    console.log(usuario); 
-                }).catch(function(error) {
-                    floatingMessage(error.code, "", "firebase");
-                });
+            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then( postulante => {  
+                if(postulante.exists){
+                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
+                        /////tr tds tabla
+                        console.log(usuario); 
+                    }).catch(function(error) {
+                        floatingMessage(error.code, "", "firebase");
+                    });
+                } 
             }).catch(function(error) {
+                
                 floatingMessage(error.code, "", "firebase");
             });
         });
