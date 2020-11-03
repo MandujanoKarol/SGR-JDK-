@@ -299,18 +299,19 @@ function crearNodoEnBDFirebase(nombrImage,Url){
 }
 
 
-
-
 const listadetrabajos = document.getElementById('listaempleos');
-const obtenerTrabajos = () =>{
+function ObtenerTrabajos(){
 db.collection("trabajos").onSnapshot(query => {
 let html = ''
 query.forEach(doc =>{
             const trabajo = doc.data();
+            let nombre, edad, puntuacion
+       var unsubscribe = db.collection("cuentasusuarios").doc(trabajo.id_usuario_sol)
+ 
             const columna = `        
             <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
-                                                href="#firstLink" style="background: #1c1f64; color: white;">${trabajo.nombre},${trabajo.pago}</a>
-                                            <ul id="firstLink" class="collapse"
+                                                href="#${doc.id}" style="background: #1c1f64; color: white;">${trabajo.nombre} $${trabajo.pago}.00 MXN </a>
+                                            <ul id="${doc.id}" class="collapse"
                                                 style="margin-top: 50px; margin-bottom: 50px; margin-right: 40px;">
                                                 <form id="contact" name="formactualizarperfil">
                                                     <div class="row">
@@ -323,7 +324,7 @@ query.forEach(doc =>{
                                                                 style="width:200px; height:200px; border-radius:150px;"></div>
                                                                 
                                                                 <strong style="text-align: initial; font-weight: bold;">
-                                                                    Diego
+                                                                   Diego
                                                                 </strong>
                                                                 <a>27 años</a>
                                                                 <br>
