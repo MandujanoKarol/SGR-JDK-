@@ -673,8 +673,7 @@
         ? "onmessage"
         : "message";
         eventer(messageEvent, function (e) {
-        //data you receive from parent is stored inside e.data
-        console.log(e);
+        //data you receive from parent is stored inside e.data 
         if(e.data.Longitud && e.data.Latitud ){
             $('#coordsmodal').val(e.data.Latitud + "," + e.data.Longitud);
         }

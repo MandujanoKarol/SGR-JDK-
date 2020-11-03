@@ -342,9 +342,11 @@ const formanuevoempleo = document.forms['formanuevoempleo'];
 formanuevoempleo.addEventListener('submit', (e) => {
     e.preventDefault();   
      ///cords
+   
+    var coord = document.getElementById('coordsmodal').value.split(',');
     var coordenadas = {
-        Latitud: 0,
-        Longitud: 0
+        Latitud: coord[0],
+        Longitud: coord[1]
     };
     db.collection('trabajos').doc().set({
         "id_usuario_sol": uid, 
