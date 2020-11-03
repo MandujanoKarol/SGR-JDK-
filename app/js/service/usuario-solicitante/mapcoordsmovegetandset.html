@@ -41,8 +41,9 @@ background-color: grey;
         : "message";
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data 
-        if(e.data.idobj){
-            varidobj= e.data.idobj;
+        if(e.data){
+            console.log('RECIVEMAP#'+e.data);
+            varidobj= e.data;
         }
        
         }); 
