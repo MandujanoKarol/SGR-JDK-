@@ -297,3 +297,96 @@ function crearNodoEnBDFirebase(nombrImage,Url){
       console("No hay user logeado")
       }
 }
+
+
+
+
+const listadetrabajos = document.getElementById('listaempleos');
+const obtenerTrabajos = () =>{
+db.collection("trabajos").onSnapshot(query => {
+let html = ''
+query.forEach(doc =>{
+            const trabajo = doc.data();
+            const columna = `        
+            <li class="panel"> <a data-toggle="collapse" data-parent="#listaempleos"
+                                                href="#firstLink" style="background: #1c1f64; color: white;">${trabajo.nombre},${trabajo.pago}</a>
+                                            <ul id="firstLink" class="collapse"
+                                                style="margin-top: 50px; margin-bottom: 50px; margin-right: 40px;">
+                                                <form id="contact" name="formactualizarperfil">
+                                                    <div class="row">
+                                                       
+                                                        <div class="col-md-4">
+                                                            <div style="text-align: center;">
+                                                                <div><img src="https://firebasestorage.googleapis.com/v0/b/perfilados-94e2e.appspot.com/o/imagenesperfilsolicitante%2Fnueces0001.png?alt=media&token=acb913a4-5dee-48dc-be98-4b7acf5da6c0"
+                                                                 width="370px" height="230px"
+                                                                 name="imagenperfil" alt="descargar"
+                                                                style="width:200px; height:200px; border-radius:150px;"></div>
+                                                                
+                                                                <strong style="text-align: initial; font-weight: bold;">
+                                                                    Diego
+                                                                </strong>
+                                                                <a>27 años</a>
+                                                                <br>
+                                                                <strong style="text-align: initial; font-weight: bold;">
+                                                                    4.7
+                                                                    </strong>
+                                                                    <a>6 Opiniones</a>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-8">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div style="text-align: initial;">
+                                                                        <strong style="text-align: initial; font-weight: bold;">
+                                                                        ${trabajo.fechaInicio}
+                                                                        </strong><br>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-6">
+                                                                    <div style="text-align: initial;">
+                                                                        <strong style="text-align: initial; font-weight: bold;">
+                                                                        ${trabajo.direccion}
+                                                                        </strong><br>
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                <div class="col-md-12">
+                                                                    <div style="text-align: initial;">
+                                                                        <p style="text-align: initial; font-weight: bold;">
+                                                                          1 trabajo(s) disponible(s)
+                                                                        </p>
+                                                                        <h4 style="text-align: initial; font-weight: bold;">
+                                                                        ${trabajo.nombre}
+                                                                          </h4>
+                                                                          <p style="text-align: initial; font-weight: bold;">
+                                                                          ${trabajo.descripcion}
+                                                                          </p>
+                                                                          <strong style="text-align: initial; font-weight: bold; padding-bottom: 0px;">
+                                                                          ${trabajo.requisitos}
+                                                                          </strong>
+                                                                         <h3  style="text-align: center;font-weight: bold; padding-top: 0px;">
+                                                                         ${trabajo.pago} $ </h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <fieldset>
+                                                                    <button type="submit" id="form-submit" class="btn" style="    background-color: #D93354  ;"><i
+                                                                            class="fa fa-pencil-square-o"
+                                                                            aria-hidden="true" ></i>Postularse</button>
+                                                                </fieldset>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </ul>
+                                        </li>
+            `;
+            html += columna;
+        });
+
+        listadetrabajos.innerHTML = html;
+});
+};
