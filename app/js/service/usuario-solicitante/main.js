@@ -177,7 +177,7 @@ $(document).ready(function() {
                                             </div>
                                             <fieldset>
                                                 <button type="button" class="btn" data-toggle="modal"
-                                                    data-target="#addpositionnewempleo" onclick="sendid(${"coordsmodal"+doc.id})">
+                                                    data-target="#addpositionnewempleo" onclick="sendid('${"coordsmodal"+doc.id}')">
                                                     Actualizar coordenadas
                                                 </button>
                                             </fieldset>
