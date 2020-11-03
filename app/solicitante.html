@@ -673,7 +673,7 @@
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data
         console.log(e);
-        if(data.Longitud!="" && data.Latitud!=""){
+        if(e.data.Longitud!="" && e.data.Latitud!=""){
             $('#coordsmodal').val(e.data);
         }
        
