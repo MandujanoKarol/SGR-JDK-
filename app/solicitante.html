@@ -680,8 +680,7 @@
         : "message";
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data 
-        if(e.data.Longitud && e.data.Latitud ){
-            console.log('RECIVESOLICITANTE#'+e.data.idobj);
+        if(e.data.Longitud && e.data.Latitud ){ 
             $('#'+e.data.idobj).val(e.data.Latitud + "," + e.data.Longitud);
         }
        

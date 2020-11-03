@@ -156,7 +156,7 @@ $(document).ready(function() {
                                         </div>
 
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div style="text-align: initial;">
                                                 <strong
                                                     style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
@@ -168,8 +168,21 @@ $(document).ready(function() {
                                             </fieldset>
                                         </div>
 
-
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;"> 
+                                                <strong style="text-align: initial; font-weight: bold;" >Ubicacion:</strong><br>
+                                                <input value="${doc.data().coordenadas.Latitud},${doc.data().coordenadas.Longitud}"   id=${"coordsmodal"+doc.id} onkeydown="return false;"
+                                                style="caret-color: transparent !important;"                   
+                                                required/>
+                                            </div>
+                                            <fieldset>
+                                                <button type="button" class="btn" data-toggle="modal"
+                                                    data-target="#addpositionnewempleo" onclick="sendid(${"coordsmodal"+doc.id})">
+                                                    Actualizar coordenadas
+                                                </button>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-4">
                                             <div style="text-align: initial;">
                                                 <strong
                                                     style="text-align: initial; font-weight: bold;">Seleccione
@@ -211,7 +224,8 @@ $(document).ready(function() {
                                                         ${JSON.stringify("textareadescripcionempleados"+doc.id)},${JSON.stringify("inputpagoempleados"+doc.id)},
                                                         ${JSON.stringify("inputfechainicioempleados"+doc.id)},${JSON.stringify("inputfechaterminoempleados"+doc.id)},
                                                         ${JSON.stringify("inputdireccionempleados"+doc.id)},${JSON.stringify("textarearequisitosempleados"+doc.id)},
-                                                        ${JSON.stringify("selectoficioempleos"+doc.id)})'><i
+                                                        ${JSON.stringify("selectoficioempleos"+doc.id)}),
+                                                        ${JSON.stringify("coordsmodal"+doc.id)})'><i
                                                         class="fa fa-pencil-square-o"
                                                         aria-hidden="true" ></i> Actualizar</button>
                                             </fieldset>
@@ -371,11 +385,12 @@ formanuevoempleo.addEventListener('submit', (e) => {
 /**
  * Actualizar trabajo o empleo
  **/
-function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaTermino,direccion,requisitos,oficio){
+function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaTermino,direccion,requisitos,oficio,coords){
     ///cords
+    var coord = document.getElementById(coords).value.split(',');
     var coordenadas = {
-        Latitud: 0,
-        Longitud: 0
+        Latitud: coord[0],
+        Longitud: coord[1]
     };
     db.collection('trabajos').doc(iddocempleo).update({ 
         "nombre": document.getElementById(nombre).value,
