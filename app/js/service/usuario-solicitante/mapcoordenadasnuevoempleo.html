@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- Toastr style -->
+    <link href="../../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+</head>
+
+<body style=" 
+background-color: grey;
+">
+    <div id="mapaposicion" style="z-index: 3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px;
+    touch-action: pan-x pan-y;
+    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;"></div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+    <script type="text/javascript">
+
+        var options = {
+            center: [21.125132,-101.674798],
+            zoom: 13
+        }
+
+        var map = L.map('mapaposicion', options);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>' })
+            .addTo(map);
+
+        // map.on('click', 
+        // 	function(e){
+        // 		//var coord = e.latlng.toString().split(',');
+        // 		//var lat = coord[0].split('(');
+        // 		//var lng = coord[1].split(')');
+        // 		//alert("You clicked the map at LAT: " + lat[1] + " and LONG: " + lng[0]);
+        // 		L.marker(e.latlng).addTo(map);
+        // 	});
+
+        var myMarker = L.marker([21.125132,-101.674798], { title: "Direccion", alt:"", draggable: true })
+            .addTo(map)
+            .on('dragend', function () {
+                var coord = String(myMarker.getLatLng()).split(',');
+                console.log(coord);
+                var lat = coord[0].split('(');
+                console.log(lat);
+                var lng = coord[1].split(')');
+                console.log(lng);
+                myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + ".");
+            });
+
+    </script>
+
+</body>
+
+</html>

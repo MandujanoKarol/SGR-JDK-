@@ -145,14 +145,10 @@
     <div class="page-content">
         <section id="mapa" class="content-section" style="opacity: 1;">
             <div id="map">
-                <iframe
-                    src="js/service/usuario-solicitante/mapempleos.html"
-                    width="100%" height="400px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe src="js/service/usuario-solicitante/mapempleos.html" width="100%" height="400px" frameborder="0"
+                    style="border:0" allowfullscreen></iframe>
             </div>
             <div id="contact-content">
-
-
-
                 <form id="contact" name="formanuevoempleo">
                     <div class="row">
                         <div class="section-heading">
@@ -215,7 +211,7 @@
                         </div>
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div style="text-align: initial;">
                                 <strong style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
                             </div>
@@ -225,8 +221,20 @@
                             </fieldset>
                         </div>
 
+                        <div class="col-md-4">
+                            <div style="text-align: initial;">
+                                <strong style="text-align: initial; font-weight: bold;">Ubicacion:</strong><br>
+                            </div>
+                            <fieldset>
+                                <button type="button" class="btn" data-toggle="modal"
+                                    data-target="#addpositionnewempleo">
+                                    Agregar coordenadas
+                                </button>
+                            </fieldset>
+                        </div>
 
-                        <div class="col-md-6">
+
+                        <div class="col-md-4">
                             <div style="text-align: initial;">
                                 <strong style="text-align: initial; font-weight: bold;">Seleccione el
                                     oficio:</strong><br>
@@ -273,7 +281,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul class="list-group">
-                                    <ul class="nav nav-stacked list-group" id="listaempleos"> 
+                                    <ul class="nav nav-stacked list-group" id="listaempleos">
                                     </ul>
                                 </ul>
                             </div>
@@ -296,26 +304,24 @@
 
 
                         <div class="col-md-12" style="padding-bottom: 35px; float: center;"
-                            enctype="multipart/form-data"> 
-                                <form id="form-imagenes">
-                                    <label class="btn btn-file">
-                                        <img src="img/perfil/perfil.png" width="370px" height="230px"
-                                            id="imagenperfil" name="imagenperfil" alt="descargar"
-                                            style="width:200px; height:200px; border-radius:150px;"
-                                            class="rounded-circle">
-                                        <div>
-                                            <input type="file" value="" id="fichero" name="image"
-                                                style="display: none;">
-                                            <button id="image_alt" type="button"
-                                                style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
-                                                class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
-                                        </div>
-                                    </label>
-                                </form> 
+                            enctype="multipart/form-data">
+                            <form id="form-imagenes">
+                                <label class="btn btn-file">
+                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
+                                        name="imagenperfil" alt="descargar"
+                                        style="width:200px; height:200px; border-radius:150px;" class="rounded-circle">
+                                    <div>
+                                        <input type="file" value="" id="fichero" name="image" style="display: none;">
+                                        <button id="image_alt" type="button"
+                                            style="width: 80px; margin: -50px -30px 0px -100px; position: absolute; opacity: .8;  background-color: rgb(0, 0, 0);  position: absolute;  height: 2em;  color: #fff;  text-align: center; border-radius: 15px 15px 15px 15px;"
+                                            class="opacidad"><i class="fas fa-pencil-alt"></i> Editar</button>
+                                    </div>
+                                </label>
+                            </form>
                         </div>
-                    </div>    
+                    </div>
                     <form id="contact" name="formactualizarperfil">
-                        <div class="row"> 
+                        <div class="row">
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
@@ -343,7 +349,7 @@
                                     <input name="emailperfil" type="email" class="form-control" id="emailperfil"
                                         placeholder="Correo electrónico" readonly>
                                 </fieldset>
-                            </div> 
+                            </div>
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">Seleccione el
@@ -374,7 +380,7 @@
                                     <input name="nacimientoperfil" type="date" class="form-control"
                                         id="nacimientoperfil" placeholder="Fecha de nacimiento" required="">
                                 </fieldset>
-                            </div> 
+                            </div>
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">N° Teléfono:</strong><br>
@@ -386,7 +392,7 @@
                                             onkeyup="onkeyuptelefono()" />
                                     </div>
                                 </fieldset>
-                            </div> 
+                            </div>
                             <div class="col-md-4" style="padding-top: 5px;">
                                 <fieldset>
                                     <h5 style="font-weight: bold;">Puntuación:</h5>
@@ -398,10 +404,11 @@
                                         <i class="fas fa-star "></i>
                                     </div>
                                 </fieldset>
-                            </div><br> 
+                            </div><br>
                             <div class="col-md-12">
                                 <fieldset>
-                                    <button type="button" id="form-submit" class="btn" onclick="actualizarperfil()">Actualizar información</button>
+                                    <button type="button" id="form-submit" class="btn"
+                                        onclick="actualizarperfil()">Actualizar información</button>
                                 </fieldset>
                             </div>
                         </div>
@@ -418,12 +425,12 @@
             </div>
             <div class="section-content">
                 <div class="masonry">
-                    <div id="contact" >
+                    <div id="contact">
                         <div class="row">
                             <div style="margin-bottom: 100px;">
                                 <div class="col-md-4">
                                     <fieldset>
-                                        <button type="button"  class="btn" 
+                                        <button type="button" class="btn"
                                             style="background: rgb(190, 172, 89); margin-bottom: 10px;"
                                             onclick="mostrarempleospendientespostulantes()"><i class="fa fa-stop-circle"
                                                 aria-hidden="true"></i> Empleos pendientes</button>
@@ -449,7 +456,7 @@
                             <!--ACORDEÓN-->
                             <div class="col-md-12">
                                 <ul class="list-group">
-                                    <ul class="nav nav-stacked list-group" id="misempleos"> 
+                                    <ul class="nav nav-stacked list-group" id="misempleos">
 
                                     </ul>
                                 </ul>
@@ -597,12 +604,13 @@
                 </div>
             </div>
         </section>
-          
-            <div class="hidde-sm hidden-xs">
-                <a href="#" class="float" data-toggle="tooltip" data-placement="left" title="Cerrar sesión" onclick="CerrarSesion()">
-                    <i class="fa fa-sign-out my-float" ></i>
-                    </a>
-                </div>
+
+        <div class="hidde-sm hidden-xs">
+            <a href="#" class="float" data-toggle="tooltip" data-placement="left" title="Cerrar sesión"
+                onclick="CerrarSesion()">
+                <i class="fa fa-sign-out my-float"></i>
+            </a>
+        </div>
         <section class="footer">
             <p>Copyright &copy; 2020 Perfilados
 
@@ -610,6 +618,28 @@
         </section>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="addpositionnewempleo" tabindex="-1" role="dialog"
+        aria-labelledby="addpositionnewempleoTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Agregar coordenada del empleo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="js/service/usuario-solicitante/mapcoordenadasnuevoempleo.html" width="100%" height="400px" frameborder="0"
+                    style="border:0" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
@@ -676,6 +706,6 @@
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
 
-</body> 
+</body>
 
 </html>
