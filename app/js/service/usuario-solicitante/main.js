@@ -224,7 +224,7 @@ $(document).ready(function() {
                                                         ${JSON.stringify("textareadescripcionempleados"+doc.id)},${JSON.stringify("inputpagoempleados"+doc.id)},
                                                         ${JSON.stringify("inputfechainicioempleados"+doc.id)},${JSON.stringify("inputfechaterminoempleados"+doc.id)},
                                                         ${JSON.stringify("inputdireccionempleados"+doc.id)},${JSON.stringify("textarearequisitosempleados"+doc.id)},
-                                                        ${JSON.stringify("selectoficioempleos"+doc.id)}),
+                                                        ${JSON.stringify("selectoficioempleos"+doc.id)},
                                                         ${JSON.stringify("coordsmodal"+doc.id)})'><i
                                                         class="fa fa-pencil-square-o"
                                                         aria-hidden="true" ></i> Actualizar</button>
