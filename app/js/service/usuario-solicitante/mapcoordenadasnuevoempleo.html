@@ -56,14 +56,15 @@ background-color: grey;
         var myMarker = L.marker([21.125132,-101.674798], { title: "Direccion", alt:"", draggable: true })
             .addTo(map)
             .on('dragend', function () {
-                var coord = String(myMarker.getLatLng()).split(',');
-                console.log(coord);
-                var lat = coord[0].split('(');
-                console.log(lat);
-                var lng = coord[1].split(')');
-                console.log(lng);
+                var coord = String(myMarker.getLatLng()).split(','); 
+                var lat = coord[0].split('('); 
+                var lng = coord[1].split(')'); 
                 myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + "."); 
-                parent.postMessage("Direccion del empleo: " + lat[1] + ", " + lng[0] + ".", "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html")
+                var coordenadas = {
+                    Latitud:lat[1],
+                    Longitud: lng[0]
+                };
+                parent.postMessage(coordenadas, "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html");
             });
 
     </script>
