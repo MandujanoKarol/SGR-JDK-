@@ -58,15 +58,7 @@ background-color: grey;
             trabajos.forEach(function(empleo) { 
                     L.marker([
                     empleo.data().coordenadas.Latitud,
-                    empleo.data().coordenadas.Longitud],
-                    {icon: 
-                        L.icon({    
-                        iconUrl:"https://icons-for-free.com/iconfiles/png/512/pin+pin+it+post+it+icon-1320186864444972406.png",    
-                        iconSize:[80,80],    
-                        iconAnchor:[40,40],    
-                        popupAnchor:[-1,-40]
-                        })
-                    }).addTo(Mapview).bindPopup("<b>"+empleo.data().nombre+"</b><br />"+empleo.data().descripcion+"<br />"+empleo.data().direccion);
+                    empleo.data().coordenadas.Longitud]).addTo(Mapview).bindPopup("<b>"+empleo.data().nombre+"</b><br />"+empleo.data().descripcion+"<br />"+empleo.data().direccion);
                  });
         });
     });  
