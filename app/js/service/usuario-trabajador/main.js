@@ -367,8 +367,8 @@ query.forEach(doc =>{
                                                                           <strong style="text-align: initial; font-weight: bold; padding-bottom: 0px;">
                                                                           ${trabajo.requisitos}
                                                                           </strong>
-                                                                         <h3  style="text-align: center;font-weight: bold; padding-top: 0px;">
-                                                                         ${trabajo.pago} $ </h3>
+                                                                         <h3 style="text-align: center;font-weight: bold; padding-top: 0px;">
+                                                                         $${trabajo.pago}.00 mxn </h3>
                                                                     </div>
                                                                 </div>
                                                             </div>
