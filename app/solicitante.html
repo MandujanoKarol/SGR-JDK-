@@ -223,8 +223,10 @@
 
                         <div class="col-md-4">
                             <div style="text-align: initial;"> 
-                                <input  value="hola" id="coordsmodal"/>
                                 <strong style="text-align: initial; font-weight: bold;" >Ubicacion:</strong><br>
+                                <input    id="coordsmodal" onkeydown="return false;"
+                                style="caret-color: transparent !important;"                   
+                                required/>
                             </div>
                             <fieldset>
                                 <button type="button" class="btn" data-toggle="modal"
@@ -662,7 +664,7 @@
     <script src="js/service/floatingMessage.js"></script>
     <script src="js/service/usuario-solicitante/main.js"></script>
 
-    <script>
+    <script> 
          var eventMethod = window.addEventListener
         ? "addEventListener"
         : "attachEvent";
