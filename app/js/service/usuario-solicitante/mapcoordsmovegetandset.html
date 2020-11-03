@@ -31,7 +31,7 @@ background-color: grey;
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script type="text/javascript">
-        var idobj="";
+        var varidobj="" ;
         var eventMethod = window.addEventListener
         ? "addEventListener"
         : "attachEvent";
@@ -42,7 +42,7 @@ background-color: grey;
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data 
         if(e.data.idobj){
-            idobj= e.data.idobj;
+            varidobj= e.data.idobj;
         }
        
         }); 
@@ -77,7 +77,7 @@ background-color: grey;
                 var coordenadas = {
                     Latitud:lat[1],
                     Longitud: lng[0],
-                    idobj=idobj
+                    idobj:varidobj
                 };
                 parent.postMessage(coordenadas, "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html");
             });
