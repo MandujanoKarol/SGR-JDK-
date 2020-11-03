@@ -62,8 +62,8 @@ background-color: grey;
                 console.log(lat);
                 var lng = coord[1].split(')');
                 console.log(lng);
-                myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + ".");
-                parent.setValue("Direccion del empleo: " + lat[1] + ", " + lng[0] + "."); 
+                myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + "."); 
+                parent.postMessage("Direccion del empleo: " + lat[1] + ", " + lng[0] + ".", "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html")
             });
 
     </script>
