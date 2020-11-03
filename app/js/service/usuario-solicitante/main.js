@@ -72,7 +72,7 @@ $(document).ready(function() {
     });
     /** 
      *Empleos publicados del solicitante
-     **/
+     **/ 
     db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {  
         //if (trabajos.exists) {
         document.getElementById('listaempleos').innerHTML="";

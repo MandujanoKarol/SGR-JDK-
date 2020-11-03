@@ -230,7 +230,7 @@
                             </div>
                             <fieldset>
                                 <button type="button" class="btn" data-toggle="modal"
-                                    data-target="#addpositionnewempleo">
+                                    data-target="#addpositionnewempleo" onclick="sendid('coordsmodal')">
                                     Agregar coordenadas
                                 </button>
                             </fieldset>
@@ -633,7 +633,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <iframe src="js/service/usuario-solicitante/mapcoordenadasnuevoempleo.html" width="100%" height="400px" frameborder="0"
+                    <iframe src="js/service/usuario-solicitante/mapcoordsmovegetandset.html" width="100%" height="400px" frameborder="0"
                     style="border:0" allowfullscreen></iframe>
                 </div>
                 <div class="modal-footer">
@@ -665,6 +665,9 @@
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script> 
+    function sendid(id){
+        parent.postMessage(id, "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
+    }
          var eventMethod = window.addEventListener
         ? "addEventListener"
         : "attachEvent";
@@ -675,7 +678,7 @@
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data 
         if(e.data.Longitud && e.data.Latitud ){
-            $('#coordsmodal').val(e.data.Latitud + "," + e.data.Longitud);
+            $('#'+e.data.idobj).val(e.data.Latitud + "," + e.data.Longitud);
         }
        
         }); 

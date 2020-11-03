@@ -31,7 +31,21 @@ background-color: grey;
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
     <script type="text/javascript">
-
+        var idobj="";
+        var eventMethod = window.addEventListener
+        ? "addEventListener"
+        : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod === "attachEvent"
+        ? "onmessage"
+        : "message";
+        eventer(messageEvent, function (e) {
+        //data you receive from parent is stored inside e.data 
+        if(e.data.idobj){
+            idobj= e.data.idobj;
+        }
+       
+        }); 
         var options = {
             center: [21.125132,-101.674798],
             zoom: 13
@@ -62,7 +76,8 @@ background-color: grey;
                 myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + "."); 
                 var coordenadas = {
                     Latitud:lat[1],
-                    Longitud: lng[0]
+                    Longitud: lng[0],
+                    idobj=idobj
                 };
                 parent.postMessage(coordenadas, "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html");
             });
