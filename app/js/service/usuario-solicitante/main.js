@@ -363,6 +363,7 @@ formanuevoempleo.addEventListener('submit', (e) => {
         "estado": parseInt(0)
     }).then(function (result) { 
         floatingMessage("Crear Empleo","Empleo publicado", "success");
+        document.forms['formanuevoempleo'].reset();
     }).catch(function (error) {
         floatingMessage(error.code, "", "firebase");
     }); 
