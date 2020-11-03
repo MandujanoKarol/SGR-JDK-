@@ -5,21 +5,26 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
      <!-- Toastr style -->
      <link href="../../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+     <style>
+         .map{
+            z-index: 3;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            border-width: 0px;
+            margin: 0px;
+            left: 0px;
+            top: 0px;
+            touch-action: pan-x pan-y;
+            cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;
+         }
+     </style>
 </head>
 <body style=" 
 background-color: grey;
 ">
-    <div id="mapaempleos" style="z-index: 3;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 0px;
-    border-width: 0px;
-    margin: 0px;
-    left: 0px;
-    top: 0px;
-    touch-action: pan-x pan-y;
-    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;" ></div> 
+    <div id="mapaempleos"></div> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
      <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -35,11 +40,13 @@ background-color: grey;
     var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
         $(document).ready(function() {  
         db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {   
+            document.getElementById('mapaempleos').innerHTML = " ";
+            document.getElementById('mapaempleos').innerHTML = "<div id='map' class='map' ></div>";
             var markers=[];  
             ///Mapa estilos
             const tilesProvider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
             ///centrar mapa en cierta coordenada
-            let Mapview = L.map('mapaempleos').setView([21.125132,-101.674798],13);
+            let Mapview = L.map('map').setView([21.125132,-101.674798],13);
             ///Agregar a  mapa propiedades
             L.tileLayer(tilesProvider,{
             maxZoom: 15,
