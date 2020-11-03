@@ -633,7 +633,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <iframe src="js/service/usuario-solicitante/mapcoordsmovegetandset.html" width="100%" height="400px" frameborder="0"
+                    <iframe id="mapcoordsmovegetandset" src="js/service/usuario-solicitante/mapcoordsmovegetandset.html" width="100%" height="400px" frameborder="0"
                     style="border:0" allowfullscreen></iframe>
                 </div>
                 <div class="modal-footer">
@@ -666,7 +666,10 @@
 
     <script> 
     function sendid(id){
-        parent.postMessage(id, "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
+        console.log(id.toString());
+        var destination = document.getElementById("mapcoordsmovegetandset").contentWindow;
+        destination.postMessage(id.toString(), "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
+        
     }
          var eventMethod = window.addEventListener
         ? "addEventListener"
