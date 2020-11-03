@@ -223,6 +223,7 @@
 
                         <div class="col-md-4">
                             <div style="text-align: initial;"> 
+                                <input  value="hola" id="coordsmodal"/>
                                 <strong style="text-align: initial; font-weight: bold;" >Ubicacion:</strong><br>
                             </div>
                             <fieldset>
@@ -671,7 +672,7 @@
         : "message";
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data
-        $('#output').text(e.data);
+        $('#coordsmodal').val(e.data);
         }); 
         // Hide Header on on scroll down
         $('document').ready(function () {
