@@ -1,6 +1,5 @@
 auth.onAuthStateChanged(user =>{
-    if(user){
-      ObtenerTrabajos()
+    if(user){ 
   }
   else{
     window.location.href = "ingresar.html";
