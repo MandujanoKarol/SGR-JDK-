@@ -2,12 +2,7 @@ var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c94
 var generos=[];
 var oficios=[];
 
-$(document).ready(function() {  
-    /*auth.signOut().then(()=>{  
-        localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af"); 
-    }).then(()=>{ 
-    });*/ 
- 
+$(document).ready(function() {   
     /**
      * Perfil
      **/
@@ -413,11 +408,13 @@ function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaT
  * Eliminar trabajo o empleo
  **/
 function eliminarEmpleo(iddocempleo){
-    db.collection('trabajos').doc(iddocempleo).delete().then(function() {
+     
+
+    /*db.collection('trabajos').doc(iddocempleo).delete().then(function() {
         floatingMessage("Eliminar empleo","Empleo eliminado", "success");
     }).catch(function(error) {
         floatingMessage(error.code, "", "firebase");
-    });
+    });*/
 };
 
 /**
