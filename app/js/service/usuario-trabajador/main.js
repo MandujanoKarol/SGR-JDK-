@@ -71,20 +71,23 @@ $(document).ready(function() {
                                     <div class="row">
                                         <div class="col-md-4 col-sm-6"> 
                                                 <img src="${usuario.data().imagen}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2"> 
+                                                <ul class="list-inline small mt-2">
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                </ul>
                                         </div>
                                         <div class="col-md-8 col-sm-6">
                                             <div class="media-body order-2 order-lg-1">
                                                 <h5 class="mt-0 font-weight-bold mb-2">${trabajo.data().nombre}</h5>
-                                                <p class="font-italic text-muted mb-0 small text-left">${trabajo.data().descripcion}</p>
+                                                <p class="font-italic text-muted mb-0 small text-left">Descripcion: ${trabajo.data().descripcion}</p>
+                                                <p class="font-italic text-muted mb-0 small text-left">Direccion: ${trabajo.data().direccion}</p>
+                                                <p class="font-italic text-muted mb-0 small text-left">Oficio: ${trabajo.data().oficio}</p>
                                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                                     <h6 class="font-weight-bold my-2">$${trabajo.data().pago}.00</h6>
-                                                    <ul class="list-inline small">
-                                                        <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                                                    </ul>
+                                                   
                                                     <a  class="btn btn-primary btn-sm mt-2">Postularme</a>
                                                 </div>
                                             </div> 
