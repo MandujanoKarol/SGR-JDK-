@@ -81,12 +81,13 @@ $(document).ready(function() {
                                         </div>
                                         <div class="col-md-8 col-sm-6">
                                             <div class="media-body order-2 order-lg-1">
-                                                <h5 class="mt-0 font-weight-bold mb-2">${trabajo.data().nombre}</h5>
+                                                <h5 class="mt-0 font-weight-bold mb-2" style="font-size:14px; color: #1B3280; font-weight: bold">${trabajo.data().nombre}</h5>
+                                                <hr>
                                                 <p class="font-italic text-muted mb-0 small text-left">Descripcion: ${trabajo.data().descripcion}</p>
                                                 <p class="font-italic text-muted mb-0 small text-left">Direccion: ${trabajo.data().direccion}</p>
                                                 <p class="font-italic text-muted mb-0 small text-left">Oficio: ${trabajo.data().oficio}</p>
                                                 <div class="d-flex align-items-center justify-content-between mt-1">
-                                                    <h6 class="font-weight-bold my-2">$${trabajo.data().pago}.00</h6>
+                                                    <h6 class="font-weight-bold my-2" style="color: #C2280C">$${trabajo.data().pago}.00</h6>
                                                    
                                                     <a  class="btn btn-primary btn-sm mt-2">Postularme</a>
                                                 </div>
