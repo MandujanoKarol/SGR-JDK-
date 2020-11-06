@@ -66,7 +66,7 @@ $(document).ready(function() {
             db.collection("cuentasusuarios").doc(trabajo.data().id_usuario_sol).get().then(function(usuario) {
                 // ${trabajo.data().direccion}
                 var li = document.createElement("li"); 
-                li.setAttribute("class", "list-group-item mt-2 jdk-li");
+                li.setAttribute("class", "list-group-item mt-2 jdk-li", "style", " border-radius: 10px;");
                 li.innerHTML=`<div class="media align-items-lg-center flex-column flex-lg-row p-3">
                                     <div class="row">
                                         <div class="col-md-4 col-sm-6"> 
