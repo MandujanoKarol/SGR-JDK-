@@ -87,7 +87,7 @@ $(document).ready(function() {
                                                 <p class="font-italic text-muted mb-0 small text-left"><strong>Direccion:</strong> ${trabajo.data().direccion}</p>
                                                 <p class="font-italic text-muted mb-0 small text-left"><strong>Oficio:</strong> ${trabajo.data().oficio}</p>
                                                 <div class="d-flex align-items-center justify-content-between mt-1">
-                                                    <h6 class="font-weight-bold my-2" style="color: #C2280C">$${trabajo.data().pago}.00</h6>
+                                                    <h6 class="font-weight-bold my-2" style="color: #C2280C; font-weight: bold">$${trabajo.data().pago}.00</h6>
                                                    
                                                     <a  class="btn btn-primary btn-sm mt-2" style="background: #45489a">Postularme</a>
                                                 </div>
