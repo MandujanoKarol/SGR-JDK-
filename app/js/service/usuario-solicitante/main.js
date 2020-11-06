@@ -170,6 +170,7 @@ $(document).ready(function() {
                                                 style="caret-color: transparent !important;"                   
                                                 required/>
                                             </div>
+                                            
                                             <fieldset>
                                                 <button type="button" class="btn" data-toggle="modal" style="background: rgb(23, 177, 23);"
                                                     data-target="#addpositionnewempleo" onclick="sendid('${"coordsmodal"+doc.id}')"><i class="fa fa-map-marker" aria-hidden="true"></i>
