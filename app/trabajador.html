@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="css/css-pages/bootstrap.min.css">
-    <link rel="stylesheet" href="css/css-pages/bootstrap-theme.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/css-pages/fontAwesome.css">
     <link rel="stylesheet" href="css/css-pages/light-box.css">
     <link rel="stylesheet" href="css/css-pages/owl-carousel.css">
@@ -150,286 +150,80 @@
                     <h1>Publicaciones<br><em>para postularse</em></h1>
                     <p>Visualice las publicaciones de los solicitantes y de esa manera podrá postularse
                         <br>a algún trabajo o tarea por hacer.</p>
-
+                        <style>
+                        .media  img {
+                            height: 100px;
+                            width: 100px
+                        }
+                        .mt-2 {
+                            margin-top: 10px !important;
+                        }
+                        </style>
+                        
                 </div>
                 <div class="section-content">
                     <form id="contact" action="#" method="post">
                         <div class="row">
                             <!--ACORDEÓN-->
                             <div class="col-md-12">
-                                <ul class="list-group" id="listaempleos2">
-                                    <ul class="nav nav-stacked list-group" id="listaempleos">
-                                        <li class="panel">
-                                             <a data-toggle="collapse" data-parent="#listaempleos"
-                                                href="#firstLink" style="background: #1c1f64; color: white;">Nombre de
-                                                la primera publicación</a>
-                                            <ul id="firstLink" class="collapse"
-                                                style="margin-top: 50px; margin-bottom: 50px; margin-right: 40px;">
-                                                <form id="contact" name="formactualizarperfil">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="nombrenuevotrabajo" type="text"
-                                                                    class="form-control" id="nombrenuevotrabajo"
-                                                                    placeholder="Nombre" required="">
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <textarea name="descripcionnuevotrabajo" rows="6"
-                                                                    class="form-control" id="descripcionnuevotrabajo"
-                                                                    placeholder="Descripción de la publicación..."
-                                                                    required=""
-                                                                    style="color: black; height: 50px;"></textarea>
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Pago:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="pagonuevotrabajo" type="number"
-                                                                    class="form-control" id="pagonuevotrabajo"
-                                                                    placeholder="Pago" required="">
-                                                            </fieldset>
-                                                        </div>
-
-
-
-                                                        <div class="col-md-4">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Fecha
-                                                                    de
-                                                                    inicio:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="fechainicionuevotrabajo" type="date"
-                                                                    class="form-control" id="fechainicionuevotrabajo"
-                                                                    placeholder="Fecha de nacimiento" required="">
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Fecha
-                                                                    de
-                                                                    término:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="fechaterminonuevotrabajo" type="date"
-                                                                    class="form-control" id="fechaterminonuevotrabajo"
-                                                                    placeholder="Fecha de término" required="">
-                                                            </fieldset>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="direccionnuevotrabajo" type="text"
-                                                                    class="form-control" id="direccionnuevotrabajo"
-                                                                    placeholder="Dirección" required="">
-                                                            </fieldset>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Seleccione
-                                                                    el
-                                                                    oficio:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <select class="form-control selectstyle" required=""
-                                                                    name="oficionuevotrabajo" id="oficionuevotrabajo">
-                                                                    <option value="" hidden="">Oficio</option>
-                                                                </select>
-                                                            </fieldset>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Requisitos:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <textarea name="requisitosnuevotrabajo" rows="6"
-                                                                    class="form-control" id="requisitosnuevotrabajo"
-                                                                    placeholder="Requisitos..." required=""
-                                                                    style="color: black; height: 50px;"></textarea>
-                                                            </fieldset>
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <fieldset>
-                                                                <button type="submit" id="form-submit" class="btn"
-                                                                    style="background: rgb(170, 65, 65); margin-bottom: 10px;"><i
-                                                                        class="fa fa-trash" aria-hidden="true"></i>
-                                                                    Borrar</button>
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <fieldset>
-                                                                <button type="submit" id="form-submit" class="btn"><i
-                                                                        class="fa fa-pencil-square-o"
-                                                                        aria-hidden="true"></i> Actualizar</button>
-                                                            </fieldset>
-                                                        </div>
+                                <ul class="list-group" id="">
+                                    <ul class="nav nav-stacked list-group" id="">
+                                        <li class="list-group-item mt-2">
+                                            <!-- Custom content-->
+                                            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                                                <div class="row">
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
                                                     </div>
-                                                </form>
-                                            </ul>
-                                        </li>
-                                        <li class="panel">
-                                             <a data-toggle="collapse" data-parent="#listaempleos"
-                                                href="#secondLink" style="background: #1c1f64; color: white;">Nombre de
-                                                la segunda publicación</a>
-
-                                            <ul id="secondLink" class="collapse">
-                                                <form id="contact" name="formactualizarperfil"
-                                                    style="margin-top: 50px; margin-bottom: 50px; margin-right: 40px;">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                                                    <div class="col-md-9 col-sm-6">
+                                                        <div class="media-body order-2 order-lg-1">
+                                                            <h5 class="mt-0 font-weight-bold mb-2">Apple iPhone XR (Red, 128 GB)</h5>
+                                                            <p class="font-italic text-muted mb-0 small">128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 7MP Front Camera A12 Bionic Chip Processor</p>
+                                                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                                                <h6 class="font-weight-bold my-2">₹64,999</h6>
+                                                                <ul class="list-inline small">
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                                </ul>
                                                             </div>
-                                                            <fieldset>
-                                                                <input name="nombrenuevotrabajo" type="text"
-                                                                    class="form-control" id="nombrenuevotrabajo"
-                                                                    placeholder="Nombre" required="">
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <textarea name="descripcionnuevotrabajo" rows="6"
-                                                                    class="form-control" id="descripcionnuevotrabajo"
-                                                                    placeholder="Descripción de la publicación..."
-                                                                    required=""
-                                                                    style="color: black; height: 50px;"></textarea>
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Pago:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="pagonuevotrabajo" type="number"
-                                                                    class="form-control" id="pagonuevotrabajo"
-                                                                    placeholder="Pago" required="">
-                                                            </fieldset>
-                                                        </div>
+                                                        </div> 
+                                                    </div> 
+                                                </div>
+                                                
+                                            </div> <!-- End -->
+                                        </li> 
 
 
-
-                                                        <div class="col-md-4">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Fecha
-                                                                    de
-                                                                    inicio:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="fechainicionuevotrabajo" type="date"
-                                                                    class="form-control" id="fechainicionuevotrabajo"
-                                                                    placeholder="Fecha de nacimiento" required="">
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Fecha
-                                                                    de
-                                                                    término:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="fechaterminonuevotrabajo" type="date"
-                                                                    class="form-control" id="fechaterminonuevotrabajo"
-                                                                    placeholder="Fecha de término" required="">
-                                                            </fieldset>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <input name="direccionnuevotrabajo" type="text"
-                                                                    class="form-control" id="direccionnuevotrabajo"
-                                                                    placeholder="Dirección" required="">
-                                                            </fieldset>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Seleccione
-                                                                    el
-                                                                    oficio:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <select class="form-control selectstyle" required=""
-                                                                    name="oficionuevotrabajo" id="oficionuevotrabajo">
-                                                                    <option value="" hidden="">Oficio</option>
-                                                                </select>
-                                                            </fieldset>
-                                                        </div>
-
-                                                        <div class="col-md-12">
-                                                            <div style="text-align: initial;">
-                                                                <strong
-                                                                    style="text-align: initial; font-weight: bold;">Requisitos:</strong><br>
-                                                            </div>
-                                                            <fieldset>
-                                                                <textarea name="requisitosnuevotrabajo" rows="6"
-                                                                    class="form-control" id="requisitosnuevotrabajo"
-                                                                    placeholder="Requisitos..." required=""
-                                                                    style="color: black; height: 50px;"></textarea>
-                                                            </fieldset>
-                                                        </div>
-
-
-                                                        <div class="col-md-6">
-                                                            <fieldset>
-                                                                <button type="submit" id="form-submit" class="btn"
-                                                                    style="background: rgb(170, 65, 65);"><i
-                                                                        class="fa fa-trash" aria-hidden="true"></i>
-                                                                    Borrar</button>
-                                                            </fieldset>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <fieldset>
-                                                                <button type="submit" id="form-submit" class="btn"><i
-                                                                        class="fa fa-pencil-square-o"
-                                                                        aria-hidden="true"></i> Actualizar</button>
-                                                            </fieldset>
-                                                        </div>
-
+                                        <li class="list-group-item mt-2">
+                                            <!-- Custom content-->
+                                            <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                                                <div class="row">
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <img src="https://i.imgur.com/KFojDGa.jpg" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
                                                     </div>
-                                                </form>
-                                            </ul>
-                                        </li>
+                                                    <div class="col-md-9 col-sm-6">
+                                                        <div class="media-body order-2 order-lg-1">
+                                                            <h5 class="mt-0 font-weight-bold mb-2">Apple iPhone XR (Red, 128 GB)</h5>
+                                                            <p class="font-italic text-muted mb-0 small">128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 7MP Front Camera A12 Bionic Chip Processor</p>
+                                                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                                                <h6 class="font-weight-bold my-2">₹64,999</h6>
+                                                                <ul class="list-inline small">
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div> 
+                                                    </div> 
+                                                </div>
+                                                
+                                            </div> <!-- End -->
+                                        </li> 
                                     </ul>
                                 </ul>
                             </div>
