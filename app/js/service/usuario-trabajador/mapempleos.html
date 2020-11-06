@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+     <!-- Toastr style -->
+     <link href="../../../css/plugins/toastr/toastr.min.css" rel="stylesheet">
+     <style>
+         .map{
+            z-index: 3;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0px;
+            border-width: 0px;
+            margin: 0px;
+            left: 0px;
+            top: 0px;
+            cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;
+         }
+     </style>
+</head>
+<body style=" 
+background-color: grey;
+">
+    <div id="mapaempleos"></div> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+      <!-- Toastr -->
+    <script src="../../plugins/toastr/toastr.min.js"></script>
+    <script src="../bd.js"></script>
+    <script src="../../service/floatingMessage.js"></script>
+    <script>  
+    var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
+        $(document).ready(function() {  
+        db.collection("trabajos").onSnapshot(function(trabajos) {   
+            document.getElementById('mapaempleos').innerHTML = " ";
+            document.getElementById('mapaempleos').innerHTML = "<div id='map' class='map' ></div>";
+            var markers=[];  
+            ///Mapa estilos
+            const tilesProvider = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            ///centrar mapa en cierta coordenada
+            let Mapview = L.map('map').setView([21.125132,-101.674798],13);
+            ///Agregar a  mapa propiedades
+            L.tileLayer(tilesProvider,{
+            maxZoom: 15,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox/light-v9'
+            }).addTo(Mapview); 
+            trabajos.forEach(function(empleo) { 
+                    L.marker([
+                    empleo.data().coordenadas.Latitud,
+                    empleo.data().coordenadas.Longitud]).addTo(Mapview).bindPopup("<b>"+empleo.data().nombre+"</b><br />"+empleo.data().descripcion+"<br />"+empleo.data().direccion);
+                 });
+        });
+    });  
+
+     
+    </script> 
+
+</body>
+
+</html>
