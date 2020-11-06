@@ -89,7 +89,7 @@ $(document).ready(function() {
                                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                                     <h6 class="font-weight-bold my-2" style="color: #C2280C">$${trabajo.data().pago}.00</h6>
                                                    
-                                                    <a  class="btn btn-primary btn-sm mt-2">Postularme</a>
+                                                    <a  class="btn btn-primary btn-sm mt-2" style="background: #45489a">Postularme</a>
                                                 </div>
                                             </div> 
                                         </div> 
