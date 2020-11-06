@@ -62,23 +62,20 @@ $(document).ready(function() {
     db.collection("trabajos").onSnapshot(function(trabajos) {  
         //if (trabajos.exists) {
         document.getElementById('listaempleos').innerHTML="";
-        trabajos.forEach(function(trabajo) { 
-            console.log(trabajo.data().id_usuario_sol);
+        trabajos.forEach(function(trabajo) {  
             db.collection("cuentasusuarios").doc(trabajo.data().id_usuario_sol).get().then(function(usuario) {
                 // ${trabajo.data().direccion}
                 var li = document.createElement("li"); 
                 li.setAttribute("class", "list-group-item mt-2 jdk-li");
                 li.innerHTML=`<div class="media align-items-lg-center flex-column flex-lg-row p-3">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-6">
-                                            <div class="media-body order-2 order-lg-1">
-                                                <img src="${usuario.data().imagen}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">
-                                            </div>
+                                        <div class="col-md-4 col-sm-6"> 
+                                                <img src="${usuario.data().imagen}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2"> 
                                         </div>
                                         <div class="col-md-8 col-sm-6">
                                             <div class="media-body order-2 order-lg-1">
                                                 <h5 class="mt-0 font-weight-bold mb-2">${trabajo.data().nombre}</h5>
-                                                <p class="font-italic text-muted mb-0 small text-left">128 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 7MP Front Camera A12 Bionic Chip Processor</p>
+                                                <p class="font-italic text-muted mb-0 small text-left">${trabajo.data().descripcion}</p>
                                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                                     <h6 class="font-weight-bold my-2">$${trabajo.data().pago}.00</h6>
                                                     <ul class="list-inline small">
@@ -88,16 +85,13 @@ $(document).ready(function() {
                                                         <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
                                                         <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
                                                     </ul>
-                                                    <button type="button" class="btn mt-2">Postularme</button>
+                                                    <a  class="btn btn-primary btn-sm mt-2">Postularme</a>
                                                 </div>
                                             </div> 
                                         </div> 
                                     </div> 
                                 </div> `;  
-                document.getElementById('listaempleos').appendChild(li);
-                
-                //$("#textareadescripcionempleados"+doc.id).val(doc.data().descripcion);
-                //$("#textarearequisitosempleados"+doc.id).val(doc.data().requisitos);  
+                document.getElementById('listaempleos').appendChild(li); 
             });
         });
         //}
