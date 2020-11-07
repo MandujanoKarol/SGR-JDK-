@@ -89,7 +89,9 @@ $(document).ready(function() {
                                                 <div class="d-flex align-items-center justify-content-between mt-1">
                                                     <h6 class="font-weight-bold my-2" style="color: #C2280C; font-weight: bold">$${trabajo.data().pago}.00</h6>
                                                    
-                                                    <a  class="btn btn-primary btn-sm mt-2" style="background: #45489a">Postularme</a>
+                                                    <a  class="btn btn-primary btn-sm mt-2" style="background: #45489a"
+                                                    onclick="postularse('${trabajo.id}')"
+                                                    >Postularme</a>
                                                 </div>
                                             </div> 
                                         </div> 
@@ -203,31 +205,23 @@ function getAge(dateString)
 }; 
 /**
  * Funcion para postularse
- **/
-function postularse(iddocempleo){ 
-    db.collection("trabajos").where("estado", "<=", 1).get().then(function(trabajos) {
-        trabajos.forEach(function(trabajo) { 
-                db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().where("id_usuario_tra", "==", uid).get().then(function(postulante) {
-                    if (!postulante.exists) {
-                        db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc().set({
-                            "id_usuario_tra": uid,  
-                            "fechaRegistro": new Date().toLocaleString(), 
-                            "estado": parseInt(0)
-                        }).then(function() {
-                            floatingMessage("Postularse a Empleo","Te postulaste a el empleo", "success");
-                        }).catch(function(error) {
-                            floatingMessage(error.code, "", "firebase");
-                        });
-                    }else{
-                        floatingMessage("Postularse a Empleo","Actualmente se encuentra postulado en otro empleo", "error");
-                    } 
-                }).catch(function(error) {
-                    floatingMessage(error.code, "", "firebase");
-                });
-         });
-    }).catch(function(error) {
-        floatingMessage(error.code, "", "firebase");
-    });
+ **/ 
+function postularse(iddocempleo){  
+    db.collection("trabajos").doc(iddocempleo).collection("postulantes").where("id_usuario_tra", "==", uid).get().then(postulante => {
+        if(postulante.size>0){  
+            floatingMessage("Postularse a Empleo","Actualmente estas postulado a este empleo", "error");
+        }else{
+            db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc().set({
+                "id_usuario_tra": uid,  
+                "fechaRegistro": new Date().toLocaleString(), 
+                "estado": parseInt(0)
+            }).then(function() {
+                floatingMessage("Postularse a Empleo","Te postulaste a el empleo", "success");
+            }).catch(function(error) {
+                floatingMessage(error.code, "", "firebase");
+            });
+        } 
+    });  
 };
 /**
  * Funcion para eliminar postulacion
