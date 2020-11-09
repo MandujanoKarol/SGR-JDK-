@@ -422,19 +422,150 @@ function eliminarEmpleo(iddocempleo){
  * Postulantes por empleos pendientes
  **/
 function mostrarempleospendientespostulantes(){
+    document.getElementById('misempleos').innerHTML="";
     db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         trabajos.forEach(function(trabajo) { 
-            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then( postulante => {  
-                if(postulante.exists){
+            var li = document.createElement("li"); 
+            li.setAttribute("id", "limisempleos" + trabajo.id); 
+            li.setAttribute("class", "panel");
+            li.innerHTML=`<a data-toggle="collapse" aria-expanded="false" data-parent="#misempleos"
+            href="#Linkmisempleos${trabajo.id}" style="background: #1c1f64; color: white;">${trabajo.data().nombre}</a>`  
+            document.getElementById('misempleos').appendChild(li);
+            
+            var ul = document.createElement("ul"); 
+            ul.setAttribute("id", "Linkmisempleos"+trabajo.id); 
+            ul.setAttribute("class", "collapse"); 
+            ul.setAttribute("style","margin-top: 50px; margin-bottom: 50px; margin-right: 40px;"); 
+            ul.innerHTML=` <div class="row">
+                                        <div class="col-md-4 ">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                            <strong
+                                                style="text-align: initial; font-weight: bold;">${trabajo.data().nombre}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">
+                                                    ${trabajo.data().descripcion}
+                                                    </strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Pago:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">$${trabajo.data().pago}.00</strong><br>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-4 "  style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    inicio:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">${trabajo.data().fechaInicio}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    término:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">${trabajo.data().fechaTermino}</strong><br>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-4" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                            <strong
+                                                style="text-align: initial; font-weight: bold;">${trabajo.data().direccion}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Oficio:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong style="text-align: initial; font-weight: bold;">
+                                                ${ trabajo.data().oficio} </strong><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:10px">
+                                            <div style="text-align: center;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Solicitantes:</strong><br>
+                                            </div> 
+                                            <div class="list-group d-flex flex-row flex-wrap"  style="margin-top:10px"> 
+                                                <div class="row" id="${"postulatesmisempleos"+trabajo.id}">
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div> `;
+            document.getElementById("limisempleos" + trabajo.id).appendChild(ul);  
+
+            db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
+                postulantes.forEach(function(postulante) {  
                     db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
                         /////tr tds tabla
-                        console.log(usuario); 
-                    }).catch(function(error) {
+                        console.log(usuario.data().correo); 
+                        var divpostulante = document.createElement("div"); 
+                        divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
+                        divpostulante.setAttribute("style", "margin-top:10px"); 
+                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-4 ml-10");
+                        divpostulante.innerHTML=`<div class="row">
+                                                    <div class="col-md-12">
+                                                    <img src="${usuario.data().imagen}" alt="Foto postulante" 
+                                                    style="height: 100px;
+                                                    width: 100px;
+                                                    border-radius: 150px;">
+                                                    <br>
+                                                    <h5 class="mb-1">${"Nombre del postulante: "+usuario.data().nombre+" "+usuario.data().apellido}</h5>
+                                                    <ul class="list-inline small mt-2">
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                    <br>
+                                                    </ul>
+                                                    <small>${"Correo: "+usuario.data().correo}</small>
+                                                    <br>
+                                                    <small>${"Correo: "+usuario.data().telefono}</small> 
+                                                    <br>
+                                                    <a class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="asignarpostulante('${trabajo.id}','${postulante.id}')">
+                                                    Asignar empleo
+                                                    </a>
+                                                    </div> 
+                                                </div>`; 
+                        document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
+                    }).catch(function(error) { 
                         floatingMessage(error.code, "", "firebase");
-                    });
-                } 
-            }).catch(function(error) {
-                
+                    }); 
+                });
+            }).catch(function(error) {  
                 floatingMessage(error.code, "", "firebase");
             });
         });
@@ -445,19 +576,146 @@ function mostrarempleospendientespostulantes(){
  * Postulantes por empleos en proceso
  **/
 function mostrarempleosenprocesopostulantes(){
+    document.getElementById('misempleos').innerHTML="";
     db.collection("trabajos").where("estado", "==",1).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         trabajos.forEach(function(trabajo) { 
-            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then( postulante => {  
-                if(postulante.exists){
+            var li = document.createElement("li"); 
+            li.setAttribute("id", "limisempleos" + trabajo.id); 
+            li.setAttribute("class", "panel");
+            li.innerHTML=`<a data-toggle="collapse" aria-expanded="false" data-parent="#misempleos"
+            href="#Linkmisempleos${trabajo.id}" style="background: #1c1f64; color: white;">${trabajo.data().nombre}</a>`  
+            document.getElementById('misempleos').appendChild(li);
+            
+            var ul = document.createElement("ul"); 
+            ul.setAttribute("id", "Linkmisempleos"+trabajo.id); 
+            ul.setAttribute("class", "collapse"); 
+            ul.setAttribute("style","margin-top: 50px; margin-bottom: 50px; margin-right: 40px;"); 
+            ul.innerHTML=` <div class="row">
+                                        <div class="col-md-4 ">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                            <strong
+                                                style="text-align: initial; font-weight: bold;">${trabajo.data().nombre}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">
+                                                    ${trabajo.data().descripcion}
+                                                    </strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Pago:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">$${trabajo.data().pago}.00</strong><br>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-4 "  style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    inicio:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">${trabajo.data().fechaInicio}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    término:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">${trabajo.data().fechaTermino}</strong><br>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-4" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                            <strong
+                                                style="text-align: initial; font-weight: bold;">${trabajo.data().direccion}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Oficio:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong style="text-align: initial; font-weight: bold;">
+                                                ${ trabajo.data().oficio} </strong><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:10px">
+                                            <div style="text-align: center;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Solicitantes:</strong><br>
+                                            </div> 
+                                            <div class="list-group d-flex flex-row flex-wrap"  style="margin-top:10px"> 
+                                                <div class="row" id="${"postulatesmisempleos"+trabajo.id}">
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div> `;
+            document.getElementById("limisempleos" + trabajo.id).appendChild(ul);  
+
+            db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
+                postulantes.forEach(function(postulante) {  
                     db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
                         /////tr tds tabla
-                        console.log(usuario); 
-                    }).catch(function(error) {
+                        console.log(usuario.data().correo); 
+                        var divpostulante = document.createElement("div"); 
+                        divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
+                        divpostulante.setAttribute("style", "margin-top:10px"); 
+                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-4 ml-10");
+                        divpostulante.innerHTML=`<div class="row">
+                                                    <div class="col-md-12">
+                                                    <img src="${usuario.data().imagen}" alt="Foto postulante" 
+                                                    style="height: 100px;
+                                                    width: 100px;
+                                                    border-radius: 150px;">
+                                                    <br>
+                                                    <h5 class="mb-1">${"Nombre del postulante: "+usuario.data().nombre+" "+usuario.data().apellido}</h5>
+                                                    <ul class="list-inline small mt-2">
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                    <br>
+                                                    </ul>
+                                                    <small>${"Correo: "+usuario.data().correo}</small>
+                                                    <br>
+                                                    <small>${"Correo: "+usuario.data().telefono}</small>  
+                                                    </div> 
+                                                </div>`; 
+                        document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
+                    }).catch(function(error) { 
                         floatingMessage(error.code, "", "firebase");
-                    });
-                } 
-            }).catch(function(error) {
-                
+                    }); 
+                });
+            }).catch(function(error) {  
                 floatingMessage(error.code, "", "firebase");
             });
         });
@@ -468,19 +726,146 @@ function mostrarempleosenprocesopostulantes(){
  * Postulantes por empleos terminados
  **/
 function mostrarempleosterminadopostulantes(){
+    document.getElementById('misempleos').innerHTML="";
     db.collection("trabajos").where("estado", "==",2).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         trabajos.forEach(function(trabajo) { 
-            db.collection('trabajos').doc(trabajo.id).collection('postulantes').doc().get().then( postulante => {  
-                if(postulante.exists){
+            var li = document.createElement("li"); 
+            li.setAttribute("id", "limisempleos" + trabajo.id); 
+            li.setAttribute("class", "panel");
+            li.innerHTML=`<a data-toggle="collapse" aria-expanded="false" data-parent="#misempleos"
+            href="#Linkmisempleos${trabajo.id}" style="background: #1c1f64; color: white;">${trabajo.data().nombre}</a>`  
+            document.getElementById('misempleos').appendChild(li);
+            
+            var ul = document.createElement("ul"); 
+            ul.setAttribute("id", "Linkmisempleos"+trabajo.id); 
+            ul.setAttribute("class", "collapse"); 
+            ul.setAttribute("style","margin-top: 50px; margin-bottom: 50px; margin-right: 40px;"); 
+            ul.innerHTML=` <div class="row">
+                                        <div class="col-md-4 ">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Nombre:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                            <strong
+                                                style="text-align: initial; font-weight: bold;">${trabajo.data().nombre}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold; ">Descripcion:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">
+                                                    ${trabajo.data().descripcion}
+                                                    </strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Pago:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">$${trabajo.data().pago}.00</strong><br>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-4 "  style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    inicio:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">${trabajo.data().fechaInicio}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-4" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Fecha
+                                                    de
+                                                    término:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">${trabajo.data().fechaTermino}</strong><br>
+                                            </div> 
+                                        </div> 
+                                        <div class="col-md-4" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                            <strong
+                                                style="text-align: initial; font-weight: bold;">${trabajo.data().direccion}</strong><br>
+                                            </div> 
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:10px">
+                                            <div style="text-align: initial;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Oficio:</strong><br>
+                                            </div>
+                                            <div style="text-align: initial;">
+                                                <strong style="text-align: initial; font-weight: bold;">
+                                                ${ trabajo.data().oficio} </strong><br>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" style="margin-top:10px">
+                                            <div style="text-align: center;">
+                                                <strong
+                                                    style="text-align: initial; font-weight: bold;">Solicitantes:</strong><br>
+                                            </div> 
+                                            <div class="list-group d-flex flex-row flex-wrap"  style="margin-top:10px"> 
+                                                <div class="row" id="${"postulatesmisempleos"+trabajo.id}">
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div> `;
+            document.getElementById("limisempleos" + trabajo.id).appendChild(ul);  
+
+            db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
+                postulantes.forEach(function(postulante) {  
                     db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
                         /////tr tds tabla
-                        console.log(usuario); 
-                    }).catch(function(error) {
+                        console.log(usuario.data().correo); 
+                        var divpostulante = document.createElement("div"); 
+                        divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
+                        divpostulante.setAttribute("style", "margin-top:10px"); 
+                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-4 ml-10");
+                        divpostulante.innerHTML=`<div class="row">
+                                                    <div class="col-md-12">
+                                                    <img src="${usuario.data().imagen}" alt="Foto postulante" 
+                                                    style="height: 100px;
+                                                    width: 100px;
+                                                    border-radius: 150px;">
+                                                    <br>
+                                                    <h5 class="mb-1">${"Nombre del postulante: "+usuario.data().nombre+" "+usuario.data().apellido}</h5>
+                                                    <ul class="list-inline small mt-2">
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
+                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                    <br>
+                                                    </ul>
+                                                    <small>${"Correo: "+usuario.data().correo}</small>
+                                                    <br>
+                                                    <small>${"Correo: "+usuario.data().telefono}</small> 
+                                                    </div> 
+                                                </div>`; 
+                        document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
+                    }).catch(function(error) { 
                         floatingMessage(error.code, "", "firebase");
-                    });
-                } 
-            }).catch(function(error) {
-                
+                    }); 
+                });
+            }).catch(function(error) {  
                 floatingMessage(error.code, "", "firebase");
             });
         });
