@@ -422,8 +422,9 @@ function eliminarEmpleo(iddocempleo){
  * Postulantes por empleos pendientes
  **/
 function mostrarempleospendientespostulantes(){
-    document.getElementById('misempleos').innerHTML="";
+    
     db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
+        document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
             var li = document.createElement("li"); 
             li.setAttribute("id", "limisempleos" + trabajo.id); 
@@ -575,9 +576,9 @@ function mostrarempleospendientespostulantes(){
 /**
  * Postulantes por empleos en proceso
  **/
-function mostrarempleosenprocesopostulantes(){
-    document.getElementById('misempleos').innerHTML="";
+function mostrarempleosenprocesopostulantes(){ 
     db.collection("trabajos").where("estado", "==",1).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
+        document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
             var li = document.createElement("li"); 
             li.setAttribute("id", "limisempleos" + trabajo.id); 
@@ -725,9 +726,9 @@ function mostrarempleosenprocesopostulantes(){
 /**
  * Postulantes por empleos terminados
  **/
-function mostrarempleosterminadopostulantes(){
-    document.getElementById('misempleos').innerHTML="";
+function mostrarempleosterminadopostulantes(){ 
     db.collection("trabajos").where("estado", "==",2).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
+        document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
             var li = document.createElement("li"); 
             li.setAttribute("id", "limisempleos" + trabajo.id); 
@@ -882,12 +883,19 @@ function asignarpostulante(iddocempleo,iddocpostulate){
         db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc(iddocpostulate).update({ 
             "estado": parseInt(1)
         }).then(function (result) { 
-            db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc().where("estado", "==", 0).delete().then(function() {
-                floatingMessage("Asignar Postulante","Asignado!", "success");
-            }).catch(function(error) {
+            db.collection('trabajos').doc(iddocempleo).collection('postulantes').where("estado", "==",0).get().then( postulantes => { 
+                postulantes.forEach(function(postulante) {  
+                    db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc(postulante.id).delete().then(function() {
+                        floatingMessage("Asignar Postulante","Asignado!", "success");
+                    }).catch(function(error) { 
+                        floatingMessage(error.code, "", "firebase");
+                    });
+                });  
+            }).catch(function (error) { 
                 floatingMessage(error.code, "", "firebase");
             }); 
         }).catch(function (error) {
+            console.log(error);
             floatingMessage(error.code, "", "firebase");
         }); 
     }).catch(function (error) {
