@@ -517,7 +517,7 @@ function mostrarempleospendientespostulantes(){
                                         <div class="col-md-12" style="margin-top:10px">
                                             <div style="text-align: center;">
                                                 <strong
-                                                    style="text-align: initial; font-weight: bold;">Solicitantes:</strong><br>
+                                                    style="text-align: initial; font-weight: bold;">Postulantes:</strong><br>
                                             </div> 
                                             <div class="list-group d-flex flex-row flex-wrap"  style="margin-top:10px"> 
                                                 <div class="row" id="${"postulatesmisempleos"+trabajo.id}">
@@ -529,8 +529,7 @@ function mostrarempleospendientespostulantes(){
 
             db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
                 postulantes.forEach(function(postulante) {  
-                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
-                        /////tr tds tabla
+                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => {  
                         console.log(usuario.data().correo); 
                         var divpostulante = document.createElement("div"); 
                         divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
@@ -554,7 +553,7 @@ function mostrarempleospendientespostulantes(){
                                                     </ul>
                                                     <small>${"Correo: "+usuario.data().correo}</small>
                                                     <br>
-                                                    <small>${"Correo: "+usuario.data().telefono}</small> 
+                                                    <small>${"Telefono: "+usuario.data().telefono}</small> 
                                                     <br>
                                                     <a class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="asignarpostulante('${trabajo.id}','${postulante.id}')">
                                                     Asignar empleo
@@ -668,10 +667,16 @@ function mostrarempleosenprocesopostulantes(){
                                                 ${ trabajo.data().oficio} </strong><br>
                                             </div>
                                         </div>
+                                        
+                                        <div class="col-md-12" style="margin-top:10px">
+                                        <a class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="finalizarempleo('${trabajo.id}')">
+                                        Finalizar empleo
+                                        </a>
+                                        </div> 
                                         <div class="col-md-12" style="margin-top:10px">
                                             <div style="text-align: center;">
                                                 <strong
-                                                    style="text-align: initial; font-weight: bold;">Solicitantes:</strong><br>
+                                                    style="text-align: initial; font-weight: bold;">Postulante:</strong><br>
                                             </div> 
                                             <div class="list-group d-flex flex-row flex-wrap"  style="margin-top:10px"> 
                                                 <div class="row" id="${"postulatesmisempleos"+trabajo.id}">
@@ -689,7 +694,7 @@ function mostrarempleosenprocesopostulantes(){
                         var divpostulante = document.createElement("div"); 
                         divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
                         divpostulante.setAttribute("style", "margin-top:10px"); 
-                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-4 ml-10");
+                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-12 ml-10");
                         divpostulante.innerHTML=`<div class="row">
                                                     <div class="col-md-12">
                                                     <img src="${usuario.data().imagen}" alt="Foto postulante" 
@@ -708,7 +713,7 @@ function mostrarempleosenprocesopostulantes(){
                                                     </ul>
                                                     <small>${"Correo: "+usuario.data().correo}</small>
                                                     <br>
-                                                    <small>${"Correo: "+usuario.data().telefono}</small>  
+                                                    <small>${"Telefono: "+usuario.data().telefono}</small>  
                                                     </div> 
                                                 </div>`; 
                         document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
@@ -821,7 +826,7 @@ function mostrarempleosterminadopostulantes(){
                                         <div class="col-md-12" style="margin-top:10px">
                                             <div style="text-align: center;">
                                                 <strong
-                                                    style="text-align: initial; font-weight: bold;">Solicitantes:</strong><br>
+                                                    style="text-align: initial; font-weight: bold;">Postulante:</strong><br>
                                             </div> 
                                             <div class="list-group d-flex flex-row flex-wrap"  style="margin-top:10px"> 
                                                 <div class="row" id="${"postulatesmisempleos"+trabajo.id}">
@@ -839,7 +844,7 @@ function mostrarempleosterminadopostulantes(){
                         var divpostulante = document.createElement("div"); 
                         divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
                         divpostulante.setAttribute("style", "margin-top:10px"); 
-                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-4 ml-10");
+                        divpostulante.setAttribute("class", "list-group-item list-group-item-action flex-column align-items-start col-md-12 ml-10");
                         divpostulante.innerHTML=`<div class="row">
                                                     <div class="col-md-12">
                                                     <img src="${usuario.data().imagen}" alt="Foto postulante" 
@@ -858,7 +863,7 @@ function mostrarempleosterminadopostulantes(){
                                                     </ul>
                                                     <small>${"Correo: "+usuario.data().correo}</small>
                                                     <br>
-                                                    <small>${"Correo: "+usuario.data().telefono}</small> 
+                                                    <small>${"Telefono: "+usuario.data().telefono}</small> 
                                                     </div> 
                                                 </div>`; 
                         document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
@@ -898,6 +903,18 @@ function asignarpostulante(iddocempleo,iddocpostulate){
             console.log(error);
             floatingMessage(error.code, "", "firebase");
         }); 
+    }).catch(function (error) {
+        floatingMessage(error.code, "", "firebase");
+    });
+};
+/**
+ * Funcion para Finalizar empleo
+ **/
+function finalizarempleo(iddocempleo){
+    db.collection('trabajos').doc(iddocempleo).update({ 
+        "estado": parseInt(2)
+    }).then(function (result) { 
+        floatingMessage("Finalizar empleo","Finalizado!", "success");
     }).catch(function (error) {
         floatingMessage(error.code, "", "firebase");
     });
