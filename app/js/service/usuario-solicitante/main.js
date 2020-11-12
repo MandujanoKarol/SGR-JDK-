@@ -68,7 +68,7 @@ $(document).ready(function() {
     /** 
      *Empleos publicados del solicitante
      **/ 
-    db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {  
+    db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         //if (trabajos.exists) {
         document.getElementById('listaempleos').innerHTML="";
         trabajos.forEach(function(doc) { 
@@ -421,8 +421,7 @@ function eliminarEmpleo(iddocempleo){
 /**
  * Postulantes por empleos pendientes
  **/
-function mostrarempleospendientespostulantes(){
-    
+function mostrarempleospendientespostulantes(){ 
     db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
         document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
@@ -530,7 +529,6 @@ function mostrarempleospendientespostulantes(){
             db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
                 postulantes.forEach(function(postulante) {  
                     db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => {  
-                        console.log(usuario.data().correo); 
                         var divpostulante = document.createElement("div"); 
                         divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
                         divpostulante.setAttribute("style", "margin-top:10px"); 
@@ -688,9 +686,7 @@ function mostrarempleosenprocesopostulantes(){
 
             db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
                 postulantes.forEach(function(postulante) {  
-                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
-                        /////tr tds tabla
-                        console.log(usuario.data().correo); 
+                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => {  
                         var divpostulante = document.createElement("div"); 
                         divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
                         divpostulante.setAttribute("style", "margin-top:10px"); 
@@ -838,9 +834,7 @@ function mostrarempleosterminadopostulantes(){
 
             db.collection('trabajos').doc(trabajo.id).collection('postulantes').get().then( postulantes => {   
                 postulantes.forEach(function(postulante) {  
-                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => { 
-                        /////tr tds tabla
-                        console.log(usuario.data().correo); 
+                    db.collection('cuentasusuarios').doc(postulante.data().id_usuario_tra).get().then( usuario => {  
                         var divpostulante = document.createElement("div"); 
                         divpostulante.setAttribute("id", "divpostulatesmisempleos" + postulante.id); 
                         divpostulante.setAttribute("style", "margin-top:10px"); 
