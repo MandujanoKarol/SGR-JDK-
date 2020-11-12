@@ -553,6 +553,10 @@ function mostrarempleospendientespostulantes(){
                                                     <br>
                                                     <small>${"Telefono: "+usuario.data().telefono}</small> 
                                                     <br>
+                                                    <a data-toggle="modal" data-target="#modalcomentariospostulatependiente" class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="vercomentarios('${usuario.id}')">
+                                                    Ver comentarios
+                                                    </a> 
+                                                    <br>
                                                     <a class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="asignarpostulante('${trabajo.id}','${postulante.id}')">
                                                     Asignar empleo
                                                     </a>
@@ -939,6 +943,49 @@ function finalizarempleo(iddocempleo,textarea,formrating,nameinput,usuarioid){
             floatingMessage("Finalizar empleo","Es necesario el comentario!", "error");
         }
     } 
+};
+/**
+ * Ver comenatrios usuario trabadajor postulante
+ **/
+function vercomentarios(usuarioid){   
+    document.getElementById('comentariospostulantespendientes').innerHTML="";
+    db.collection("cuentasusuarios").doc(usuarioid).collection("comentarios").get()
+    .then(comentarios => {
+        comentarios.forEach(comentario => {
+            db.collection('cuentasusuarios').doc( comentario.data().id_usuario_sol).get()
+            .then(usuario=> {
+                console.log(usuario.id, " => ", usuario.data()); 
+                console.log(comentario.id, " => ", comentario.data()); 
+
+                var li = document.createElement("li"); 
+                li.setAttribute("id", "list-group-item" + comentario.id); 
+                li.setAttribute("class", "list-group-item");
+                li.innerHTML=`<div class="row">
+                                    <div class="col-md-3">
+                                        <img src="${usuario.data().imagen}" class="img-circle img-responsive img-user" alt="Imagen solicitante" />
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div>
+                                            <strong>${usuario.data().nombre} ${usuario.data().apellido}</strong>
+                                            <div class="mic-info">
+                                                ${comentario.data().fechaRegistro}
+                                                <br>
+                                                ${usuario.data().correo}
+                                            </div>
+                                        </div>
+                                        <div class="comment-text" style="margin-top: 10px">
+                                            "${comentario.data().comentario}"
+                                        </div> 
+                                    </div>
+                             </div>`;  
+                document.getElementById('comentariospostulantespendientes').appendChild(li);
+            }).catch(function(error) {
+                floatingMessage(error.code, "", "firebase");
+            });
+        });
+    }).catch(function(error) {
+        floatingMessage(error.code, "", "firebase");
+    });
 };
 
 
