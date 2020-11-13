@@ -115,9 +115,11 @@ formLogIn.addEventListener('submit', (e) => {
     auth.signInWithEmailAndPassword(email, password).then(cred => {
         ///SAVE key current user on localStorage
         localStorage.removeItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");
-        localStorage.setItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af", cred.user.uid);
+        localStorage.setItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af", cred.user.uid); 
         ///get user data on database firebase 
             db.collection('cuentasusuarios').doc(cred.user.uid).get().then(doc => {
+                localStorage.removeItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca26498c864d40efaa8db640d088c3");
+                localStorage.setItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca26498c864d40efaa8db640d088c3",doc.data().tipo);
                 if (doc.data().tipo === 0) {
                     window.location.href = "solicitante.html";
                 } else if (doc.data().tipo === 1) {

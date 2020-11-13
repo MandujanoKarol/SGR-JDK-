@@ -1,5 +1,5 @@
 auth.onAuthStateChanged(user =>{
-    if(user){ 
+  if(user){  
   }
   else{
     window.location.href = "ingresar.html";
