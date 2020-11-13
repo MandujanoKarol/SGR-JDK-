@@ -25,7 +25,7 @@ $(document).ready(function() {
             puntuacion=puntuacion+comentario.data().calificacion; 
         });
         if(comentarios.size>0){
-            puntuacion=puntuacion/comentarios.size; 
+            puntuacion=Math.trunc(puntuacion/comentarios.size);  
         } 
         updatepuntuacion(puntuacion);
     });  
@@ -64,8 +64,7 @@ $(document).ready(function() {
         document.getElementById('imagenperfil').src=usuarioinfo.data().imagen;
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
         document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
-        var puntuacion=usuarioinfo.data().puntuacion;
-        console.log(puntuacion);
+        var puntuacion=usuarioinfo.data().puntuacion; 
         document.getElementById('puntuacion').innerHTML="";
         for (var i = 0; i < puntuacion; i++){
             document.getElementById('puntuacion').innerHTML+='<i class="fas fa-star"></i>';
@@ -458,7 +457,7 @@ function eliminarEmpleo(iddocempleo){
  * Postulantes por empleos pendientes
  **/
 function mostrarempleospendientespostulantes(){ 
-    db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
+    db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==",uid).get().then( trabajos => {  
         document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
             var li = document.createElement("li"); 
@@ -577,13 +576,7 @@ function mostrarempleospendientespostulantes(){
                                                     border-radius: 150px;">
                                                     <br>
                                                     <h5 class="mb-1">${"Nombre del postulante: "+usuario.data().nombre+" "+usuario.data().apellido}</h5>
-                                                    <ul class="list-inline small mt-2">
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                                                    <br>
+                                                    <ul class="list-inline small mt-2" id="puntuaciontrabajopendintes${trabajo.id}"> 
                                                     </ul>
                                                     <small>${"Correo: "+usuario.data().correo}</small>
                                                     <br>
@@ -599,6 +592,14 @@ function mostrarempleospendientespostulantes(){
                                                     </div> 
                                                 </div>`; 
                         document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
+                        var puntuacion=usuario.data().puntuacion; 
+                        for (var i = 0; i < puntuacion; i++){
+                            document.getElementById('puntuaciontrabajopendintes'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>';
+                        }
+                        var vacias=5-puntuacion;
+                        for(var j=0;j<vacias;j++){
+                            document.getElementById('puntuaciontrabajopendintes'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
+                        }
                     }).catch(function(error) { 
                         floatingMessage(error.code, "", "firebase");
                     }); 
@@ -607,14 +608,16 @@ function mostrarempleospendientespostulantes(){
                 floatingMessage(error.code, "", "firebase");
             });
         });
-    });
+    }).catch(function(error) { 
+        floatingMessage(error.code, "", "firebase");
+    }); 
 };
 
 /**
  * Postulantes por empleos en proceso
  **/
 function mostrarempleosenprocesopostulantes(){ 
-    db.collection("trabajos").where("estado", "==",1).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
+    db.collection("trabajos").where("estado", "==",1).where("id_usuario_sol", "==",uid).get().then( trabajos => {  
         document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
             var li = document.createElement("li"); 
@@ -733,20 +736,20 @@ function mostrarempleosenprocesopostulantes(){
                                                     border-radius: 150px;">
                                                     <br>
                                                     <h5 class="mb-1">${"Nombre del postulante: "+usuario.data().nombre+" "+usuario.data().apellido}</h5>
-                                                    <ul class="list-inline small mt-2">
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                                                    <br>
+                                                    <ul class="list-inline small mt-2" id="puntuaciontrabajoprocesos${trabajo.id}"> 
                                                     </ul>
                                                     <small>${"Correo: "+usuario.data().correo}</small>
                                                     <br>
                                                     <small>${"Telefono: "+usuario.data().telefono}</small>  
                                                     </div> 
                                                     <div class="col-md-12" style="margin-top:10px">   
-                                                            <textarea class="form-control" id="textarea${trabajo.id}" rows="3"></textarea>   
+                                                            <div style="text-align: center;">
+                                                                <strong style="float:left; font-weight: bold;">Comentario:</strong><br>
+                                                            </div>
+                                                            <textarea class="form-control" id="textarea${trabajo.id}" rows="3"></textarea>  
+                                                            <div style="text-align: center;">
+                                                                <strong style="float:left; font-weight: bold;">Puntuacion:</strong><br>
+                                                            </div> 
                                                             <div class="rating" id="ratingForm${trabajo.id}"> 
                                                                 <input type="radio" id="star5" name="rating${trabajo.id}" value="5" /><label for="star5" title="Rocks!">5 stars</label>
                                                                 <input type="radio" id="star4" name="rating${trabajo.id}" value="4" /><label for="star4" title="Pretty good">4 stars</label>
@@ -760,6 +763,14 @@ function mostrarempleosenprocesopostulantes(){
                                                     </div> 
                                                 </div>`; 
                         document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
+                        var puntuacion=usuario.data().puntuacion; 
+                        for (var i = 0; i < puntuacion; i++){
+                            document.getElementById('puntuaciontrabajoprocesos'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>';
+                        }
+                        var vacias=5-puntuacion;
+                        for(var j=0;j<vacias;j++){
+                            document.getElementById('puntuaciontrabajoprocesos'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
+                        }
                     }).catch(function(error) { 
                         floatingMessage(error.code, "", "firebase");
                     }); 
@@ -768,14 +779,16 @@ function mostrarempleosenprocesopostulantes(){
                 floatingMessage(error.code, "", "firebase");
             });
         });
-    });
+    }).catch(function(error) { 
+        floatingMessage(error.code, "", "firebase");
+    }); 
 };
 
 /**
  * Postulantes por empleos terminados
  **/
 function mostrarempleosterminadopostulantes(){ 
-    db.collection("trabajos").where("estado", "==",2).where("id_usuario_sol", "==",uid).onSnapshot(function(trabajos) {  
+    db.collection("trabajos").where("estado", "==",2).where("id_usuario_sol", "==",uid).get().then( trabajos => {   
         document.getElementById('misempleos').innerHTML="";
         trabajos.forEach(function(trabajo) { 
             var li = document.createElement("li"); 
@@ -894,13 +907,7 @@ function mostrarempleosterminadopostulantes(){
                                                     border-radius: 150px;">
                                                     <br>
                                                     <h5 class="mb-1">${"Nombre del postulante: "+usuario.data().nombre+" "+usuario.data().apellido}</h5>
-                                                    <ul class="list-inline small mt-2">
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
-                                                    <br>
+                                                    <ul class="list-inline small mt-2" id="puntuaciontrabajoterminados${trabajo.id}"> 
                                                     </ul>
                                                     <small>${"Correo: "+usuario.data().correo}</small>
                                                     <br>
@@ -908,6 +915,14 @@ function mostrarempleosterminadopostulantes(){
                                                     </div> 
                                                 </div>`; 
                         document.getElementById("postulatesmisempleos"+trabajo.id).appendChild(divpostulante); 
+                        var puntuacion=usuario.data().puntuacion; 
+                        for (var i = 0; i < puntuacion; i++){
+                            document.getElementById('puntuaciontrabajoterminados'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>';
+                        }
+                        var vacias=5-puntuacion;
+                        for(var j=0;j<vacias;j++){
+                            document.getElementById('puntuaciontrabajoterminados'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
+                        }
                     }).catch(function(error) { 
                         floatingMessage(error.code, "", "firebase");
                     }); 
@@ -916,6 +931,8 @@ function mostrarempleosterminadopostulantes(){
                 floatingMessage(error.code, "", "firebase");
             });
         });
+    }).catch(function(error) { 
+        floatingMessage(error.code, "", "firebase");
     });
 };
 

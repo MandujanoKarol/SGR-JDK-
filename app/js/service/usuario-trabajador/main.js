@@ -15,8 +15,7 @@ function updatepuntuacion(puntuacion){
 $(document).ready(function() {   
     /**
      * Actualizar puntuacion
-     **/
-    
+     **/ 
     db.collection("cuentasusuarios").doc(uid).collection("comentarios").onSnapshot(function(comentarios) {     
         var puntuacion=0;  
         
@@ -24,7 +23,7 @@ $(document).ready(function() {
             puntuacion=puntuacion+comentario.data().calificacion; 
         });
         if(comentarios.size>0){
-            puntuacion=puntuacion/comentarios.size; 
+            puntuacion=Math.trunc(puntuacion/comentarios.size);  
         } 
         updatepuntuacion(puntuacion);
     });
@@ -79,13 +78,12 @@ $(document).ready(function() {
         }
     }).catch(function (error) { 
         floatingMessage("Obtener oficios",'Hubo un problema con la petición Fetch:' + error.message, "error");
-    });
+        });
         document.getElementById('direccionperfil').value = usuarioinfo.data().direccion;
         document.getElementById('imagenperfil').src=usuarioinfo.data().imagen;
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
         document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
-        var puntuacion=usuarioinfo.data().puntuacion;
-        console.log(puntuacion);
+        var puntuacion=usuarioinfo.data().puntuacion; 
         document.getElementById('puntuacion').innerHTML="";
         for (var i = 0; i < puntuacion; i++){
             document.getElementById('puntuacion').innerHTML+='<i class="fas fa-star"></i>';
@@ -283,8 +281,8 @@ function eliminarpostulacion(iddocempleo,iddocpostulacion){
  * Postulantes por empleos pendientes
  **/
 function mostrarempleospendientespostulantes(){ 
-    db.collection("trabajos").where("estado", "==",0).onSnapshot(function(trabajos) {  
-        document.getElementById('misempleos').innerHTML="";
+    document.getElementById('misempleos').innerHTML="";
+    db.collection("trabajos").where("estado", "==",0).get().then( trabajos => { 
         trabajos.forEach(function(trabajo) { 
                 db.collection('trabajos').doc(trabajo.id).collection('postulantes').where("id_usuario_tra", "==",uid).get().then( postulantes => {   
                             postulantes.forEach(function(postulante) {
@@ -397,9 +395,7 @@ function mostrarempleospendientespostulantes(){
                                 
                                 
                                 
-                                db.collection('cuentasusuarios').doc(trabajo.data().id_usuario_sol).get().then( usuario => { 
-                                    /////tr tds tabla
-                                    console.log(usuario.data().correo); 
+                                db.collection('cuentasusuarios').doc(trabajo.data().id_usuario_sol).get().then( usuario => {  
                                     var divpostulante = document.createElement("div"); 
                                     divpostulante.setAttribute("id", "divsolicitanteempleoid" + trabajo.id); 
                                     divpostulante.setAttribute("style", "margin-top:10px"); 
@@ -436,15 +432,17 @@ function mostrarempleospendientespostulantes(){
                         });
                 });  
         });
+    }).catch(function(error) { 
+        floatingMessage(error.code, "", "firebase");
     });
 };
 
 /**
  * Mi empleo en proceso
  **/
-function mostrarempleosenprocesopostulantes(){ 
-    db.collection("trabajos").where("estado", "==",1).onSnapshot(function(trabajos) {  
-        document.getElementById('misempleos').innerHTML="";
+function mostrarempleosenprocesopostulantes(){  
+    document.getElementById('misempleos').innerHTML="";
+    db.collection("trabajos").where("estado", "==",1).get().then( trabajos => {  
         trabajos.forEach(function(trabajo) { 
                 db.collection('trabajos').doc(trabajo.id).collection('postulantes').where("id_usuario_tra", "==",uid).get().then( postulantes => {   
                             postulantes.forEach(function(postulante) {
@@ -551,9 +549,7 @@ function mostrarempleosenprocesopostulantes(){
                                 
                                 
                                 
-                                db.collection('cuentasusuarios').doc(trabajo.data().id_usuario_sol).get().then( usuario => { 
-                                    /////tr tds tabla
-                                    console.log(usuario.data().correo); 
+                                db.collection('cuentasusuarios').doc(trabajo.data().id_usuario_sol).get().then( usuario => {  
                                     var divpostulante = document.createElement("div"); 
                                     divpostulante.setAttribute("id", "divsolicitanteempleoid" + trabajo.id); 
                                     divpostulante.setAttribute("style", "margin-top:10px"); 
@@ -590,6 +586,8 @@ function mostrarempleosenprocesopostulantes(){
                         });
                 });  
         });
+    }).catch(function(error) { 
+        floatingMessage(error.code, "", "firebase");
     });
 };
 
@@ -597,8 +595,8 @@ function mostrarempleosenprocesopostulantes(){
  * Mis empleos terminados
  **/
 function mostrarempleosterminadopostulantes(){ 
-    db.collection("trabajos").where("estado", "==",2).onSnapshot(function(trabajos) {  
-        document.getElementById('misempleos').innerHTML="";
+    document.getElementById('misempleos').innerHTML="";
+    db.collection("trabajos").where("estado", "==",2).get().then( trabajos => { 
         trabajos.forEach(function(trabajo) { 
                 db.collection('trabajos').doc(trabajo.id).collection('postulantes').where("id_usuario_tra", "==",uid).get().then( postulantes => {   
                             postulantes.forEach(function(postulante) {
@@ -705,9 +703,7 @@ function mostrarempleosterminadopostulantes(){
                                 document.getElementById("limisempleos" + trabajo.id).appendChild(ul); 
                                 
                                 
-                                db.collection('cuentasusuarios').doc(trabajo.data().id_usuario_sol).get().then( usuario => { 
-                                    /////tr tds tabla
-                                    console.log(usuario.data().correo); 
+                                db.collection('cuentasusuarios').doc(trabajo.data().id_usuario_sol).get().then( usuario => {  
                                     var divpostulante = document.createElement("div"); 
                                     divpostulante.setAttribute("id", "divsolicitanteempleoid" + trabajo.id); 
                                     divpostulante.setAttribute("style", "margin-top:10px"); 
@@ -726,7 +722,8 @@ function mostrarempleosterminadopostulantes(){
                                                                 <br>
                                                                 <small>${"Telefono: "+usuario.data().telefono}</small> 
                                                                 <br>
-                                                                
+                                                                <div class="col-md-12" style="margin-top:10px" id="comentar${trabajo.id}">
+                                                                </div>
                                                                 </div> 
                                                             </div>`; 
                                     document.getElementById("solicitanteempleoid"+trabajo.id).appendChild(divpostulante); 
@@ -741,10 +738,26 @@ function mostrarempleosterminadopostulantes(){
 
 
                                     db.collection("cuentasusuarios").doc(trabajo.data().id_usuario_sol).collection("comentarios").where("id_usuario_tra", "==", uid).where("id_trabajo", "==", trabajo.id).get().then( comentario => {
-                                        if(comentario.size>0){   
-                                            console.log("Ya le comentaste a este trabajo "+ trabajo.id +" y usuario "+usuario.id);
-                                        }else{
-                                            console.log("Puedes comentar a este trabajo "+ trabajo.id +" y usuario "+usuario.id);
+                                        if(comentario.size>0){    
+                                        }else{ 
+                                            document.getElementById('comentar'+trabajo.id).innerHTML= `
+                                                                                                        <div style="text-align: center;">
+                                                                                                        <strong style="float:left; font-weight: bold;">Comentario:</strong><br>
+                                                                                                        </div>
+                                                                                                        <textarea class="form-control" id="textarea${trabajo.id}" rows="3"></textarea>   
+                                                                                                        <div style="text-align: center;">
+                                                                                                        <strong style="float:left; font-weight: bold;">Puntuacion:</strong><br>
+                                                                                                        </div>
+                                                                                                        <div class="rating" id="ratingForm${trabajo.id}"> 
+                                                                                                            <input type="radio" id="star5" name="rating${trabajo.id}" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                                                                                                            <input type="radio" id="star4" name="rating${trabajo.id}" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                                                                                                            <input type="radio" id="star3" name="rating${trabajo.id}" value="3" /><label for="star3" title="Meh">3 stars</label>
+                                                                                                            <input type="radio" id="star2" name="rating${trabajo.id}" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                                                                                                            <input type="radio" id="star1" name="rating${trabajo.id}" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                                                                                        </div> 
+                                                                                                        <a class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="comentar('${trabajo.id}','textarea${trabajo.id}','ratingForm${trabajo.id}','rating${trabajo.id}','${usuario.id}')">
+                                                                                                        Comentar
+                                                                                                        </a>`;
                                         } 
                                     }).catch(function(error) { 
                                         floatingMessage(error.code, "", "firebase");
@@ -758,9 +771,37 @@ function mostrarempleosterminadopostulantes(){
                         });
                 });  
         });
+    }).catch(function(error) { 
+        floatingMessage(error.code, "", "firebase");
     });
 };
-
+/**
+ * Comentar a solicitante
+ **/
+function comentar(iddocempleo,textarea,formrating,nameinput,usuarioid){  
+    if ($('#'+formrating+' :radio:checked').length == 0) {  
+        floatingMessage("Comentar solicitante","Es necesaria la puntuacion!", "error");
+    } else {
+        var comentario=$('#'+textarea).val(); 
+        if(comentario!=""){
+            var puntos=$('input:radio[name='+JSON.stringify(nameinput)+']:checked').val();
+            console.log('You picked ' + puntos);  
+            db.collection('cuentasusuarios').doc(usuarioid).collection('comentarios').doc().set({
+                "id_usuario_tra": uid,
+                "id_trabajo": iddocempleo,  
+                "comentario":comentario,
+                "calificacion":parseInt(puntos),
+                "fechaRegistro": new Date().toLocaleString() 
+            }).then(function() {
+                floatingMessage("Comentar solicitante","Se comento!", "success");
+            }).catch(function(error) {
+                floatingMessage(error.code, "", "firebase");
+            });  
+        } else{
+            floatingMessage("Comentar solicitante","Es necesario el comentario!", "error");
+        }
+    } 
+};
 /**
  * ACTUALIZAR IMAGEN PERFIL
  **/
