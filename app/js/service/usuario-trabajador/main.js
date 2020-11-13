@@ -738,6 +738,20 @@ function mostrarempleosterminadopostulantes(){
                                     for(var j=0;j<vacias;j++){
                                         document.getElementById('puntuaciontrabajoterminado'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
                                     }
+
+
+                                    db.collection("cuentasusuarios").doc(trabajo.data().id_usuario_sol).collection("comentarios").where("id_usuario_tra", "==", uid).where("id_trabajo", "==", trabajo.id).get().then( comentario => {
+                                        if(comentario.size>0){   
+                                            console.log("Ya le comentaste a este trabajo "+ trabajo.id +" y usuario "+usuario.id);
+                                        }else{
+                                            console.log("Puedes comentar a este trabajo "+ trabajo.id +" y usuario "+usuario.id);
+                                        } 
+                                    }).catch(function(error) { 
+                                        floatingMessage(error.code, "", "firebase");
+                                    });
+
+
+
                                 }).catch(function(error) { 
                                     floatingMessage(error.code, "", "firebase");
                                 });

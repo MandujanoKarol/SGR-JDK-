@@ -64,6 +64,16 @@ $(document).ready(function() {
         document.getElementById('imagenperfil').src=usuarioinfo.data().imagen;
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
         document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
+        var puntuacion=usuarioinfo.data().puntuacion;
+        console.log(puntuacion);
+        document.getElementById('puntuacion').innerHTML="";
+        for (var i = 0; i < puntuacion; i++){
+            document.getElementById('puntuacion').innerHTML+='<i class="fas fa-star"></i>';
+        }
+        var vacias=5-puntuacion;
+        for(var j=0;j<vacias;j++){
+            document.getElementById('puntuacion').innerHTML+='<i class="fa fa-star-o "></i>';
+        }
     });
 
     /**
@@ -953,7 +963,8 @@ function finalizarempleo(iddocempleo,textarea,formrating,nameinput,usuarioid){
                 "estado": parseInt(2)
             }).then(function (result) {  
                         db.collection('cuentasusuarios').doc(usuarioid).collection('comentarios').doc().set({
-                            "id_usuario_sol": uid,  
+                            "id_usuario_sol": uid,
+                            "id_trabajo": iddocempleo,  
                             "comentario":comentario,
                             "calificacion":parseInt(puntos),
                             "fechaRegistro": new Date().toLocaleString() 
