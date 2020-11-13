@@ -84,6 +84,8 @@ $(document).ready(function() {
         document.getElementById('imagenperfil').src=usuarioinfo.data().imagen;
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
         document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
+        var puntuacion=usuarioinfo.data().puntuacion;
+        document.getElementById('puntuacion').innerHTML="";
     });
     /** 
      *Empleos publicados del solicitante
