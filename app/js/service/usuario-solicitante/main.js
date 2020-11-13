@@ -1,7 +1,10 @@
 var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
 var generos=[];
 var oficios=[];
-
+var tipousuario = localStorage.getItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca26498c864d40efaa8db640d088c3"); 
+if (tipousuario != 0) {  
+    window.location.href = "trabajador.html";
+} 
 $(document).ready(function() {   
     /**
      * Perfil
