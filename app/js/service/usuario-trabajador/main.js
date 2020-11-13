@@ -85,7 +85,15 @@ $(document).ready(function() {
         document.getElementById('telefonoperfil').value=usuarioinfo.data().telefono;
         document.getElementById('nacimientoperfil').value=usuarioinfo.data().fechaNacimiento;
         var puntuacion=usuarioinfo.data().puntuacion;
+        console.log(puntuacion);
         document.getElementById('puntuacion').innerHTML="";
+        for (var i = 0; i < puntuacion; i++){
+            document.getElementById('puntuacion').innerHTML+='<i class="fas fa-star"></i>';
+        }
+        var vacias=5-puntuacion;
+        for(var j=0;j<vacias;j++){
+            document.getElementById('puntuacion').innerHTML+='<i class="fa fa-star-o "></i>';
+        }
     });
     /** 
      *Empleos publicados del solicitante
@@ -102,12 +110,7 @@ $(document).ready(function() {
                                     <div class="row">
                                         <div class="col-md-4 col-sm-6"> 
                                                 <img src="${usuario.data().imagen}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2"> 
-                                                <ul class="list-inline small mt-2">
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>
-                                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                                <ul class="list-inline small mt-2" id="puntuaciontrabajopostularse${usuario.id}"> 
                                                 </ul>
                                         </div>
                                         <div class="col-md-8 col-sm-6">
@@ -129,6 +132,14 @@ $(document).ready(function() {
                                     </div> 
                                 </div> `;  
                 document.getElementById('listaempleos').appendChild(li); 
+                var puntuacion=usuario.data().puntuacion; 
+                for (var i = 0; i < puntuacion; i++){
+                    document.getElementById('puntuaciontrabajopostularse'+usuario.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>';
+                }
+                var vacias=5-puntuacion;
+                for(var j=0;j<vacias;j++){
+                    document.getElementById('puntuaciontrabajopostularse'+usuario.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
+                }
             });
         });
         //}
