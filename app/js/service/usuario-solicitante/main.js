@@ -5,7 +5,30 @@ var tipousuario = localStorage.getItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca2649
 if (tipousuario != 0) {  
     window.location.href = "trabajador.html";
 } 
-$(document).ready(function() {   
+function updatepuntuacion(puntuacion){
+    db.collection('cuentasusuarios').doc(uid).update({ 
+        "puntuacion": puntuacion
+    }).then(function (result) { 
+        floatingMessage("Bienvenido","", "success");
+    }).catch(function (error) {
+        floatingMessage(error.code, "", "firebase");
+    });
+}
+$(document).ready(function() { 
+    /**
+     * Actualizar puntuacion
+     **/
+    
+    db.collection("cuentasusuarios").doc(uid).collection("comentarios").onSnapshot(function(comentarios) {     
+        var puntuacion=0;  
+        comentarios.forEach(comentario => { 
+            puntuacion=puntuacion+comentario.data().calificacion; 
+        });
+        if(comentarios.size>0){
+            puntuacion=puntuacion/comentarios.size; 
+        } 
+        updatepuntuacion(puntuacion);
+    });  
     /**
      * Perfil
      **/
