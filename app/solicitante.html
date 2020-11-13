@@ -41,7 +41,7 @@
     <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"> 
     
     <link href="css/star-rating.css" media="all" rel="stylesheet" type="text/css"/>
- 
+    <link href="css/hover.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -312,7 +312,7 @@
                             enctype="multipart/form-data">
                             <form id="form-imagenes">
                                 <label class="btn btn-file">
-                                    <img src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
+                                    <img class="hvr-grow" src="img/perfil/perfil.png" width="370px" height="230px" id="imagenperfil"
                                         name="imagenperfil" alt="descargar"
                                         style="width:200px; height:200px; border-radius:150px;" class="rounded-circle">
                                     <div>
@@ -600,9 +600,9 @@
         </section>
 
         <div class="hidde-sm hidden-xs">
-            <a href="#" class="float" data-toggle="tooltip" data-placement="left" title="Cerrar sesión"
+            <a href="#" class="float hvr-icon-pulse" data-toggle="tooltip" data-placement="left" title="Cerrar sesión"
                 onclick="CerrarSesion()">
-                <i class="fa fa-sign-out my-float"></i>
+                <i class="fa fa-sign-out my-float hvr-icon"></i>
             </a>
         </div>
         <section class="footer">
