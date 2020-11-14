@@ -305,6 +305,35 @@ $(document).ready(function() {
     else { 
         floatingMessage("error al obtener las coordenadas","error ubicacion","error");
     }
+     /** 
+     *Fechas min max nuevo empleo
+     **/
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    }  
+    today = yyyy+'-'+mm+'-'+dd;  
+    document.getElementById('fechainicionuevotrabajo').setAttribute("min", today);
+    let hoy = new Date();
+    let DIA_EN_MILISEGUNDOS = 24 * 60 * 60 * 1000;
+    var manana = new Date(hoy.getTime() + DIA_EN_MILISEGUNDOS); 
+    dd = manana.getDate();
+    mm = manana.getMonth()+1; //January is 0!
+    yyyy = manana.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    manana = yyyy+'-'+mm+'-'+dd;  
+    document.getElementById('fechaterminonuevotrabajo').setAttribute("min", manana);
 });  
 
 /**
@@ -1042,10 +1071,7 @@ function vercomentarios(usuarioid){
     .then(comentarios => {
         comentarios.forEach(comentario => {
             db.collection('cuentasusuarios').doc( comentario.data().id_usuario_sol).get()
-            .then(usuario=> {
-                console.log(usuario.id, " => ", usuario.data()); 
-                console.log(comentario.id, " => ", comentario.data()); 
-
+            .then(usuario=> { 
                 var li = document.createElement("li"); 
                 li.setAttribute("id", "list-group-item" + comentario.id); 
                 li.setAttribute("class", "list-group-item");
