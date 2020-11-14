@@ -192,9 +192,9 @@ $(document).ready(function() {
                                                     style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
                                             </div>
                                             <fieldset>
-                                                <input  type="text"
-                                                    class="form-control" id=${"inputdireccionempleados"+doc.id}
-                                                    placeholder="Dirección" required="" value=${doc.data().direccion}>
+                                            <textarea   rows="6" class="form-control"
+                                            id=${"inputdireccionempleados"+doc.id} placeholder="Dirección de la publicación..."
+                                            required="" style="color: black; height: 50px;">${doc.data().direccion}</textarea> 
                                             </fieldset>
                                         </div>
 
