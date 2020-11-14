@@ -87,12 +87,17 @@
                   <strong class="float-left">Fecha de nacimiento:</strong>
                   <input type="date" id="dob" required name="dateregister" onchange="onchangeselectdate()" />
 
-                  <div class="form-group">
-                    <div><strong class="float-left">Teléfono:</strong></div>
-                    
-                    <input id="phone" type="tel" placeholder="N° Teléfono" name="txttelefonoregister"
-                      onblur="onblurtelefono();" onkeyup="onkeyuptelefono()" />
-                  </div>
+                  <div class="col-md-4">
+                    <div style="text-align: initial;">
+                        <strong style="text-align: initial; font-weight: bold;">N° Teléfono:</strong><br>
+                    </div>
+                    <fieldset>
+                        <div class="form-group">
+                          <input id="phone" type="tel" placeholder="N° Teléfono" name="txttelefonoregister"
+                          onblur="onblurtelefono();" onkeyup="onkeyuptelefono()" />
+                        </div>
+                    </fieldset>
+                </div>
 
                   <strong class="float-left">Dirección:</strong>
                   <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();"
@@ -112,7 +117,8 @@
 
                   <div style="position: relative;">
                     <strong class="float-left">Contraseña:</strong>
-                    <span class="btn-show-pass" style="padding-top: 47px"> <i class="mdi mdi-eye show_password"></i> </span>
+                    <span class="btn-show-pass" style="padding-top: 47px"> <i class="mdi mdi-eye show_password"></i>
+                    </span>
                     <input type="password" placeholder="contrasena" name="txtpasswordregister" required
                       style="box-shadow: inset 0 0 0 4px #45489a;" onblur="onblurpassword();" />
                   </div>
