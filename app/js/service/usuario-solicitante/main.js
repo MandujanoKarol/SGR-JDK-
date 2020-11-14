@@ -1102,9 +1102,6 @@ function vercomentarios(usuarioid){
         floatingMessage(error.code, "", "firebase");
     });
 };
-
-
-
 window.onload = Inicializar;
 var Fichero;
 var storageRef;
