@@ -52,6 +52,7 @@ $(document).ready(function () {
         document.getElementById("rd1").style = " ";
         document.getElementById("rd2").style = " ";
     });
+    ///direccion
 });
 $(function () {
     ///date input 18 years
@@ -258,14 +259,8 @@ function onblurdireccion() {
     ///Direccion
     if (document.forms["registerForm"]["txtdireccionregister"].value == "") {
         document.forms['registerForm'].elements["txtdireccionregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-        return 1;
-
-    }
-    else if (!/^[a-zA-Z ]{3,30}$/.test(document.registerForm.txtdireccionregister.value)) {
-        document.forms['registerForm'].elements["txtdireccionregister"].style = "box-shadow: inset 0 0 0 4px #e60346;";
-        return 1;
-    }
-    else {
+        return 1; 
+    }else {
         document.forms['registerForm'].elements["txtdireccionregister"].style = " ";
         return 0;
     }
