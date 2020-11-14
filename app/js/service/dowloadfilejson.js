@@ -14,12 +14,12 @@ function descargar() {
         });  
         
     }); 
-    var json = JSON.stringify(obj);
-    console.log(json);  
-    bajarfile(json); 
+    var json = JSON.stringify(obj); 
+    bajarfile(obj); 
 
 }
 function bajarfile(obj){
+    console.log(obj);  
     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(obj);
     var dlAnchorElem = document.getElementById('downloadAnchorElem');
     dlAnchorElem.setAttribute("href",     dataStr     );
