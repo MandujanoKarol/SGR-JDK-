@@ -777,11 +777,11 @@ function mostrarempleosenprocesopostulantes(){
                                                                 <strong style="float:left; font-weight: bold;">Puntuacion:</strong><br>
                                                             </div> 
                                                             <div class="rating" id="ratingForm${trabajo.id}"> 
-                                                                <input type="radio" id="star5" name="rating${trabajo.id}" value="5" /><label for="star5" title="Rocks!">5 stars</label>
-                                                                <input type="radio" id="star4" name="rating${trabajo.id}" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-                                                                <input type="radio" id="star3" name="rating${trabajo.id}" value="3" /><label for="star3" title="Meh">3 stars</label>
-                                                                <input type="radio" id="star2" name="rating${trabajo.id}" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-                                                                <input type="radio" id="star1" name="rating${trabajo.id}" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+                                                                <input type="radio" id="star5${trabajo.id}" name="rating${trabajo.id}" value="5" /><label for="star5${trabajo.id}" title="Rocks!">5 stars</label>
+                                                                <input type="radio" id="star4${trabajo.id}" name="rating${trabajo.id}" value="4" /><label for="star4${trabajo.id}" title="Pretty good">4 stars</label>
+                                                                <input type="radio" id="star3${trabajo.id}" name="rating${trabajo.id}" value="3" /><label for="star3${trabajo.id}" title="Meh">3 stars</label>
+                                                                <input type="radio" id="star2${trabajo.id}" name="rating${trabajo.id}" value="2" /><label for="star2${trabajo.id}" title="Kinda bad">2 stars</label>
+                                                                <input type="radio" id="star1${trabajo.id}" name="rating${trabajo.id}" value="1" /><label for="star1${trabajo.id}" title="Sucks big time">1 star</label>
                                                             </div> 
                                                             <a class="btn btn-primary btn-sm mt-4" style="background: #45489a;margin-top: 10px;" onclick="finalizarempleo('${trabajo.id}','textarea${trabajo.id}','ratingForm${trabajo.id}','rating${trabajo.id}','${usuario.id}')">
                                                             Finalizar empleo
@@ -973,14 +973,21 @@ function asignarpostulante(iddocempleo,iddocpostulate){
             "estado": parseInt(1)
         }).then(function (result) { 
             db.collection('trabajos').doc(iddocempleo).collection('postulantes').where("estado", "==",0).get().then( postulantes => { 
-                postulantes.forEach(function(postulante) {  
-                    db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc(postulante.id).delete().then(function() {
-                        floatingMessage("Asignar Postulante","Asignado!", "success");
-                    }).catch(function(error) { 
-                        floatingMessage(error.code, "", "firebase");
-                    });
-                });  
+                if(postulantes.size>0){  
+                        postulantes.forEach(function(postulante) {  
+                            db.collection('trabajos').doc(iddocempleo).collection('postulantes').doc(postulante.id).delete().then(function() {
+                                floatingMessage("Asignar Postulante","Asignado!", "success");
+                                mostrarempleospendientespostulantes();
+                            }).catch(function(error) { 
+                                floatingMessage(error.code, "", "firebase");
+                            });
+                        });  
+                }else{
+                    floatingMessage("Asignar Postulante","Asignado!", "success");
+                    mostrarempleospendientespostulantes();
+                }
             }).catch(function (error) { 
+                console.log(error);
                 floatingMessage(error.code, "", "firebase");
             }); 
         }).catch(function (error) {
@@ -988,6 +995,7 @@ function asignarpostulante(iddocempleo,iddocpostulate){
             floatingMessage(error.code, "", "firebase");
         }); 
     }).catch(function (error) {
+        console.log(error);
         floatingMessage(error.code, "", "firebase");
     });
 };
@@ -1013,6 +1021,7 @@ function finalizarempleo(iddocempleo,textarea,formrating,nameinput,usuarioid){
                             "fechaRegistro": new Date().toLocaleString() 
                         }).then(function() {
                             floatingMessage("Finalizar empleo","Finalizado!", "success");
+                            mostrarempleosenprocesopostulantes();
                         }).catch(function(error) {
                             floatingMessage(error.code, "", "firebase");
                         }); 
