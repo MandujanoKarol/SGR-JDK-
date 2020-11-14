@@ -38,7 +38,7 @@
           <div class="col-md-7">
             <div class="card-body">
               <div class="brand-wrapper">
-                <img src="img/logos/logo2.png" width="400px"  alt="logo" class="logo">
+                <img src="img/logos/logo2.png" width="400px" alt="logo" class="logo">
               </div>
               <p class="login-card-description">Ingrese con su cuenta o registrese</p>
               <div class="form">
@@ -68,33 +68,49 @@
                     </div>
                   </div>
 
-                  <input type="text" placeholder="Nombre" name="txtnombreregister" onblur="onblurnombre();" required />
-                  <input type="text" placeholder="Apellido" name="txtapellidoregister" onblur="onblurapellido();"
+                  <strong class="float-left">Nombre:</strong>
+                  <input type="text" placeholder="Ingrese su nombre" name="txtnombreregister" onblur="onblurnombre();"
                     required />
+
+                  <strong class="float-left">Apellido:</strong>
+                  <input type="text" placeholder="Ingrese su apellido" name="txtapellidoregister"
+                    onblur="onblurapellido();" required />
+
                   <div>
+                    <strong class="float-left">Seleccione su género:</strong>
                     <select class="minimal" required name="selgeneroregister" id="gender"
                       onchange="onchangeselectgener();">
                       <option value="" hidden>Genero</option>
                     </select>
                   </div>
+
+                  <strong class="float-left">Fecha de nacimiento:</strong>
                   <input type="date" id="dob" required name="dateregister" onchange="onchangeselectdate()" />
+
                   <div class="form-group">
+                    <strong class="float-left">Teléfono:</strong>
                     <input id="phone" type="tel" placeholder="N° Teléfono" name="txttelefonoregister"
-                      onblur="onblurtelefono();" onkeyup="onkeyuptelefono()"/> 
+                      onblur="onblurtelefono();" onkeyup="onkeyuptelefono()" />
                   </div>
+
+                  <strong class="float-left">Dirección:</strong>
                   <input type="text" placeholder="Direccion" name="txtdireccionregister" onblur="onblurdireccion();"
                     required />
 
                   <div>
+                    <strong class="float-left">Oficio:</strong>
                     <select class="minimal" required name="seloficioregister" id="oficio"
                       onchange="onchangeselectoficio();">
                       <option value="" hidden>Oficio</option>
                     </select>
                   </div>
 
+                  <strong class="float-left">Correo electrónico:</strong>
                   <input type="email" placeholder="Correo" style="box-shadow: inset 0 0 0 4px #45489a;"
                     name="txtemailregister" onblur="onbluremail();" required />
+
                   <div style="position: relative;">
+                    <strong class="float-left">Contraseña:</strong>
                     <span class="btn-show-pass"> <i class="mdi mdi-eye show_password"></i> </span>
                     <input type="password" placeholder="contrasena" name="txtpasswordregister" required
                       style="box-shadow: inset 0 0 0 4px #45489a;" onblur="onblurpassword();" />
@@ -134,7 +150,8 @@
   <script src="js/service/floatingMessage.js"></script>
   <script src="js/service/guardingresar.js"></script>
   <script src="js/sha256.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAN7lSxDxT-4bhikKwEt13Y3L2d7JlWXc"async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAN7lSxDxT-4bhikKwEt13Y3L2d7JlWXc" async
+    defer></script>
   <script src="js/service/ingresar.js"></script>
   <script>
     $('.message a').click(function () {
