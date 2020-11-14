@@ -111,7 +111,7 @@ $(document).ready(function() {
                                                 <p class="font-italic text-muted mb-0 small text-center">${usuario.data().nombre} ${usuario.data().apellido}</p> 
                                                 <p class="font-italic text-muted mb-0 small text-left"><strong>Correo:</strong> ${usuario.data().correo}</p> 
                                                 <p class="font-italic text-muted mb-0 small text-left"><strong>Telefono:</strong> ${usuario.data().telefono}</p> 
-                                                <ul class="list-inline small mt-2" id="puntuaciontrabajopostularse${usuario.id}"> 
+                                                <ul class="list-inline small mt-2" id="puntuaciontrabajopostularse${trabajo.id}"> 
                                                 </ul>
                                         </div>
                                         <div class="col-md-8 col-sm-6">
@@ -135,11 +135,11 @@ $(document).ready(function() {
                 document.getElementById('listaempleos').appendChild(li); 
                 var puntuacion=usuario.data().puntuacion; 
                 for (var i = 0; i < puntuacion; i++){
-                    document.getElementById('puntuaciontrabajopostularse'+usuario.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>';
+                    document.getElementById('puntuaciontrabajopostularse'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star text-warning"></i></li>';
                 }
                 var vacias=5-puntuacion;
                 for(var j=0;j<vacias;j++){
-                    document.getElementById('puntuaciontrabajopostularse'+usuario.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
+                    document.getElementById('puntuaciontrabajopostularse'+trabajo.id).innerHTML+='<li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>';
                 }
             });
         });
