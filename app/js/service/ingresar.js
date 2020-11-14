@@ -52,7 +52,31 @@ $(document).ready(function () {
         document.getElementById("rd1").style = " ";
         document.getElementById("rd2").style = " ";
     });
-    ///direccion
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            ///coordenadas actuales
+            var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}; 
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({
+                'location': latlng
+                // ej. "-34.653015, -58.674850"
+            }, function(results, status) {
+                // si la solicitud fue exitosa
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // si encontró algún resultado.
+                    if (results[1]) {  
+                        document.forms["registerForm"]["txtdireccionregister"].value =results[1].formatted_address;
+                     
+                    }
+                }
+            }); 
+        }, function(error) {  
+            floatingMessage(error.title,error.message,"error");
+        });
+    }
+    else { 
+        floatingMessage("error al obtener las coordenadas","error ubicacion","error");
+    }
 });
 $(function () {
     ///date input 18 years
