@@ -1,6 +1,26 @@
 function descargar() {
     ///trabajos usuarios
     var obj =   [] ;
+    var trabajo={
+        "nombre":"Trabajo",
+        "coords":{lat:0,long:0},
+        "estado":0
+    }
+    var usuario={
+        "correo":"usuariio@gmail.com",
+        "tipo":"vendedor"
+    }
+    obj.push(JSON.sort($.extend(usuario, trabajo)));
+    obj.push(JSON.sort($.extend(usuario, trabajo)));
+    obj.push(JSON.sort($.extend(usuario, trabajo)));
+    obj.push(JSON.sort($.extend(usuario, trabajo))); 
+    var json = JSON.stringify(obj); 
+    console.log(json);
+    bajarfile(json); 
+}
+function o() {
+    ///trabajos usuarios
+    var obj =   [] ;
     db.collection("trabajos").get().then( trabajos => {    
         trabajos.forEach(function(trabajo) {   
             db.collection("cuentasusuarios").doc(trabajo.data().id_usuario_sol).get().then(function(usuario) {  
