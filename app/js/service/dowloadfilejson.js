@@ -5,16 +5,16 @@ function descargar() {
         trabajos.forEach(function(trabajo) { 
             var trabajojson={
                 descripcion: trabajo.data().descripcion,
-                direccion: trabajo.data().descripcion,
-                estado: trabajo.data().descripcion,
-                fechaInicio: trabajo.data().descripcion,
-                fechaRegistro: trabajo.data().descripcion,
-                fechaTermino: trabajo.data().descripcion,
-                id_usuario_sol: trabajo.data().descripcion,
-                nombre: trabajo.data().descripcion,
-                oficio: trabajo.data().descripcion,
-                pago:trabajo.data().descripcion,
-                requisitos: trabajo.data().descripcion,
+                direccion: trabajo.data().direccion,
+                estado: trabajo.data().estado,
+                fechaInicio: trabajo.data().fechaInicio,
+                fechaRegistro: trabajo.data().fechaRegistro,
+                fechaTermino: trabajo.data().fechaTermino,
+                id_usuario_sol: trabajo.data().id_usuario_sol,
+                nombre: trabajo.data().nombre,
+                oficio: trabajo.data().oficio,
+                pago:trabajo.data().pago,
+                requisitos: trabajo.data().requisitos,
                 Longitude:trabajo.data().coordenadas.Longitud,
                 Latitude:trabajo.data().coordenadas.Latitud
             }  
