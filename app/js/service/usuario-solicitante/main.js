@@ -3,7 +3,7 @@ var generos=[];
 var oficios=[];
 var tipousuario = localStorage.getItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca26498c864d40efaa8db640d088c3"); 
 if (tipousuario != 0) {  
-    //window.location.href = "trabajador.html";
+    window.location.href = "trabajador.html";
 } 
 function updatepuntuacion(puntuacion){
     db.collection('cuentasusuarios').doc(uid).update({ 

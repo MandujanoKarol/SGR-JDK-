@@ -2,7 +2,7 @@ auth.onAuthStateChanged(user =>{
   if(user){  
   }
   else{
-   // window.location.href = "ingresar.html";
+   window.location.href = "ingresar.html";
   }
   });
 
