@@ -424,6 +424,8 @@ function registro() {
                     "puntuacion":parseInt(0),
                     "estado": parseInt(1)
                 }).then(function (result) {
+                    localStorage.removeItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca26498c864d40efaa8db640d088c3");
+                    localStorage.setItem("2e37e564c6bb5eef21eaf97c5ea876f0c3ca26498c864d40efaa8db640d088c3",tipousuario);
                     if (tipousuario === 0) {
                         window.location.href = "solicitante.html";
                     } else if (tipousuario === 1) {
