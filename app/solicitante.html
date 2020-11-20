@@ -734,11 +734,22 @@
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script> 
-        function sendid(id,dir){
-            var obj = {
-            coords:id.toString(),
-            dir:dir.toString() 
-            };
+        function sendid(id,dir,coords){
+
+            if(coords){
+                var obj = {
+                lat:coords.lat,
+                lon:coords.lng,
+                incoords: id.toString(),
+                dir:dir.toString(),
+                };
+            }else{
+                var obj = { 
+                incoords: id.toString(),
+                dir:dir.toString(),
+                };
+            }
+            
             console.log(id.toString());
             var destination = document.getElementById("mapcoordsmovegetandset").contentWindow;
             destination.postMessage(obj, "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");

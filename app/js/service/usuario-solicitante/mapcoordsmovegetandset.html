@@ -32,6 +32,8 @@ background-color: grey;
     <script type="text/javascript">
         var varidobj="" ;
         var variddir="";
+        var lat=21.125132;
+        var lng=-101.674798;
         var eventMethod = window.addEventListener
         ? "addEventListener"
         : "attachEvent";
@@ -43,8 +45,13 @@ background-color: grey;
         //data you receive from parent is stored inside e.data 
         
         if(e.data){
-            varidobj= e.data.coords;
+            varidobj= e.data.incoords;
             variddir= e.data.dir;
+            if(e.data.lat){
+                lat=e.data.lat;
+                lng=e.data.lng
+            }
+            
         }
        
         }); 
@@ -69,7 +76,7 @@ background-color: grey;
         // 		L.marker(e.latlng).addTo(map);
         // 	});
 
-        var myMarker = L.marker([21.125132,-101.674798], { title: "Direccion", alt:"", draggable: true })
+        var myMarker = L.marker([lat,lng], { title: "Direccion", alt:"", draggable: true })
             .addTo(map)
             .on('dragend', function () {
                 var coord = String(myMarker.getLatLng()).split(','); 
