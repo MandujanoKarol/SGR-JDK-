@@ -616,7 +616,7 @@
             <div class="modal-content" style="position:absolute;" id="modalmapita">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle" style="color: black; font-weight: bold; text-align: center;">Agregar coordenada del empleo</h5>
-                    <button type="button" style="color: black;" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" style="color: black;" class="close" data-dismiss="modal" aria-label="Close" onclick="resetstylemodal()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -626,7 +626,7 @@
                 </div>
                 <div class="modal-footer">
                     <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="resetstylemodal()">Agregar</button>
                 </div>
             </div>
         </div>
@@ -734,8 +734,12 @@
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script> 
+    function resetstylemodal(){
+        document.getElementById('modalmapita').style = "position:absolute;"
+    }
+    $('#addpositionnewempleo').modal({backdrop: 'static', keyboard: false})  
         function sendid(id,dir,late,lnge){
-            setTimeout(function () { document.getElementById('modalmapita').style = "position:initial;" }, 1000);
+            setTimeout(function () { document.getElementById('modalmapita').style = "position:relative;" }, 500);
             var obj={};
             if(late){ 
                 obj = {
@@ -756,7 +760,10 @@
             destination.postMessage(obj, "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
             
         }
-         var eventMethod = window.addEventListener
+        
+        
+        
+        var eventMethod = window.addEventListener
         ? "addEventListener"
         : "attachEvent";
         var eventer = window[eventMethod];
