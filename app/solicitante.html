@@ -234,7 +234,7 @@
                             </div>
                             <fieldset>
                                 <button type="button" class="btn" data-toggle="modal" style="background: rgb(23, 177, 23);"
-                                    data-target="#addpositionnewempleo" onclick="sendid('coordsmodal')"><i class="fa fa-map-marker" aria-hidden="true"></i> Agregar coordenadas
+                                    data-target="#addpositionnewempleo" onclick="sendid('coordsmodal','direccionnuevotrabajo')"><i class="fa fa-map-marker" aria-hidden="true"></i> Agregar coordenadas
                                 </button>
                             </fieldset>
                         </div>
@@ -730,14 +730,18 @@
     <script src="js/service/bd.js"></script>
     <script src="js/service/guard.js"></script>
     <script src="js/service/floatingMessage.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAN7lSxDxT-4bhikKwEt13Y3L2d7JlWXc"async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAN7lSxDxT-4bhikKwEt13Y3L2d7JlWXc" async defer></script>
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script> 
-        function sendid(id){
+        function sendid(id,dir){
+            var obj = {
+            dir:id.toString(),
+            coords:dir.toString() 
+            };
             console.log(id.toString());
             var destination = document.getElementById("mapcoordsmovegetandset").contentWindow;
-            destination.postMessage(id.toString(), "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
+            destination.postMessage(obj, "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
             
         }
          var eventMethod = window.addEventListener
@@ -750,8 +754,8 @@
         eventer(messageEvent, function (e) {
         //data you receive from parent is stored inside e.data 
         if(e.data.Longitud && e.data.Latitud ){ 
-            $('#'+e.data.idobj).val(e.data.Latitud + "," + e.data.Longitud);
-            var id=e.data.idobj;
+            $('#'+e.data.idcoords).val(e.data.Latitud + "," + e.data.Longitud);
+            var id=e.data.iddir;
             var latlng = {lat: parseFloat(e.data.Latitud), lng: parseFloat(e.data.Longitud)}; 
             setdireccion(latlng,id);
         }
