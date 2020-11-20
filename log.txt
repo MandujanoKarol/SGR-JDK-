@@ -1,0 +1,465 @@
+* 0439b3d add guard
+* 65c81b4 [ADD] Correcion sesion registro loscalstorage save tipo
+* e31ad26 guard user comment
+* 30d80e0 Guard comment
+* e46e59d CAMBIOS
+* a266280 CAMBIOS
+* 9baa806 Create SECURITY.md
+* 835bb41 FINALIZADA LA OPCION DE DESCARGAR JSON DE TRABAJOS
+* d2b4ae7 update
+* b8f1c65 bajar
+* 3f2907c descargar
+* be12c60 JSON
+* efb155d BAJAR ARCHIVO
+* b0a5bca ADMIN
+* eece6ce UPDATE ADMINISTRAR
+* 7f2cfca UPDATE trabajos pendiente
+*   912ab41 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * 09c8841 administrador
+* | 60266a6 Trabajos trabajador estado 0
+|/  
+* d1a9ecc Correcion estrellas trabajos trabajador
+* d84f078 CAMBIOS
+* 24751ff Text area
+* ca2e054 UPDATE fecha min max
+* befdaa9 ADD agrege correciones de refrescar y puntuaciones
+* 8873a85 [UPDATE]
+* 3c08257 [UPDATE]
+* 579df0f [UPDATE]
+* bae9274 [UPDATE]
+* 51dae4d [UPDATE]
+* c2010cd index
+* 57bfa39 index
+*   7ce2d7e Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| *   201bf5b Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| * | d9896e6 ADD Obtener direccion para nuevo empleo
+* | | ece0f12 index
+| |/  
+|/|   
+* | 28a4d1c index
+|/  
+*   35605d0 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * d327aac index
+* | 7b5217e Orden de links
+* | 8b5837e Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\| 
+| * bbc93b7 index
+| * e3b2eb3 index
+| *   67a510d Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| * | 5174f43 index
+* | | 24575c4 Cambios url google maps
+| |/  
+|/|   
+* | 5f21251 CHANGES
+|/  
+* 615c5df CAMBIOS
+* 4af6d2d PAGINA RESCATE
+* 9e9908c CAMBIOS PAGINA RESCATE
+* c389212 PAGINA RESCATE
+* a6aca83 ARCHIVO RESCATE
+* 690ed4f FINALIZADO V1 PROYECTO
+* 9dff106 CAMBIOS
+* 4d2adc7 ESTRELLAS
+* 45c2da8 ADD puntuacion
+* d57e4ba ADD START
+* 338e483 [UPDATE]
+* 64ffbbd ADD PROMEDIAR
+* 9068519 [UPDATE]
+*   8fcd1f1 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| *   ebb4df7 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| * | 1f56128 ADD GUARD
+* | | e3e8ae5 [UPDATE]
+| |/  
+|/|   
+* | f2d101f [UPDATE]
+* | cdf8898 [UPDATE]
+* | ad47e15 [UPDATE]
+* | 9e1a491 [UPDATE]
+|/  
+* 824fca3 COMENTARIOS
+* dd85dd8 CAMBIOS
+* f6726c0 CAMBIOS
+* 873154d CAMBIOS
+* cf4f489 ADD COMENTAR Y CALIFICAR
+* 52cdfbe ADD Cambios
+* 381743c ADD funcionalidad total
+* ef9df69 UPDATE asignar postulante, onsnapshot innerhtl vacio
+* 9666842 ADD mostrar trabajos 0,1,2 solicitante
+* 4356dee ADD postularse
+* 0b8906b lista
+* 9b6ff0c lista
+* baa09a9 lista
+* 3e8493b lista
+* 2dcc50a lista
+* 4484eae lista
+* 49c5156 lista
+* 48148ac lista
+* 360b16b Cambios
+* 8138f0c UPDATE trabajos
+* 0c1f11f UPDATE cambios
+* b6026a4 ADD estilos
+* 720b192 tarjetas empelos
+* a32c809 se hizo la actualización en botón de coordenadas
+*   77c4fad Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\  
+| * 3b3cf4e se hizo la actualización en botón de coordenadas
+| *   1f3bfc7 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| * | 50e28e9 se hizo la actualización en botón de coordenadas
+* | | db244a8 ADD mapa empleos trabajador
+* | |   1aa2606 Merge remote-tracking branch 'origin/proyecto'
+|\ \ \  
+| * \ \   4f4e8d9 Merge branch 'master' into origin/proyecto
+| |\ \ \  
+| |/ / /  
+|/| | |   
+* | | | 356a664 Merge remote-tracking branch 'origin/proyecto'
+|\| | | 
+| |_|/  
+|/| |   
+| * | 0c85dbf cambio
+| * | daa39f0 cambio
+| |/  
+* |   55ef7e0 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\ \  
+| * \   f6520a4 Merge pull request #4 from MandujanoKarol/add-code-of-conduct-1
+| |\ \  
+| | |/  
+| |/|   
+| | *   3ecccdb Merge pull request #3 from MandujanoKarol/master
+| | |\  
+| | |/  
+| |/|   
+| * | 9542881 cambio por fin
+* | | c5ce868 REMOVE guard funcion
+|/ /  
+* | bf1bb79 REMOVE comentarios
+* | 2d76aa5 [UPDATE]
+* | 9649e77 Merge pull request #2 from MandujanoKarol/add-code-of-conduct-1
+|\| 
+| * 18ff2be Create CODE_OF_CONDUCT.md
+|/  
+*   b5b2af9 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| *   d6fad9a Merge pull request #1 from MandujanoKarol/add-license-1
+| |\  
+| | * f5cd7b3 Create LICENSE
+| |/  
+* / 1544a85 [UPDATE]
+|/  
+*   17c3038 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\  
+| * 2b2e8d7 update
+| * 59516df update trabajos disponibles
+* | ad6eba9 [remove]             touch-action: pan-x pan-y;
+|/  
+* 889c27b [REMOVE] se quito icono empleos se dejo default
+* a050876 [UPDATE] onclick
+* cafa809 [UPDATE] sendid
+*   8e7008f Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\  
+| * 07fb5cc [add] Trabajos disponibles
+* | 0dd15b4 [UPDATE] funcion actualizar coords empleado
+|/  
+* bae09df [UPDATE] cambios idobj
+* 03462fa [UPDATE] Console log recive
+* c5f4ed1 [UPDATE] Cambios
+* 9b40ec8 [UPDATE] error corregido
+* 56da123 [UPDATE] dinamic set and get coords
+* d8f905a [UPDATE] reset form nuevo empleo
+* 18e7b96 [UPDATE] first solution test
+* 0f4716d [UPDATE] method add empleo
+* 1b232a9 [UPDATE] coords
+* 62e0a1a input coords required
+* 095b536 [UPDATE] undefined
+* c142341 [UPDATE] cambios
+* 2519796 [UPDATE] error data
+* 27807e3 [REMOVE] console log
+* 7462fac [update] verificator
+* 749c089 [UPDATE] Objeto
+* 5cf5068 [UPDATE] console.log
+* e00906d [UPDATE] send
+* 65250d3 [UPDATE] CAMBIOS
+* 82a7b67 [UPDATE] value
+* 7e7c67f [ADD] coordenadas para el empleo modal mapa marker move
+* 4ee58e7 [ADD] Mapa mapempleos solicitante
+* efb2d83 [ADD] mapa empleo solicitante
+* 3a32165 [UPDATE] landing page
+* 64b22e4 [REMOVE] warning
+* c5403f9 [REMOVE] Warning toast
+* 538ed5d [UPDATE] lista empleos
+* f06f1da [UPDATE] Titulo boton
+* 31c019e Mis empleos
+* 484b7e8 [ADD] mis empleos solicitante
+* b7f529d [UPDATE] solicitante y trabajador funcion actualizar
+* da92867 ul.setAttribute("class", "collapse");
+* ef919b7 [UPDATE] funciona mostrar empleos por solicitante y se puede actualizar
+* dbf92d2 [UPDATE] Main mostrar empleos solicitante
+*   f9a5b63 Merge remote-tracking branch 'origin/master'
+|\  
+| *   9eaf3e3 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| | * 48c719c [UPDATE] solicitante id listaempleos repeat, and add dynamic empleos from bd firebase
+| * | d704d93 [ADD] form -> solicitantes-margin-right en mis publicaciones
+| |/  
+| * f4fd263 [ADD] form -> solicitantes-margin-right en mis publicaciones
+| * b2f5e42 [ADD] form -> solicitantes-margin-right en mis publicaciones
+| * c562c8f [ADD] form -> solicitantes-margin-right en mis publicaciones
+| *   4e471fb Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| * | e53dd6b [ADD] form -> solicitantes-margin-right en mis publicaciones
+* | | 654dea2 [Grosero]
+| |/  
+|/|   
+* | 27bec3b Repair tooltip error
+* |   5c4ed8c Merge remote-tracking branch 'origin/master'
+|\ \  
+| * | 826c937 [UPDATE] solicitante [UPDATE] main trabajador floating messages
+* | | f42676e [Update] Cerrar sesión
+|/ /  
+* / 0859bfe [Add Guard,Button Sign Out]
+|/  
+* 7610799 [ADD] form -> solicitantes-margin-right en mis publicaciones
+* 56c7e07 [ADD] estilos a foto (bordes redondos)
+* dbd92a1 [ADD] solicitante-> form -> mis publicaciones
+*   8b8f4e4 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * f726a30 [Add Method Image]
+| * 14b8c38 Comment
+| * 7ac37a9 [UPDATE] main solicitante
+| * 927a84d [Add Method Image]
+* | 95918fc [ADD] solicitante-> form -> mis publicaciones
+|/  
+*   b8486e1 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * 5201ae0 [UPDATE] ID formanuevoempleo form nuevo empleo
+* | 9ba223a [ADD] solicitante-> form de nueva publicación (home)
+|/  
+* bca36ef [ADD] solicitante-> form de nueva publicación (home)
+* d099220 [ADD] solicitante-> form de nueva publicación (home)
+* 7b223d0 [UPDATE] ID lista empleos ul, titulo
+* 3634d8f [UPDATE] id modificados perfil y links mensajes
+* 5117ad4 button image perfil type button
+* e34bc63 main solicitante y trabajador
+* 1843b4e [Home] trabajador-> agregar lista de postulantes
+* ef7bb91 [Home] edición de Inicio-Trabajador/Solicitante
+* fe1abe3 [FORM] botón editar->borde redondo
+* 007d155 [FORM style]
+* adc533e [FORM style]
+* b6f3cb9 [FORM style]
+* f18457b [FORM style]
+* 76461d1 [FORM style]
+* 89c2db4 [FORM style]
+* 351c07d [FORM style]
+* 32bf03a [FORM] editar foto de perfil del usuario solicitante
+* f5e1b4c [FORM] editar foto de perfil del usuario solicitante
+* ee22cd1 [FORM style]
+* c160f61 [FORM style]
+* f24507b [FORM style]
+* 84c328c [FORM style]
+* 7977274 [FORM]
+* c72ac9b [FORM style]
+* 673a195 [FORM style]
+* 62620ed [FORM style]
+* e008fc4 [FORM]
+* 156d6c6 [FORM]
+* 39bb13a [FORM]
+* 1c8e89d [FORM]
+* a628f72 [FORM]
+* 905ef86 [FORM]
+*   9332d75 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * 26b7ee3 actualizar finalizado
+| * f2ccbac funcion actualizar
+| *   3050280 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * \   251aebc Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\ \  
+| * | | 8ced255 actualizar
+* | | | 304fb3d [FORM]
+| |_|/  
+|/| |   
+* | | 231c094 [FORM]
+| |/  
+|/|   
+* | 6e6a9d6 [FORM]
+|/  
+*   76bb76a Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * 3c7a57e [UPDATE] mostrar telefono, registrar telefono diferente formato
+* | 0196b05 [FORM]
+|/  
+* 2b1a63a [FORM]
+*   a70feb0 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * 0778bdc telefono perfil bandera
+* | aea0bb0 [FORM]
+|/  
+* 7a3af8c [FORM]
+*   b5984f6 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| *   491319a Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * | de63386 [UPDATE] main edad
+* | | 6ec5a9a [FORM]
+| |/  
+|/|   
+* | 6bf0ba1 [FORM]
+|/  
+*   0db220d Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * a45f61e [UPDATE] edad ingresar
+| *   230c244 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * \   f0421a4 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\ \  
+| * \ \   0ef729d Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\ \ \  
+| * | | | 5dabe87 Solicitante no oficio
+* | | | | 49e2c5e [FORM]
+| |_|_|/  
+|/| | |   
+* | | | fb8b426 [FORM]
+| |_|/  
+|/| |   
+* | | 82a50aa [FORM]
+| |/  
+|/|   
+* | e051df7 [FORM]
+* | 32c140b [FORM]
+* | 2b241a2 [FORM]
+* | 442942d [FORM]
+* | f35911d [FORM]
+|/  
+* d3a266c [FORM]
+* 8c5ccd5 [FORM]
+*   4746df4 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| *   999446f Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * | 05669f5 Modificacion ingresar registro
+* | | 6589b98 [FORM]
+| |/  
+|/|   
+* | 942c1dd [FORM]
+* | 472a2df [FORM]
+|/  
+* 6f9da28 [FORM]
+* 413234a [FORM]
+* 96fa5a2 [FORM]
+*   e6d2856 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\  
+| * 55ba48e [UPDATE] Comente redirecciones
+| * 16a19f0 [UPDATE] Quite console logs
+| *   d78d9b7 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * | 593a860 link jquery
+* | | 1de0450 [FORM]
+| |/  
+|/|   
+* | d6b00a8 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\| 
+| *   96205bb Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * | 2fe7c4f Puntuacion registro
+* | | a6f7145 [FORM]
+| |/  
+|/|   
+* | f87f60c Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+|\| 
+| *   4e2191a Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+| |\  
+| * | cca444c [UPDATE] Registro
+* | | 665f530 [FORM]
+| |/  
+|/|   
+* | eb67bf6 [FORM]
+|/  
+* 4740110 [UPDATE]
+* 296bc60 [UPDATE]
+* 4b0bde5 [UPDATE]
+* 1303780 [UPDATE]
+* 07a0659 [UPDATE]
+* 4f9b360 [UPDATE]
+* bfcd84a [UPDATE]
+* 605de65 [UPDATE]
+* a44f5b2 [UPDATE]
+* 7ab432c [UPDATE]
+* a4433ba [UPDATE]
+* b620333 [UPDATE]
+* 2558fbc [UPDATE]
+*   4968140 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\  
+| * 6501069 [UPDATE]
+| *   0a2764f Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK-
+| |\  
+| * | 4219921 [UPDATE]
+* | | 986d6a4 Trabajador y Solicitante mapa google maps terminado
+| |/  
+|/|   
+* | e38f98a mapa finalizado
+|/  
+*   242155f Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\  
+| * d36c02f leyenda terminales
+* | d53e677 mapa finalizado
+|/  
+* 975c337 actualizaciones
+* f58827e cambios mapa desplazarse
+* b08beac registro terminado
+* 7bd10b7 implementacion sha256
+* 7cb93af sha256
+* ab3cb4b practica de arango terminada
+* 5f85fcb cambios para tarea de arango
+* f0c083a register validate print console
+* a6859c6 fromatter files
+* 1afaac3 validaciones radio button, estilos select
+* ad13d0c onchange events selects and date input
+*   10609e0 Merge branch 'master' of https://github.com/MandujanoKarol/SGR-JDK- into master
+|\  
+| * ada88f6 se agregó favicón a trabajador.html
+| * 8176bf2 se agregó favicón a solicitante.html
+| * 887f1cb se agregó favicón a ingresar.html
+| * 1e94603 se agregó favicón a index
+| * 120307c se han añadido los logos
+| * 74c9722 cambios2
+| * 092c526 hola
+* | 0b87971 validaciones styles  form
+|/  
+* 061367b link gson
+* 2ba2a6b path gender json
+* e879b15 cambios extranos
+* 5c1573f cambios
+* 6cd2799 Login css opcion user
+* d910c21 Ingreso de tipo de area o pais de telefono, img flags (IntTelInput)----Alertas flating (toastr)
+* a7bb109 show/hide password input click eye
+* 46b27de rename folder server to service
+* efe071f actualizaciones pagina de cada usuario(css,js), conexion a bd firebase
+* 151858d cambios
+* 5271cfb nuevos estilos mapa y modificaciones home html
+* 40f9cb6 cambios
+* 29c8bc5 lang="es_MX"
+* 99f75a1 fonts login
+* f1d6d0e login and register
+* bc99a98 colores institucionales
+* 7b74c8f meta index
+* 4516161 lang="es_MX" htmls
+* e5eda7b link home.html
+* 6609a60 pagina home
+* 23de5cf modicaciones landigpage
+* cf4087f rename file html
+* cf86a96 Create README.md
+* 376539f landingpage inspinia
+* 0ead917 Add files via upload
+* 19fe64a Delete DocumentacionProyecto-Diseño.pdf
+* 0625da8 Add files via upload
+* 9aa9a5d Delete DocumentacionProyecto-Análisis.docx
+* 5800a91 Add files via upload
+* b072960 Add files via upload
