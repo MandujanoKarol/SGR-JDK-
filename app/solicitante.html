@@ -734,12 +734,12 @@
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script> 
-    function sendid(id){
-        console.log(id.toString());
-        var destination = document.getElementById("mapcoordsmovegetandset").contentWindow;
-        destination.postMessage(id.toString(), "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
-        
-    }
+        function sendid(id){
+            console.log(id.toString());
+            var destination = document.getElementById("mapcoordsmovegetandset").contentWindow;
+            destination.postMessage(id.toString(), "https://mandujanokarol.github.io/SGR-JDK-/app/js/service/usuario-solicitante/mapcoordsmovegetandset.html");
+            
+        }
          var eventMethod = window.addEventListener
         ? "addEventListener"
         : "attachEvent";
@@ -751,6 +751,9 @@
         //data you receive from parent is stored inside e.data 
         if(e.data.Longitud && e.data.Latitud ){ 
             $('#'+e.data.idobj).val(e.data.Latitud + "," + e.data.Longitud);
+            var id=e.data.idobj;
+            var latlng = {lat: parseFloat(e.data.Latitud), lng: parseFloat(e.data.Longitud)}; 
+            setdireccion(latlng,id);
         }
        
         }); 
