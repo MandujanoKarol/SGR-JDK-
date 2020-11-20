@@ -613,7 +613,7 @@
     <div class="modal fade" id="addpositionnewempleo" tabindex="-1" role="dialog"
         aria-labelledby="addpositionnewempleoTitle" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered" role="document" >
-            <div class="modal-content">
+            <div class="modal-content" style="position:absolute;" id="modalmapita">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle" style="color: black; font-weight: bold; text-align: center;">Agregar coordenada del empleo</h5>
                     <button type="button" style="color: black;" class="close" data-dismiss="modal" aria-label="Close">
@@ -735,6 +735,7 @@
 
     <script> 
         function sendid(id,dir,late,lnge){
+            setTimeout(function () { document.getElementById('modalmapita').style = "position:initial;" }, 1000);
             var obj={};
             if(late){ 
                 obj = {
