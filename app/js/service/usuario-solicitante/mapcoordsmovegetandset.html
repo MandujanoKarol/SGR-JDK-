@@ -15,6 +15,7 @@
 <body style=" 
 background-color: grey;
 ">
+<div id="mapita">
     <div id="mapaposicion" style="z-index: 3;
     position: absolute;
     height: 100%;
@@ -25,6 +26,8 @@ background-color: grey;
     left: 0px;
     top: 0px; 
     cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;"></div> 
+</div>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
@@ -57,7 +60,17 @@ background-color: grey;
         }); 
         
         function mostrarmapa(){
-            document.getElementById('mapaposicion').innerHTML="";
+            document.getElementById('mapita').innerHTML="";
+            document.getElementById('mapita').innerHTML=`<div id="mapaposicion" style="z-index: 3;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px; 
+    cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default;"></div> `;
             var options = {
                 center: [21.125132,-101.674798],
                 zoom: 13
