@@ -51,47 +51,49 @@ background-color: grey;
                 lat=e.data.lat;
                 lng=e.data.lng
             }
-            
+            mostrarmapa();
         }
        
         }); 
-        var options = {
-            center: [21.125132,-101.674798],
-            zoom: 13
+        
+        function mostrarmapa(){
+            document.getElementById('mapaposicion').innerHTML="";
+            var options = {
+                center: [21.125132,-101.674798],
+                zoom: 13
+            } 
+            var map = L.map('mapaposicion', options);
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>' })
+                .addTo(map);
+
+            // map.on('click', 
+            // 	function(e){
+            // 		//var coord = e.latlng.toString().split(',');
+            // 		//var lat = coord[0].split('(');
+            // 		//var lng = coord[1].split(')');
+            // 		//alert("You clicked the map at LAT: " + lat[1] + " and LONG: " + lng[0]);
+            // 		L.marker(e.latlng).addTo(map);
+            // 	});
+
+                var myMarker = L.marker([lat,lng], { title: "Direccion", alt:"", draggable: true })
+                .addTo(map)
+                .on('dragend', function () {
+                    var coord = String(myMarker.getLatLng()).split(','); 
+                    var lat = coord[0].split('('); 
+                    var lng = coord[1].split(')'); 
+                    myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + "."); 
+                    var coordenadas = {
+                        Latitud:lat[1],
+                        Longitud: lng[0],
+                        idcoords:varidobj,
+                        iddir:variddir
+                    };
+                    parent.postMessage(coordenadas, "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html");
+                });
         }
-
-        var map = L.map('mapaposicion', options);
-
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>' })
-            .addTo(map);
-
-        // map.on('click', 
-        // 	function(e){
-        // 		//var coord = e.latlng.toString().split(',');
-        // 		//var lat = coord[0].split('(');
-        // 		//var lng = coord[1].split(')');
-        // 		//alert("You clicked the map at LAT: " + lat[1] + " and LONG: " + lng[0]);
-        // 		L.marker(e.latlng).addTo(map);
-        // 	});
-
-        var myMarker = L.marker([lat,lng], { title: "Direccion", alt:"", draggable: true })
-            .addTo(map)
-            .on('dragend', function () {
-                var coord = String(myMarker.getLatLng()).split(','); 
-                var lat = coord[0].split('('); 
-                var lng = coord[1].split(')'); 
-                myMarker.bindPopup("Direccion del empleo: " + lat[1] + ", " + lng[0] + "."); 
-                var coordenadas = {
-                    Latitud:lat[1],
-                    Longitud: lng[0],
-                    idcoords:varidobj,
-                    iddir:variddir
-                };
-                parent.postMessage(coordenadas, "https://mandujanokarol.github.io/SGR-JDK-/app/solicitante.html");
-            });
-
     </script>
 
 </body>
