@@ -208,7 +208,7 @@ $(document).ready(function() {
                                             
                                             <fieldset>
                                                 <button type="button" class="btn" data-toggle="modal" style="background: rgb(23, 177, 23);"
-                                                    data-target="#addpositionnewempleo" onclick="sendid('${"coordsmodal"+doc.id}','${"inputdireccionempleados"+doc.id}','${ {lat: parseFloat(doc.data().coordenadas.Latitud), lng: parseFloat(doc.data().coordenadas.Longitud)}}')"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                    data-target="#addpositionnewempleo" onclick="sendid('${"coordsmodal"+doc.id}','${"inputdireccionempleados"+doc.id}','${parseFloat(doc.data().coordenadas.Latitud)}','${parseFloat(doc.data().coordenadas.Longitud)}')"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                                      Actualizar coordenadas
                                                 </button>
                                             </fieldset>

@@ -734,21 +734,21 @@
     <script src="js/service/usuario-solicitante/main.js"></script>
 
     <script> 
-        function sendid(id,dir,coords){
-
-            if(coords){
-                var obj = {
-                lat:coords.lat,
-                lon:coords.lng,
+        function sendid(id,dir,late,lnge){
+            var obj={};
+            if(late){ 
+                obj = {
+                lat:late,
+                lon:lnge,
+                incoords: id.toString(),
+                dir:dir.toString(),
+                }; 
+            }else{ 
+                obj = { 
                 incoords: id.toString(),
                 dir:dir.toString(),
                 };
-            }else{
-                var obj = { 
-                incoords: id.toString(),
-                dir:dir.toString(),
-                };
-            }
+            } 
             
             console.log(id.toString());
             var destination = document.getElementById("mapcoordsmovegetandset").contentWindow;
