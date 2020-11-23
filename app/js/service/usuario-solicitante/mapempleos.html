@@ -38,7 +38,7 @@ background-color: grey;
     <script>  
     var uid = localStorage.getItem("b84eea7076a27fccba11fb66c9bb611a7872ed66eb593c9492afdc47e10d13af");   
         $(document).ready(function() {  
-        db.collection("trabajos").where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {   
+        db.collection("trabajos").where("estado", "==",0).where("id_usuario_sol", "==", uid).onSnapshot(function(trabajos) {   
             document.getElementById('mapaempleos').innerHTML = " ";
             document.getElementById('mapaempleos').innerHTML = "<div id='map' class='map' ></div>";
             var markers=[];  
