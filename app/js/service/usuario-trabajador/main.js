@@ -109,8 +109,8 @@ $(document).ready(function() {
                                         <div class="col-md-4 col-sm-6"> 
                                                 <img src="${usuario.data().imagen}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">  
                                                 <p class="font-italic text-muted mb-0 small text-center">${usuario.data().nombre} ${usuario.data().apellido}</p> 
-                                                <p class="font-italic text-muted mb-0 small text-left"><strong>Correo:</strong> ${usuario.data().correo}</p> 
-                                                <p class="font-italic text-muted mb-0 small text-left"><strong>Telefono:</strong> ${usuario.data().telefono}</p> 
+                                                <p class="font-italic text-muted mb-0 small text-left"><strong>Correo:</strong><a href="mailto:${usuario.data().correo}?Subject=Postularse"> ${usuario.data().correo}</a> </p> 
+                                                <p class="font-italic text-muted mb-0 small text-left"><strong>Telefono:</strong><a href="tel:+52${usuario.data().telefono}"> ${usuario.data().telefono}</a> </p> 
                                                 <ul class="list-inline small mt-2" id="puntuaciontrabajopostularse${trabajo.id}"> 
                                                 </ul>
                                         </div>
@@ -804,6 +804,41 @@ function comentar(iddocempleo,textarea,formrating,nameinput,usuarioid){
         }
     } 
 };
+/**
+ * Obtener direccion to input
+ **/
+function setdireccion(latlng,id){
+    var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({
+                'location': latlng
+                // ej. "-34.653015, -58.674850"
+            }, function(results, status) {
+                // si la solicitud fue exitosa
+                if (status === google.maps.GeocoderStatus.OK) {
+                    // si encontró algún resultado.
+                    if (results[1]) {  
+                        document.getElementById(id).value =results[1].formatted_address; 
+                    }
+                }
+    });
+    }
+/**
+ * Direccionperfil
+ **/
+function obdireccionperfil(iddic){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            ///coordenadas actuales
+            var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}; 
+            setdireccion(latlng,iddic);
+        }, function(error) {  
+            floatingMessage(error.title,error.message,"error");
+        });
+    }
+    else { 
+        floatingMessage("error al obtener las coordenadas","error ubicacion","error");
+    }
+}
 /**
  * ACTUALIZAR IMAGEN PERFIL
  **/

@@ -73,7 +73,7 @@
                     <li><a href="#mapa">Inicio-Solicitante</a></li>
                     <li><a href="#featured">Información Personal</a></li>
                     <li><a href="#projects">Mis Empleos</a></li>
-                    <li><a href="#video" style="display: none;">Presentation</a></li>
+                    <li style="display: none;"><a href="#video" >Presentation</a></li>
                     <li><a href="#desplazarme">¿Cómo me desplazo?</a></li>
                     <li><a href="#contacto">Contáctanos</a></li>
                     <li><a onclick="CerrarSesion()">Cerrar sesión</a></li>
@@ -112,8 +112,8 @@
                         Mis empleos
                     </a>
                 </li>
-                <li>
-                    <a href="#video" style="display: none;">
+                <li  style="display: none;">
+                    <a href="#video">
                         <span class="rect"></span>
                         <span class="circle"></span>
                         Presentation
@@ -138,9 +138,7 @@
         <ul class="social-icons">
             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
         </ul>
     </div>
 
@@ -266,7 +264,7 @@
 
                         <div class="col-md-12">
                             <fieldset>
-                                <button type="submit" id="form-submit" class="btn">Nuevo empleo</button>
+                                <button type="submit" id="form-submit" class="btn">Publicar nuevo empleo</button>
                             </fieldset>
                         </div>
                     </div>
@@ -368,15 +366,26 @@
                                     </select>
                                 </fieldset>
                             </div>
-                            <div class="col-md-4">
-                                <div style="text-align: initial;">
-                                    <strong style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
-                                </div>
-                                <fieldset>
-                                    <input name="direccionperfil" type="text" class="form-control" id="direccionperfil"
-                                        placeholder="Dirección" required="">
-                                </fieldset>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div style="text-align: initial;">
+                                            <strong style="text-align: initial; font-weight: bold;">Dirección:</strong><br>
+                                        </div>
+                                        <fieldset>
+                                            <input name="direccionperfil" type="text" class="form-control" id="direccionperfil"
+                                                placeholder="Dirección" required="">
+                                        </fieldset>
+                                    </div> 
+                                    <div class="col-md-4"> 
+                                        <fieldset>
+                                            <button type="button" id="form-submit" class="btn" style="background: rgb(23, 177, 23);"
+                                                onclick="obdireccionperfil('direccionperfil');">Obtener direccion actual</button>
+                                        </fieldset>
+                                    </div> 
+                                </div> 
                             </div>
+                            
                             <div class="col-md-4">
                                 <div style="text-align: initial;">
                                     <strong style="text-align: initial; font-weight: bold;">Fecha de

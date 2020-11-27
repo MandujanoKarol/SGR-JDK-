@@ -486,14 +486,12 @@ function actualizarEmpleo(iddocempleo,nombre,descripcion,pago,fechaInicio,fechaT
 /**
  * Eliminar trabajo o empleo
  **/
-function eliminarEmpleo(iddocempleo){
-     
-
-    /*db.collection('trabajos').doc(iddocempleo).delete().then(function() {
+function eliminarEmpleo(iddocempleo){ 
+    db.collection('trabajos').doc(iddocempleo).delete().then(function() {
         floatingMessage("Eliminar empleo","Empleo eliminado", "success");
     }).catch(function(error) {
         floatingMessage(error.code, "", "firebase");
-    });*/
+    });
 };
 
 /**
@@ -1107,6 +1105,23 @@ var geocoder = new google.maps.Geocoder;
                 }
             }
 });
+}
+/**
+ * Direccionperfil
+ **/
+function obdireccionperfil(iddic){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {  
+            ///coordenadas actuales
+            var latlng = {lat: parseFloat(position.coords.latitude), lng: parseFloat(position.coords.longitude)}; 
+            setdireccion(latlng,iddic);
+        }, function(error) {  
+            floatingMessage(error.title,error.message,"error");
+        });
+    }
+    else { 
+        floatingMessage("error al obtener las coordenadas","error ubicacion","error");
+    }
 }
 window.onload = Inicializar;
 var Fichero;

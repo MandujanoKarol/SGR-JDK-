@@ -57,7 +57,7 @@ background-color: grey;
             trabajos.forEach(function(empleo) { 
                     L.marker([
                     empleo.data().coordenadas.Latitud,
-                    empleo.data().coordenadas.Longitud]).addTo(Mapview).bindPopup("<b>"+empleo.data().nombre+"</b><br />"+empleo.data().descripcion+"<br />"+empleo.data().direccion);
+                    empleo.data().coordenadas.Longitud]).addTo(Mapview).bindPopup("<strong>Nombre del empleo: </strong>"+empleo.data().nombre+"<br /><strong>Descripcion del empleo: </strong>"+empleo.data().descripcion+"<br /><strong>Direccion del empleo: </strong>"+empleo.data().direccion);
                  });
         });
     });  
