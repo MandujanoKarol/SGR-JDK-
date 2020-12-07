@@ -106,7 +106,7 @@ $(document).ready(function() {
                 li.setAttribute("class", "list-group-item mt-2 jdk-li");
                 li.innerHTML=`<div class="media align-items-lg-center flex-column flex-lg-row p-3">
                                     <div class="row">
-                                        <div class="col-md-4 col-sm-6"> 
+                                        <div class="col-md-5 col-sm-6"> 
                                                 <img src="${usuario.data().imagen}" alt="Generic placeholder image" width="200" class="ml-lg-5 order-1 order-lg-2">  
                                                 <p class="font-italic text-muted mb-0 small text-center">${usuario.data().nombre} ${usuario.data().apellido}</p> 
                                                 <p class="font-italic text-muted mb-0 small text-left"><strong>Correo:</strong><a href="mailto:${usuario.data().correo}?Subject=Postularse"> ${usuario.data().correo}</a> </p> 
@@ -114,7 +114,7 @@ $(document).ready(function() {
                                                 <ul class="list-inline small mt-2" id="puntuaciontrabajopostularse${trabajo.id}"> 
                                                 </ul>
                                         </div>
-                                        <div class="col-md-8 col-sm-6">
+                                        <div class="col-md-7 col-sm-6">
                                             <div class="media-body order-2 order-lg-1">
                                                 <h5 class="mt-0 font-weight-bold mb-2" style="font-size:14px; color: #1B3280; font-weight: bold">${trabajo.data().nombre}</h5>
                                                 <hr>
